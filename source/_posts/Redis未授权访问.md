@@ -75,11 +75,7 @@ save
 
 #### 计划任务反弹shell
 
-这一步反弹shell在Ubuntu测试失败，搜索到原因来自
-
-[VK'blog]: http://www.vkxss.top/2019/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E4%B9%8Bubuntu%E5%8F%8D%E5%BC%B9shell%E9%97%AE%E9%A2%98/index.html
-
-，这是由于redis向任务计划文件里写内容出现乱码而导致的语法错误，而乱码是避免不了的，centos会忽略乱码去执行格式正确的任务计划，而ubuntu并不会忽略这些乱码，所以导致命令执行失败，因为自己如果不使用redis写任务计划文件，而是正常向/etc/cron.d目录下写任务计划文件的话，命令是可以正常执行的，所以还是乱码的原因导致命令不能正常执行，而这个问题是不能解决的，因为利用redis未授权访问写的任务计划文件里都有乱码，这些代码来自redis的缓存数据。
+这一步反弹shell在Ubuntu测试失败，搜索一番从[VK'blog]([http://www.vkxss.top/2019/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E4%B9%8Bubuntu%E5%8F%8D%E5%BC%B9shell%E9%97%AE%E9%A2%98/index.html](http://www.vkxss.top/2019/05/28/渗透测试-Redis未授权访问漏洞之ubuntu反弹shell问题/index.html))得到结果，这是由于redis向任务计划文件里写内容出现乱码而导致的语法错误，而乱码是避免不了的，centos会忽略乱码去执行格式正确的任务计划，而ubuntu并不会忽略这些乱码，所以导致命令执行失败，因为自己如果不使用redis写任务计划文件，而是正常向/etc/cron.d目录下写任务计划文件的话，命令是可以正常执行的，所以还是乱码的原因导致命令不能正常执行，而这个问题是不能解决的，因为利用redis未授权访问写的任务计划文件里都有乱码，这些代码来自redis的缓存数据。
 
 1.Nc监听
 
