@@ -124,17 +124,14 @@ friends:
   老欢博客: http://laohuan.art
   学校: http://www.kmyz.edu.cn
 
-# 网易云音乐插件
-music:
-  enable: true
-  id: 28414581  # 网易云分享的ID
-  autoplay: false  # 是否开启自动播放
+
   
 #开启不算子访问统计
 busuanzi:
     enable: true
     
-
+aplayer:
+  enable: true
 
 aboutme: 
          作者是一个极其低调，而又不失内涵的人。

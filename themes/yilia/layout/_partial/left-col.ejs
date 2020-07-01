@@ -12,15 +12,6 @@
 		<p class="header-subtitle"><%=theme.subtitle%></p>
 		<%}%>
 
-<nav>
-<!-- 网易云音乐插件 -->
-<% if (theme.music && theme.music.enable){ %>
-    <div style="position:absolute; bottom:120px left:auto; width:85%">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="52" src="//music.163.com/outchain/player?type=2&id=<%=theme.music.id||1334445174%>&auto=<%=theme.music.autoplay?1:0%>&height=32"></iframe>
-    </div>
-<% } %>
-</nav>
-
 		<nav class="header-menu">
 			<ul>
 			<% for (var i in theme.menu){ %>
@@ -50,6 +41,83 @@
 					<a class="<%= i %>" target="_blank" href="<%- url_for(theme.subnav[i]) %>" title="<%= i %>"><i class="icon-<%= i %>"></i></a>
 		        <%}%>
 			</div>
+			
+			<!-- 《左侧边栏添加--APlayer音乐播放器 -->
+<% if(theme.aplayer.enable) { %>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<!-- // 这里div的样式是笔者自己修改过的，你可以直接使用APlayer官方的原配置：<div id="aplayer"></div> -->
+<div id="aplayer"</div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        autoplay: false,
+        listFolded: true,
+        listMaxHeight: 90,
+        order: 'list',
+        loop: 'all',
+        theme: '#b7daff',
+        preload: 'none',
+        mutex: true,
+        lrcType: 3,
+        volume: 0.7,
+        fixed: true,
+        audio: [{
+                name: 'Sound Of Silence',
+                artist: 'Nick & Simon',
+                lrc: 'http://cdn.laohuan.art/Sound%20Of%20Silence%20-%20Nick%20%26%20Simon.lrc',
+                cover: 'http://p2.music.126.net/fZhOZQILoUGqxcSDQ2nyJw==/6009930557713720.jpg?param=130y130',
+                url: 'http://cdn.laohuan.art/Sound%20Of%20Silence%20-%20Nick%20%26%20Simon.mp3'
+            },
+            {
+                name: '危险',
+                artist: '梁博',
+                lrc: 'http://cdn.laohuan.art/%E5%8D%B1%E9%99%A9%20-%20%E6%A2%81%E5%8D%9A.lrc',
+                cover: 'http://p2.music.126.net/bkBg46eD1bS9D2mzxnKAnQ==/3395291910036707.jpg?param=130y130',
+                url: 'http://cdn.laohuan.art/%E5%8D%B1%E9%99%A9%20-%20%E6%A2%81%E5%8D%9A.mp3'
+            },
+			{
+                name: 'Redbone',
+                artist: 'Childish Gambino',
+                lrc: 'http://cdn.laohuan.art/Redbone%20-%20Childish%20Gambino.lrc',
+                cover: 'http://p1.music.126.net/AiLOdJoMQtBghx6iuPHFBA==/18502581673446504.jpg?param=130y130',
+                url: 'http://cdn.laohuan.art/Redbone%20-%20Childish%20Gambino.mp3'
+            },
+			{
+                name: '一觉醒过来',
+                artist: '明白人组合',
+                lrc: 'http://cdn.laohuan.art/%E4%B8%80%E8%A7%89%E9%86%92%E8%BF%87%E6%9D%A5%20-%20%E6%98%8E%E7%99%BD%E4%BA%BA%E7%BB%84%E5%90%88.lrc',
+                cover: 'http://p1.music.126.net/afwX280995A21fPzRD5oug==/2445313860223048.jpg?param=130y130',
+                url: 'http://cdn.laohuan.art/%E4%B8%80%E8%A7%89%E9%86%92%E8%BF%87%E6%9D%A5%20-%20%E6%98%8E%E7%99%BD%E4%BA%BA%E7%BB%84%E5%90%88.mp3'
+            },
+			{
+                name: 'Vultures',
+                artist: 'John Mayer',
+                lrc: 'http://cdn.laohuan.art/Vultures%20-%20John%20Mayer.lrc',
+                cover: 'http://p1.music.126.net/SG1QyRken8da6NhJWP933Q==/18295873486746005.jpg?param=130y130',
+                url: 'http://cdn.laohuan.art/Vultures%20-%20John%20Mayer.mp3'
+            }
+        ]
+    });
+
+    <!-- 根据封面自适应主题色 -->
+    const colorThief = new ColorThief();
+    const setTheme = (index) => {
+        if (!ap.list.audios[index].theme) {
+            colorThief.getColorAsync(ap.list.audios[index].cover, function(color) {
+                ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
+            });
+        }
+    };
+    setTheme(ap.list.index);
+    ap.on('listswitch', (data) => {
+        setTheme(data.index);
+    });
+</script>
+<% } %>
+<!-- 左侧边栏添加--APlayer音乐播放器》 -->
+			
 		</nav>
 	</header>		
 </div>

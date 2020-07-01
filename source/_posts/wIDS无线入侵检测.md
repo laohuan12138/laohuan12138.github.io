@@ -23,7 +23,13 @@ tags: Aircrack-ng套件
 
 3. 创建虚拟接口
 
-   `airtun-ng -a B4:C4:FC:65:77:50 -p 88888888 -e test wlan0mon`
+   
+
+   ```
+   airtun-ng -a B4:C4:FC:65:77:50 -p 88888888 -e test wlan0mon
+   ```
+
+   
 
    <img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-58-19.png">
 
@@ -41,7 +47,9 @@ tags: Aircrack-ng套件
 
 发送deauth包让客户端断开重连，方便我们抓取到握手包
 
-`aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>`
+```
+aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>
+```
 
 ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-00-15.png)
 
@@ -63,7 +71,11 @@ tags: Aircrack-ng套件
 
 2. 嗅探图片
 
-   `driftnet -i at0 -a -d /root/图片/`
+   ```
+   driftnet -i at0 -a -d /root/图片/
+   ```
+
+   
 
 3. 嗅探URL
 
@@ -75,7 +87,9 @@ tags: Aircrack-ng套件
 
    将wireshark抓到的数据包保存后缀为pcap的格式，使用ferret解包
 
-   `ferret -r test.pcap`
+   ```
+ferret -r test.pcap
+   ```
 
    ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-26-37.png)
 
@@ -86,5 +100,5 @@ tags: Aircrack-ng套件
    浏览器设置好代理 127.0.0.1:1234
 
    地址栏输入hamster
-
+   
    ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-30-08-1024x489.png)

