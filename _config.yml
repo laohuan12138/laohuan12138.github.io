@@ -101,7 +101,7 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://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@github.com/laohuan12138/laohuan12138.github.io.git
+  repository: git@github.com:laohuan12138/laohuan12138.github.io.git
   branch: master
   
 
