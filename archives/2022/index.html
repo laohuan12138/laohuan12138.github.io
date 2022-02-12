@@ -6,30 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
-  <title>WPA解密 | Laohuan&#39;s Blog</title>
+  <title>Archives: 2022 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。  先破解目标wifi密码或已经知道目标密码 抓取到握手包">
-<meta property="og:type" content="article">
-<meta property="og:title" content="WPA解密">
-<meta property="og:url" content="https://laohuan12138.github.io/2020/04/25/WPA%E8%A7%A3%E5%AF%86/index.html">
+  <meta name="description" content="爱生活，爱技术，更爱祖国">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Laohuan&#39;s Blog">
+<meta property="og:url" content="https://laohuan12138.github.io/archives/2022/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="前言 此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。  先破解目标wifi密码或已经知道目标密码 抓取到握手包">
+<meta property="og:description" content="爱生活，爱技术，更爱祖国">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-51-53-1024x342.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-25-48.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-27-21.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-33-31.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-36-47.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-37-59.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-41-24-1024x297.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-44-41.png">
-<meta property="article:published_time" content="2020-04-25T11:06:01.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.873Z">
 <meta property="article:author" content="Laohuan">
-<meta property="article:tag" content="Aircrack-ng套件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -247,285 +234,71 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-WPA解密" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      WPA解密
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2022/02/12/%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E9%9D%B6%E6%9C%BA%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2022-02-12T06:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/02/12/%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E9%9D%B6%E6%9C%BA%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/">三层网络靶机打靶记录</a>
     </h1>
   
 
-        
-
-        
-        
-        
-<a href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/" class="archive-article-date">
-  	<time datetime="2020-04-25T11:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：568字 | 预计阅读时长：2分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3><span id="前言">前言</span></h3><blockquote>
-<p>此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。</p>
-<ol>
-<li>先破解目标wifi密码或已经知道目标密码</li>
-<li>抓取到握手包</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-
-<p>开启网卡监听模式</p>
-<p><code>airmon-ng start wlan0</code></p>
-<p>扫描附近热点</p>
-<p><code>airodump-ng wlan0mon</code></p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png" alt></p>
-<p>只抓取ESSID为test的数据包</p>
-<p><code>airodump-ng -c 12 --bssid B4:C4:FC:65:77:50 wlan0mon -w file.cap</code></p>
-<ul>
-<li>-c 指定信道</li>
-<li>–w 指定保存的文件名（可不加后缀.cap，会自动生成）</li>
-</ul>
-<p>使用 <kbd> Ctrl</kbd>+<kbd> c</kbd>  停止抓取,用wireshark打开数据包</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-26_19-51-53-1024x342.png" alt></p>
-<p>发现都是802.11加密得数据包</p>
-<h3><span id="解密数据包">解密数据包</span></h3><ol>
-<li>对test继续进行抓包</li>
-</ol>
-<p><code>airodump-ng -c 3 --bssid B4:C4:FC:65:77:50 wlan0mon -w test</code></p>
-<p>由于需要抓取握手包，我们发送deauth包让对方热点下的设备断开重连</p>
-<p><code>aireplay-ng  -0 15 -a B4:C4:FC:65:77:50 -c FC:64:BA:EB:78:B5 wlan0mon</code></p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-25-48.png" alt></p>
-<ul>
-<li>-0 指定deauth包的数量</li>
-<li>-a 指定bssid</li>
-<li>-c 指定客户端的mac地址（抓包时的STATION）</li>
-</ul>
-<ol start="2">
-<li>当出现红框内的 WPA handshake 表明抓取到握手包</li>
-</ol>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-27-21.png" alt></p>
-<p>数分钟后，<kbd>ctrl</kbd>+<kbd>c</kbd>停止抓包</p>
-<p>在当前目录下生成一个test-01.cap的文件</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-33-31.png" alt></p>
-<ol start="3">
-<li>解密这个数据包文件</li>
-</ol>
-<p><code>airdecap-ng -e test -b B4:C4:FC:65:77:50 -p 88888888 test-01.cap</code></p>
-<ul>
-<li>参数 -e 指定essid(wifi名字)</li>
-<li>-b 指定bssid</li>
-<li>-p 指定wifi密码</li>
-</ul>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-36-47.png" alt></p>
-<p>红框内即为解密WPA包的数量</p>
-<p>接下来会在当前目录生成一个已解密的dec.cap文件</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-37-59.png" alt></p>
-<ol start="4">
-<li>用wireshark打开此数据包，已经可以看到具体协议的数据包，起初这些数据包是被802.11协议加密的</li>
-</ol>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-41-24-1024x297.png" alt></p>
-<p>如果有明文传送的账号密码，在TCP流里很容易找到</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-44-41.png" alt></p>
-<h3><span id="后话">后话</span></h3><p>当知道或已经破解了对方的wifi密码，可连接此wifi热点后再进行抓包，这时抓到的数据包就已经是解密的了（802.11协议的解密），不必再向本文如此大动干戈。当对方热点主人设置了指点mac地址的设备才可以连接wifi时，你知道对方密码也连接不上wifi时，便可参考此方法。</p>
-
-      
-
-
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wx.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Aircrack-ng套件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">靶场</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/无线渗透//" class="article-tag-list-link color5">无线渗透</a>
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2020/04/25/WPA%E8%A7%A3%E5%AF%86/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          wIDS无线入侵检测
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">解密数据包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">后话</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="WPA解密" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyuPYrWo4",
-        conf: "4cd557d42e4500a50a084352c8e8712d"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -577,8 +350,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

