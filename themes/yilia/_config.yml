@@ -10,7 +10,7 @@ subnav:
   #github: "https://github.com/laohuan12138/"
   #weibo: "#"
   #rss: "#"
-  zhihu: "https://www.zhihu.com/people/shi-jun-42-77"
+  #zhihu: "#"
   #qq: "#"
   #weixin: "#"
   #jianshu: "#"
@@ -121,8 +121,8 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  老欢博客: http://laohuan.art
-  学校: http://www.kmyz.edu.cn
+  渗透师: https://www.shentoushi.top/
+
 
 
   
