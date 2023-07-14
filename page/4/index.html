@@ -66,7 +66,7 @@
 		</nav>
 		
 		<nav>
-    总文章数 40
+    总文章数 43
 </nav>
 		
 		<nav class="header-smart-menu">
@@ -230,6 +230,314 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    
+<article id="post-phpMyAdmin-4-8-1-远程文件包含-CVE-2018-12613" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/01/phpMyAdmin-4-8-1-%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-CVE-2018-12613/">phpMyAdmin 4.8.1 远程文件包含(CVE-2018-12613)</a>
+    </h1>
+  
+
+        
+
+        
+        
+        
+<a href="/2020/07/01/phpMyAdmin-4-8-1-%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-CVE-2018-12613/" class="archive-article-date">
+  	<time datetime="2020-07-01T13:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
+</a>
+        
+		
+	
+      </header>
+	  <div align="center" class="post-count">
+    字数：317字 | 预计阅读时长：1分钟
+</div>
+	  
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>phpMyAdmin是一套开源的、基于Web的MySQL数据库管理工具。其index.php中存在一处文件包含逻辑，通过二次编码即可绕过检查，造成远程文件包含漏洞。</p>
+        
+          <a class="article-more-a" href="/2020/07/01/phpMyAdmin-4-8-1-%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-CVE-2018-12613/#more">more >></a>
+        
+      
+
+
+
+      
+    </div>
+	
+	
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">phpMyAdmin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/01/phpMyAdmin-4-8-1-%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB-CVE-2018-12613/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-phpMyAdmin4-0-x-4-6-2远程代码执行-CVE-2016-5734" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/30/phpMyAdmin4-0-x-4-6-2%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-CVE-2016-5734/">phpMyAdmin4.0.x-4.6.2远程代码执行(CVE-2016-5734)</a>
+    </h1>
+  
+
+        
+
+        
+        
+        
+<a href="/2020/06/30/phpMyAdmin4-0-x-4-6-2%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-CVE-2016-5734/" class="archive-article-date">
+  	<time datetime="2020-06-30T11:42:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
+</a>
+        
+		
+	
+      </header>
+	  <div align="center" class="post-count">
+    字数：269字 | 预计阅读时长：1分钟
+</div>
+	  
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>phpMyAdmin是一套开源的、基于Web的MySQL数据库管理工具，在其查找并替换字符串功能中，将用户输入的信息拼接进<code>preg_replace</code>函数第一个参数中。</p>
+<p>在PHP5.4.7以前，<code>preg_replace</code>的第一个参数可以利用\0进行截断，并将正则模式修改为e。众所周知，e模式的正则支持执行代码，此时将可构造一个任意代码执行漏洞。</p>
+        
+          <a class="article-more-a" href="/2020/06/30/phpMyAdmin4-0-x-4-6-2%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-CVE-2016-5734/#more">more >></a>
+        
+      
+
+
+
+      
+    </div>
+	
+	
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">phpMyAdmin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/30/phpMyAdmin4-0-x-4-6-2%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-CVE-2016-5734/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    
+<article id="post-ThinkPHP5-SQL注入漏洞-敏感信息泄露" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/14/ThinkPHP5-SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">ThinkPHP5 SQL注入漏洞 &amp;&amp; 敏感信息泄露</a>
+    </h1>
+  
+
+        
+
+        
+        
+        
+<a href="/2020/06/14/ThinkPHP5-SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/" class="archive-article-date">
+  	<time datetime="2020-06-14T06:03:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-14</time>
+</a>
+        
+		
+	
+      </header>
+	  <div align="center" class="post-count">
+    字数：78字 | 预计阅读时长：1分钟
+</div>
+	  
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h4><p>1.访问如下POC，可看到用户密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;your-ip&#x2F;index.php?ids[]&#x3D;1&amp;ids[]&#x3D;2</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/06/14/ThinkPHP5-SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/#more">more >></a>
+        
+      
+
+
+
+      
+    </div>
+	
+	
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ThinkPHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/漏洞复现//" class="article-tag-list-link color5">漏洞复现</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/14/ThinkPHP5-SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     
 <article id="post-ThinkPHP5-5-0-23-远程代码执行漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -950,331 +1258,9 @@
 
 
   
-    
-<article id="post-几种socks代理测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/%E5%87%A0%E7%A7%8Dsocks%E4%BB%A3%E7%90%86%E6%B5%8B%E8%AF%95/">几种socks代理测试</a>
-    </h1>
-  
-
-        
-
-        
-        
-        
-<a href="/2020/05/19/%E5%87%A0%E7%A7%8Dsocks%E4%BB%A3%E7%90%86%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-05-19T13:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：4分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="socks代理在内网渗透中的作用"><a href="#socks代理在内网渗透中的作用" class="headerlink" title="socks代理在内网渗透中的作用"></a>socks代理在内网渗透中的作用</h4><p>当我们拿下了一个目标A，目标的网络环境可能存在两情况</p>
-<ol>
-<li>目标A处于公网，但有其它设备B与A相连接，我们可以访问A，无法访问B,但A可以访问B。</li>
-<li>目标A处于内网，通过NAT或端口映射将80或者443端口转发到公网上，同样A在内网与其他机器相连并可以相互访问</li>
-</ol>
-        
-          <a class="article-more-a" href="/2020/05/19/%E5%87%A0%E7%A7%8Dsocks%E4%BB%A3%E7%90%86%E6%B5%8B%E8%AF%95/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/内网渗透//" class="article-tag-list-link color5">内网渗透</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/19/%E5%87%A0%E7%A7%8Dsocks%E4%BB%A3%E7%90%86%E6%B5%8B%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-wIDS无线入侵检测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/">wIDS无线入侵检测</a>
-    </h1>
-  
-
-        
-
-        
-        
-        
-<a href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/" class="archive-article-date">
-  	<time datetime="2020-04-27T12:46:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：328字 | 预计阅读时长：1分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="一-、原理粗谈"><a href="#一-、原理粗谈" class="headerlink" title="一 、原理粗谈"></a>一 、原理粗谈</h5><p>使用 Airtun-NG 将无线热点下的所有流量镜像到一个虚拟接口下，监听此虚拟接口便可嗅探数据包，发现敏感信息。</p>
-<h5 id="二-、创建虚拟接口"><a href="#二-、创建虚拟接口" class="headerlink" title="二 、创建虚拟接口"></a>二 、创建虚拟接口</h5><ol>
-<li><p>开启网卡</p>
-<p><code>ifconfig wlan0 up</code></p>
-</li>
-<li><p>开启网卡监听模式</p>
-<p><code>airmon-ng start wlan0</code></p>
-        
-          <a class="article-more-a" href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Aircrack-ng套件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/无线渗透//" class="article-tag-list-link color5">无线渗透</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/%C2%96wIDS%E6%97%A0%E7%BA%BF%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    
-<article id="post-WPA解密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/">WPA解密</a>
-    </h1>
-  
-
-        
-
-        
-        
-        
-<a href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/" class="archive-article-date">
-  	<time datetime="2020-04-25T11:06:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        
-		
-	
-      </header>
-	  <div align="center" class="post-count">
-    字数：568字 | 预计阅读时长：2分钟
-</div>
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>此方法用于解密wifi下的802.11*数据包，可截获HTTP下的明文密码等其他信息，但HTTPS下的数据包仍无法解密，此方法成功必须满足以下两个条件。</p>
-<ol>
-<li>先破解目标wifi密码或已经知道目标密码</li>
-<li>抓取到握手包</li>
-</ol>
-</blockquote>
-        
-          <a class="article-more-a" href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-	
-	
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Aircrack-ng套件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/无线渗透//" class="article-tag-list-link color5">无线渗透</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/WPA%E8%A7%A3%E5%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1495,6 +1481,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">考试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">加解密</a>
               </li>
             
             <div class="clearfix"></div>
