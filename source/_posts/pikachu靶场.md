@@ -892,9 +892,9 @@ if(isset($_GET['title'])){
 
 # 反序列化
 
- 引用自 [反序列化](https://blog.csdn.net/qq_53079406/article/details/124227179?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124227179-blog-109373942.pc_relevant_multi_platform_whitelistv2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124227179-blog-109373942.pc_relevant_multi_platform_whitelistv2&utm_relevant_index=1)
+ 引用自 [反序列化](http://blog.csdn.net/qq_53079406/article/details/124227179?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124227179-blog-109373942.pc_relevant_multi_platform_whitelistv2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124227179-blog-109373942.pc_relevant_multi_platform_whitelistv2&utm_relevant_index=1)
 
->序列化就是将数据转化成一种可逆的字符串，字符串还原原来结构的过程叫做[反序列化](https://so.csdn.net/so/search?q=%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96&spm=1001.2101.3001.7020)
+>序列化就是将数据转化成一种可逆的字符串，字符串还原原来结构的过程叫做[反序列化](http://so.csdn.net/so/search?q=%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96&spm=1001.2101.3001.7020)
 >
 >序列化后，方便保存和传输（保留成员变量，不保留函数方法）
 >
@@ -1034,7 +1034,7 @@ if(isset($_GET['url']) && $_GET['url'] != null){
     $RES = curl_exec($CH);
     curl_close($CH) ;
 //ssrf的问是:前端传进来的url被后台使用curl_exec()进行了请求,然后将请求的结果又返回给了前端。
-//除了http/https外,curl还支持一些其他的协议curl --version 可以查看其支持的协议,telnet
+//除了http/http外,curl还支持一些其他的协议curl --version 可以查看其支持的协议,telnet
 //curl支持很多协议，有FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE以及LDAP
     echo $RES;
 

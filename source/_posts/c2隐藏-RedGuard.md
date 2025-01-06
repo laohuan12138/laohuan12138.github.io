@@ -13,13 +13,13 @@ RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助�
 
 <!--more-->
 
-[github地址](https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md)
+[github地址](http://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md)
 
 ### 使用
 
 第一次运行会在用户目录生成**.RedGuard_CobaltStrike.ini**文件，编辑此文件对其进行配置，当然也支持参数进行热配置。
 
-![](https://cdn.laohuan.art/Snipaste_2022-05-31_22-17-54.png)
+![](http://qn.laohuan.xin/Snipaste_2022-05-31_22-17-54.png)
 
 重点关注proxy的3个配置
 
@@ -27,11 +27,11 @@ RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助�
 * port_HTTP
 * HostTarget
 
-如上图，当前配置的意思是将Port_http的80端口绑定到本机127.0.0.1的8080端口，当有请求访问服务器的80端口，RedGuard会对请求特征做判断，当请求不符合规则(及host头不是360.net，这个可以随意设置)，请求会被重定向到https://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。
+如上图，当前配置的意思是将Port_http的80端口绑定到本机127.0.0.1的8080端口，当有请求访问服务器的80端口，RedGuard会对请求特征做判断，当请求不符合规则(及host头不是360.net，这个可以随意设置)，请求会被重定向到http://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。
 
-同理,443端口被绑定到本机127.0.0.1的8443端口，当请求不符合规则时将请求重定向到https://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是https。
+同理,443端口被绑定到本机127.0.0.1的8443端口，当请求不符合规则时将请求重定向到http://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是http。
 
-更多设置，如过滤上线ip、上线时间、上线省份请参考作者官方文档[RedGuard文档](https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md)
+更多设置，如过滤上线ip、上线时间、上线省份请参考作者官方文档[RedGuard文档](http://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md)
 
 当然，这种场景适合将反代和cs服务器建在同一台机器上，比较节省资源，配合iptables可防止网络空间搜索引擎将你的服务器标记。
 
@@ -41,7 +41,7 @@ RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助�
 
 cs新建监听，c2端口设置为RedGaurd的反代端口，bind设置为cs的监听端口，注意host header可以随意设置，但一定要和配置文件里的一致。
 
-![](https://cdn.laohuan.art/Snipaste_2022-05-31_22-42-34.png)
+![](http://qn.laohuan.xin/Snipaste_2022-05-31_22-42-34.png)
 
 再配置IPtables，只允许127.0.0.1访问本机的8443端口
 
@@ -54,13 +54,13 @@ iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8443 -j ACCEPT #只允许127.0.0.1
 
 还有一种就是拿一台单独的服务器做反代服务器，另一台服务器做真正的cs服务器，只需简单修改配置文件即可
 
-![](https://cdn.laohuan.art/Snipaste_2022-05-31_22-51-28.png)
+![](http://qn.laohuan.xin/Snipaste_2022-05-31_22-51-28.png)
 
 这里将192.168.1.8用作反代服务器，192.168.1.7作为真正的cs服务器，HosTtarget填写cs服务器的地址192.168.1.7
 
 新建cs监听，填写相应端口。
 
-![](https://cdn.laohuan.art/Snipaste_2022-05-31_22-56-17.png)
+![](http://qn.laohuan.xin/Snipaste_2022-05-31_22-56-17.png)
 
 在cs服务器配置防火墙，只允许反向代理服务器来访问cs的监听端口
 
@@ -101,7 +101,7 @@ iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8080 -j ACCEPT
 
 
 
-![](https://cdn.laohuan.art/Snipaste_2022-06-01_17-20-16.png)
+![](http://qn.laohuan.xin/Snipaste_2022-06-01_17-20-16.png)
 
 在能执行命令的情况下，想方便点使用无文件落地的方式
 
@@ -140,5 +140,5 @@ iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8080 -j ACCEPT
 
 
 
-![](https://cdn.laohuan.art/Snipaste_2022-06-05_15-47-01.png)
+![](http://qn.laohuan.xin/Snipaste_2022-06-05_15-47-01.png)
 

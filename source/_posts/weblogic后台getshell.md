@@ -11,7 +11,7 @@ tags: Weblogic
 
 `http://IP:端口/console`
 
-![](http://cdn.laohuan.art/2020-07-15_17-28-53.png)
+![](http://qn.laohuan.xin/2020-07-15_17-28-53.png)
 
 
 
@@ -57,50 +57,50 @@ Buffer(request.getReader().readLine()))).newInstance().equals(pageContext);%>
 
 3.部署
 
-![](http://cdn.laohuan.art/2020-07-15_17-12-27.png)
+![](http://qn.laohuan.xin/2020-07-15_17-12-27.png)
 
 3.上载文件
 
-![](http://cdn.laohuan.art/2020-07-15_17-13-09.png)
+![](http://qn.laohuan.xin/2020-07-15_17-13-09.png)
 
 4.选择我们做好的shell.war
 
-![](http://cdn.laohuan.art/2020-07-15_17-13-28.png)
+![](http://qn.laohuan.xin/2020-07-15_17-13-28.png)
 
 5.下一步
 
-![](http://cdn.laohuan.art/2020-07-15_17-14-20.png)
+![](http://qn.laohuan.xin/2020-07-15_17-14-20.png)
 
 6.下一步，安装为应用程序
 
-![](http://cdn.laohuan.art/2020-07-15_17-14-46.png)
+![](http://qn.laohuan.xin/2020-07-15_17-14-46.png)
 
 7.下一步
 
-![](http://cdn.laohuan.art/2020-07-15_17-15-16.png)
+![](http://qn.laohuan.xin/2020-07-15_17-15-16.png)
 
 8.点击完成
 
-![](http://cdn.laohuan.art/2020-07-15_17-15-40.png)
+![](http://qn.laohuan.xin/2020-07-15_17-15-40.png)
 
 9.点击保存，显示设置成功
 
-![](http://cdn.laohuan.art/2020-07-15_17-18-45.png)
+![](http://qn.laohuan.xin/2020-07-15_17-18-45.png)
 
 10.当再次点击菜单栏的[部署]时，已经可以看到我们部署的应用程序
 
-![](http://cdn.laohuan.art/2020-07-15_17-19-10.png)
+![](http://qn.laohuan.xin/2020-07-15_17-19-10.png)
 
 11.使用冰蝎连接
 
 `http://IP:端口/shell/shell.jsp`
 
-![](http://cdn.laohuan.art/2020-07-15_17-10-22.png)
+![](http://qn.laohuan.xin/2020-07-15_17-10-22.png)
 
 #### 参考链接
 
-<https://github.com/vulhub/vulhub/tree/master/weblogic/weak_password/>
+<http://github.com/vulhub/vulhub/tree/master/weblogic/weak_password/>
 
-<https://www.cnblogs.com/bmjoker/p/9822886.html/>
+<http://www.cnblogs.com/bmjoker/p/9822886.html/>
 
-<https://www.pianshen.com/article/9302224952//>
+<http://www.pianshen.com/article/9302224952//>

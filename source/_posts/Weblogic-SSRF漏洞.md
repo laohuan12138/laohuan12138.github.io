@@ -21,11 +21,11 @@ http://ip:7001/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&txtSearchn
 
 访问存在的7001端口，会返回404 error code
 
-![](http://cdn.laohuan.art/2020-07-03_16-38-14.png)
+![](http://qn.laohuan.xin/2020-07-03_16-38-14.png)
 
 访问不存在的端口会返回not connect
 
-![](http://cdn.laohuan.art/2020-07-03_16-36-35.png)
+![](http://qn.laohuan.xin/2020-07-03_16-36-35.png)
 
 根据不同端口返回的状态不同，可以来探测内网端口的开放情况
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 可发现内网开放6379端口，存在redis数据库
 
-![](http://cdn.laohuan.art/2020-07-03_17-03-23.png)
+![](http://qn.laohuan.xin/2020-07-03_17-03-23.png)
 
 写入redis计划任务反弹shell，在**operator**参数添加pyalaod
 
@@ -87,14 +87,14 @@ http://ip:7001/uddiexplorer/SearchPublicRegistries.jsp?rdoSearch=name&txtSearchn
 
 将以上url解码实际为
 
-![](http://cdn.laohuan.art/2020-07-03_20-38-48.png)
+![](http://qn.laohuan.xin/2020-07-03_20-38-48.png)
 
 NC监听成功反弹shell
 
-![](http://cdn.laohuan.art/2020-07-03_20-42-47.png)
+![](http://qn.laohuan.xin/2020-07-03_20-42-47.png)
 
 #### 参考链接
 
-<https://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/>
+<http://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/>
 
-<https://www.jianshu.com/p/42a3bb2b2c2c/>
+<http://www.jianshu.com/p/42a3bb2b2c2c/>

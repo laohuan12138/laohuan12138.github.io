@@ -21,7 +21,7 @@ tags: Aircrack-ng套件
 
 `airodump-ng wlan0mon`
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-26_19-38-20.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-26_19-38-20.png)
 
 只抓取ESSID为test的数据包
 
@@ -32,7 +32,7 @@ tags: Aircrack-ng套件
 
 使用 <kbd> Ctrl</kbd>+<kbd> c</kbd>  停止抓取,用wireshark打开数据包
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-26_19-51-53-1024x342.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-26_19-51-53-1024x342.png)
 
 发现都是802.11加密得数据包
 
@@ -46,7 +46,7 @@ tags: Aircrack-ng套件
 
 `aireplay-ng  -0 15 -a B4:C4:FC:65:77:50 -c FC:64:BA:EB:78:B5 wlan0mon`
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-25-48.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-25-48.png)
 
 *  -0 指定deauth包的数量
 * -a 指定bssid
@@ -54,13 +54,13 @@ tags: Aircrack-ng套件
 
 2. 当出现红框内的 WPA handshake 表明抓取到握手包
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-27-21.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-27-21.png)
 
 数分钟后，<Kbd>ctrl</kbd>+<kbd>c</kbd>停止抓包
 
 在当前目录下生成一个test-01.cap的文件
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-33-31.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-33-31.png)
 
 3. 解密这个数据包文件
 
@@ -70,21 +70,21 @@ tags: Aircrack-ng套件
 * -b 指定bssid
 * -p 指定wifi密码
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-36-47.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-36-47.png)
 
 红框内即为解密WPA包的数量
 
 接下来会在当前目录生成一个已解密的dec.cap文件
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-37-59.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-37-59.png)
 
 4. 用wireshark打开此数据包，已经可以看到具体协议的数据包，起初这些数据包是被802.11协议加密的
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-41-24-1024x297.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-41-24-1024x297.png)
 
 如果有明文传送的账号密码，在TCP流里很容易找到
 
-![](http://cdn.laohuan.art/Snipaste_2019-09-27_20-44-41.png)
+![](http://qn.laohuan.xin/Snipaste_2019-09-27_20-44-41.png)
 
 ### 后话
 

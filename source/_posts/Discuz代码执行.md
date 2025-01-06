@@ -36,9 +36,9 @@ Cache-Control: max-age=0
 
 
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-25_21-02-11.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-25_21-02-11.png)
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-25_21-05-59.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-25_21-05-59.png)
 
 成功执行phpinfo
 
@@ -52,18 +52,18 @@ GLOBALS[_DCACHE][smilies][searcharray]=/.*/eui; GLOBALS[_DCACHE][smilies][replac
 
 eval函数里的ascii码转化为字符串就是写一句话木马的过程
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-25_21-29-59.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-25_21-29-59.png)
 
 发送payload
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-25_21-32-49.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-25_21-32-49.png)
 
 蚁剑连接即可
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-25_21-38-18.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-25_21-38-18.png)
 
 #### 参考链接
 
-[https://github.com/vulhub/vulhub/tree/master/discuz/wooyun-2010-080723](https://github.com/vulhub/vulhub/tree/master/discuz/wooyun-2010-080723)
+[http://github.com/vulhub/vulhub/tree/master/discuz/wooyun-2010-080723](http://github.com/vulhub/vulhub/tree/master/discuz/wooyun-2010-080723)
 
-[https://www.secpulse.com/archives/2338.html](https://www.secpulse.com/archives/2338.html)
+[http://www.secpulse.com/archives/2338.html](http://www.secpulse.com/archives/2338.html)

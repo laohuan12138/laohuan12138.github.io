@@ -17,7 +17,7 @@ tags: 渗透测试技巧
 
 2.将默认项`HideBaseOnVelocityId`，修改为`ShowBaseOnVelocityId`
 
-![](http://cdn.laohuan.art/2020-07-15_22-09-38.png)
+![](http://qn.laohuan.xin/2020-07-15_22-09-38.png)
 
 3.若提示''重命名值时产生错误''
 
@@ -25,7 +25,7 @@ tags: 渗透测试技巧
 
 4.此时Ctrl+右键就可以打开CMD了
 
-![](http://cdn.laohuan.art/2020-07-15_22-15-02.png)
+![](http://qn.laohuan.xin/2020-07-15_22-15-02.png)
 
 
 

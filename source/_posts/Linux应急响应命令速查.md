@@ -168,7 +168,7 @@ find / -size +10MB -20M //介于10m和20m的文件
 
 `awk -F: '{if($3==0) print $1}' /etc/passwd`
 
-![image-20221007154207343](https://cdn.laohuan.art/image-20221007154207343.png)
+![image-20221007154207343](http://qn.laohuan.xin/image-20221007154207343.png)
 
 2.查找可以登陆ssh的账号
 
@@ -207,13 +207,13 @@ s=$( sudo cat /etc/shadow | grep '^[^:]*:[^\*!]' | awk -F: '{print $1}');for i i
 
 `cat /var/log/auth.log | grep "Accept"`
 
-![image-20221007160431335](https://cdn.laohuan.art/image-20221007160431335.png)
+![image-20221007160431335](http://qn.laohuan.xin/image-20221007160431335.png)
 
 * 查看登陆失败的日志
 
 `cat /var/log/auth.log | grep "Failed password for" | more`
 
-![image-20221007160653206](https://cdn.laohuan.art/image-20221007160653206.png)
+![image-20221007160653206](http://qn.laohuan.xin/image-20221007160653206.png)
 
 * 统计暴力破解的用户名
 
@@ -221,7 +221,7 @@ s=$( sudo cat /etc/shadow | grep '^[^:]*:[^\*!]' | awk -F: '{print $1}');for i i
 grep "Failed password" /var/log/auth.log|perl -e 'while($_=<>){/for(.*?)from/; print "$1\n";}'|sort|uniq -c|sort -nr
 ```
 
-![image-20221007160924764](https://cdn.laohuan.art/image-20221007160924764.png)
+![image-20221007160924764](http://qn.laohuan.xin/image-20221007160924764.png)
 
 invaild user说明此用户不存在，但是却出现登陆记录
 
@@ -231,7 +231,7 @@ invaild user说明此用户不存在，但是却出现登陆记录
   cat /var/log/auth.log | grep "Failed password for" | grep "root" | grep -Po '(1\d{2}|2[0 4]\d|25[0-5]|[1-9]\d|[1-9])(\.(1\d{2}|2[0-4]\d|25[0-5]|[1-9]\d|\d)){3}' |sort|uniq -c|sort -nr
   ```
 
-  ![image-20221007161242953](https://cdn.laohuan.art/image-20221007161242953.png)
+  ![image-20221007161242953](http://qn.laohuan.xin/image-20221007161242953.png)
 
 * 查询所有登陆失败的IP
 
@@ -239,7 +239,7 @@ invaild user说明此用户不存在，但是却出现登陆记录
   sudo cat /var/log/auth.log | grep "Failed password for" | cut -d " " -f 9 | sort -nr | uniq|grep -v "invalid"| while read line;do echo [$line];sudo cat /var/log/auth.log | grep "Failed password for" | grep $line | grep -Po '(1\d{2}|2[0-4]\d|25[0-5]|[1-9]\d|[1-9])(\.(1\d{2}|2[0-4]\d|25[0-5]|[1-9]\d|\d)){3} '|sort|uniq -c |sort -nr; done
   ```
 
-  ![image-20221007161638799](https://cdn.laohuan.art/image-20221007161638799.png)
+  ![image-20221007161638799](http://qn.laohuan.xin/image-20221007161638799.png)
 
 * 登陆成功的日期、用户、IP
 

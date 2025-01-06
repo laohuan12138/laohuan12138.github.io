@@ -7,7 +7,7 @@ tags: HTTPS
 
 **文章首发于freebuf**
 
-地址:[https://www.freebuf.com/articles/web/362687.html](https://www.freebuf.com/articles/web/362687.html)
+地址:[http://www.freebuf.com/articles/web/362687.html](http://www.freebuf.com/articles/web/362687.html)
 
 ## 0x1 SSL/TLS
 
@@ -17,7 +17,7 @@ tags: HTTPS
 
 小帅迫不及待的打开链接，浏览器给出如下提示
 
-![image-20230405135034344](https://cdn.laohuan.art/image-20230405135034344.png)
+![image-20230405135034344](http://qn.laohuan.xin/image-20230405135034344.png)
 
 那么这个时候，换做是你，你会选择关掉网页，还是无视风险继续前往呢
 
@@ -55,13 +55,13 @@ SSL/TLS协议（Secure Sockets Layer/Transport Layer Security）是一种用于�
 
 ### 工作方式和存在缺陷
 
-那么https到底使用了对称加密算法还是非对称加密算法呢？
+那么http到底使用了对称加密算法还是非对称加密算法呢？
 
 小孩子才做选择，俺全都要
 
 让我们来简单的看一下过程
 
-![image-20230405155037079](https://cdn.laohuan.art/image-20230405155037079.png)
+![image-20230405155037079](http://qn.laohuan.xin/image-20230405155037079.png)
 
 如图，客户端生成并拥有随机数C，服务器拥有公钥A和私钥B
 
@@ -75,7 +75,7 @@ SSL/TLS协议（Secure Sockets Layer/Transport Layer Security）是一种用于�
 
 1. 单独使用对称加密算法可以吗？当然不行
 
-   <img src="https://cdn.laohuan.art/image-20230405170033297.png" alt="image-20230405170033297" style="zoom:67%;" />
+   <img src="http://qn.laohuan.xin/image-20230405170033297.png" alt="image-20230405170033297" style="zoom:67%;" />
 
    在加密之前密钥明文传送，黑客在中间链路截获，即使你后面的数据使用加密传输，黑客凭借截获的密钥可对数据进行任意解密。
 
@@ -83,7 +83,7 @@ SSL/TLS协议（Secure Sockets Layer/Transport Layer Security）是一种用于�
 
 2. 那单独使用非对称加密算法可以吗？也不行
 
-   <img src="https://cdn.laohuan.art/image-20230405203916155.png" alt="image-20230405203916155" style="zoom:67%;" />
+   <img src="http://qn.laohuan.xin/image-20230405203916155.png" alt="image-20230405203916155" style="zoom:67%;" />
 
 2.1 服务器向客户端发送公钥，这个公钥可能被黑客截获
 
@@ -97,7 +97,7 @@ SSL/TLS协议（Secure Sockets Layer/Transport Layer Security）是一种用于�
 
 然而，使用这两种加密方式的解决方案是否就无懈可击了吗，聪明的黑客还有办法
 
-<img src="https://cdn.laohuan.art/image-20230405211227328.png" alt="image-20230405211227328" style="zoom: 80%;" />
+<img src="http://qn.laohuan.xin/image-20230405211227328.png" alt="image-20230405211227328" style="zoom: 80%;" />
 
 1.服务器向客户端发送公钥，黑客截获公钥，并自己生成一对公钥和私钥，将自己生成的公钥发送给客户端
 
@@ -172,7 +172,7 @@ CA机构是指数字证书认证机构(Certificate Authority)，也被称为证�
 
 所以整个工作流程为
 
-<img src="https://cdn.laohuan.art/image-20230405220531942.png" alt="image-20230405220531942" style="zoom:80%;" />
+<img src="http://qn.laohuan.xin/image-20230405220531942.png" alt="image-20230405220531942" style="zoom:80%;" />
 
 1. 客户端请求服务器
 2. 服务器返回数字证书

@@ -31,7 +31,7 @@ tags: Aircrack-ng套件
 
    
 
-   <img src="http://cdn.laohuan.art/Snipaste_2019-09-27_20-58-19.png">
+   <img src="http://qn.laohuan.xin/Snipaste_2019-09-27_20-58-19.png">
 
    * -a：bssid
    * -p：wifi密码
@@ -51,11 +51,11 @@ tags: Aircrack-ng套件
 aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>
 ```
 
-![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-00-15.png)
+![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-00-15.png)
 
 当出现WPA handshake 表示已经抓取到握手包
 
-![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-01-23.png)
+![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-01-23.png)
 
 
 
@@ -63,11 +63,11 @@ aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>
 
 1. 此时所有流量都会被镜像到at0接口，我们对at0接口进行抓包
 
-![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-03-33.png)
+![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-03-33.png)
 
 可看到此热点下的所有数据包
 
-![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-04-28-1024x277.png)
+![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-04-28-1024x277.png)
 
 2. 嗅探图片
 
@@ -81,7 +81,7 @@ aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>
 
    `urlsnarf -i at0`
 
-   ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-17-11.png)
+   ![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-17-11.png)
 
 4. 抓取cookie
 
@@ -91,14 +91,14 @@ aireplay-ng -0 15 -a <bssid> -c <客户端mac地址> <监听模式的网卡>
 ferret -r test.pcap
    ```
 
-   ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-26-37.png)
+   ![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-26-37.png)
 
    打开hamster，监听在本地的1234端口
 
-   ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-27-44.png)
+   ![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-27-44.png)
 
    浏览器设置好代理 127.0.0.1:1234
 
    地址栏输入hamster
    
-   ![](http://cdn.laohuan.art/2020/4/27Snipaste_2019-09-27_21-30-08-1024x489.png)
+   ![](http://qn.laohuan.xin/2020/4/27Snipaste_2019-09-27_21-30-08-1024x489.png)

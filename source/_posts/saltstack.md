@@ -22,7 +22,7 @@ SaltStack 是基于 Python 开发的一套C/S架构配置管理工具SaltStack �
 
 ##### 认证绕过(CVE-2020-11651)
 
-脚本：<https://github.com/heikanet/CVE-2020-11651-CVE-2020-11652-EXP/>
+脚本：<http://github.com/heikanet/CVE-2020-11651-CVE-2020-11652-EXP/>
 
 1.先在监听机用Nc监听：
 
@@ -38,11 +38,11 @@ SaltStack 是基于 Python 开发的一套C/S架构配置管理工具SaltStack �
 
 输入监听机IP和端口
 
-![](http://cdn.laohuan.art/2020-06-13_14-18-58.png)
+![](http://qn.laohuan.xin/2020-06-13_14-18-58.png)
 
 4.已获得shell
 
-![](http://cdn.laohuan.art/2020-06-13_14-19-52.png)
+![](http://qn.laohuan.xin/2020-06-13_14-19-52.png)
 
 
 
@@ -60,11 +60,11 @@ SaltStack 是基于 Python 开发的一套C/S架构配置管理工具SaltStack �
 
 `etc/passwd`
 
-![](http://cdn.laohuan.art/2020-06-13_14-25-54.png)
+![](http://qn.laohuan.xin/2020-06-13_14-25-54.png)
 
 #### 参考链接
 
-* <https://github.com/vulhub/vulhub/tree/master/saltstack/CVE-2020-11651/>
+* <http://github.com/vulhub/vulhub/tree/master/saltstack/CVE-2020-11651/>
 
-* <https://www.cnblogs.com/8ling/p/12823524.html/>
+* <http://www.cnblogs.com/8ling/p/12823524.html/>
 

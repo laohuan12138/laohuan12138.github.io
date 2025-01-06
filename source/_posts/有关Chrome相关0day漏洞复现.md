@@ -128,7 +128,7 @@ f();
 
 chrome浏览器关闭沙盒(**--no-sandbox**),直接访问exploit.html，即可触发漏洞，执行shellcode
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-21_20-29-50.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-21_20-29-50.png)
 
 ##### cs上线
 
@@ -138,11 +138,11 @@ chrome浏览器关闭沙盒(**--no-sandbox**),直接访问exploit.html，即可�
 
 将shellcode的"\\"全局替换为",0"
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-21_20-51-12.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-21_20-51-12.png)
 
 将替换后的shellcode放入cs.html的shellcode数组
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-21_20-52-02.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-21_20-52-02.png)
 
 **cs.html：**
 
@@ -237,11 +237,11 @@ chrome浏览器关闭沙盒(**--no-sandbox**),直接访问exploit.html，即可�
 
 chrome关闭沙盒，直接打开cs.html
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-21_20-53-16.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-21_20-53-16.png)
 
 上线成功
 
-![](https://cdn.laohuan.art/2021-04-21_20-57.png)
+![](http://qn.laohuan.xin/2021-04-21_20-57.png)
 
 ##### 微信上线
 
@@ -426,15 +426,15 @@ try{
 
 将weixin.html放到vps上或者python起一个本地服务，将链接通过微信发给对方
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-22_21-15-12.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-22_21-15-12.png)
 
 可以看到微信自带浏览器以关闭沙盒的方式打开
 
-![](https://cdn.laohuan.art/Snipaste_2021-04-22_21-31-22-%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA.png)
+![](http://qn.laohuan.xin/Snipaste_2021-04-22_21-31-22-%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA.png)
 
 微信上线成功
 
-![](https://cdn.laohuan.art/2021-04-22_21-18.png)
+![](http://qn.laohuan.xin/2021-04-22_21-18.png)
 
 ##### 后话
 
@@ -442,6 +442,6 @@ try{
 
 #### 参考链接
 
-[https://mp.weixin.qq.com/s/V9rujv89_P0FGhBCfw21mw](https://mp.weixin.qq.com/s/V9rujv89_P0FGhBCfw21mw)
+[http://mp.weixin.qq.com/s/V9rujv89_P0FGhBCfw21mw](http://mp.weixin.qq.com/s/V9rujv89_P0FGhBCfw21mw)
 
-[https://github.com/r4j0x00/exploits](https://github.com/r4j0x00/exploits)
+[http://github.com/r4j0x00/exploits](http://github.com/r4j0x00/exploits)

