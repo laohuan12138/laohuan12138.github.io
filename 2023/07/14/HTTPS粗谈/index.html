@@ -8,25 +8,25 @@
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
   <title>HTTPS粗谈 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文章首发于freebuf 地址:https:&#x2F;&#x2F;www.freebuf.com&#x2F;articles&#x2F;web&#x2F;362687.html 0x1 SSL&#x2F;TLS注意看，这个男人叫小帅，正在某网站观看好莱坞动作大片，电脑突然弹出一个神秘链接">
+  <meta name="description" content="文章首发于freebuf 地址:http:&#x2F;&#x2F;www.freebuf.com&#x2F;articles&#x2F;web&#x2F;362687.html 0x1 SSL&#x2F;TLS注意看，这个男人叫小帅，正在某网站观看好莱坞动作大片，电脑突然弹出一个神秘链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTPS粗谈">
 <meta property="og:url" content="https://laohuan12138.github.io/2023/07/14/HTTPS%E7%B2%97%E8%B0%88/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="文章首发于freebuf 地址:https:&#x2F;&#x2F;www.freebuf.com&#x2F;articles&#x2F;web&#x2F;362687.html 0x1 SSL&#x2F;TLS注意看，这个男人叫小帅，正在某网站观看好莱坞动作大片，电脑突然弹出一个神秘链接">
+<meta property="og:description" content="文章首发于freebuf 地址:http:&#x2F;&#x2F;www.freebuf.com&#x2F;articles&#x2F;web&#x2F;362687.html 0x1 SSL&#x2F;TLS注意看，这个男人叫小帅，正在某网站观看好莱坞动作大片，电脑突然弹出一个神秘链接">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405135034344.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405155037079.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405170033297.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405203916155.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405211227328.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230405220531942.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405135034344.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405155037079.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405170033297.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405203916155.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405211227328.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230405220531942.png">
 <meta property="article:published_time" content="2023-07-14T06:20:18.000Z">
-<meta property="article:modified_time" content="2023-07-14T06:43:06.902Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:34.795Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="HTTPS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/image-20230405135034344.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/image-20230405135034344.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -44,7 +44,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -271,12 +271,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>文章首发于freebuf</strong></p>
-<p>地址:<a href="https://www.freebuf.com/articles/web/362687.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/362687.html</a></p>
+<p>地址:<a href="http://www.freebuf.com/articles/web/362687.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/web/362687.html</a></p>
 <h2><span id="0x1-ssltls">0x1 SSL/TLS</span></h2><p>注意看，这个男人叫小帅，正在某网站观看好莱坞动作大片，电脑突然弹出一个神秘链接</p>
 <a id="more"></a>
 
 <p>小帅迫不及待的打开链接，浏览器给出如下提示</p>
-<p><img src="https://cdn.laohuan.art/image-20230405135034344.png" alt="image-20230405135034344"></p>
+<p><img src="http://qn.laohuan.xin/image-20230405135034344.png" alt="image-20230405135034344"></p>
 <p>那么这个时候，换做是你，你会选择关掉网页，还是无视风险继续前往呢</p>
 <p>思考两个问题，为什么会出现这个页面？浏览器的左上角又为何变红提示不安全呢？这背后的原因是什么，是人性的扭曲，还是………..</p>
 <p>这就需要了解一下HTTPS了</p>
@@ -300,10 +300,10 @@
 <p>用于确保数据在传输过程中的完整性和身份验证。常见的MAC算法包括：md5(已被淘汰)、sha256等</p>
 </li>
 </ol>
-<h3><span id="工作方式和存在缺陷">工作方式和存在缺陷</span></h3><p>那么https到底使用了对称加密算法还是非对称加密算法呢？</p>
+<h3><span id="工作方式和存在缺陷">工作方式和存在缺陷</span></h3><p>那么http到底使用了对称加密算法还是非对称加密算法呢？</p>
 <p>小孩子才做选择，俺全都要</p>
 <p>让我们来简单的看一下过程</p>
-<p><img src="https://cdn.laohuan.art/image-20230405155037079.png" alt="image-20230405155037079"></p>
+<p><img src="http://qn.laohuan.xin/image-20230405155037079.png" alt="image-20230405155037079"></p>
 <p>如图，客户端生成并拥有随机数C，服务器拥有公钥A和私钥B</p>
 <ol>
 <li>客户端请求服务器</li>
@@ -315,13 +315,13 @@
 <p>从就可以看出为什么要同时使用多种算法来确保HTTPS的安全性</p>
 <ol>
 <li><p>单独使用对称加密算法可以吗？当然不行</p>
-<img src="https://cdn.laohuan.art/image-20230405170033297.png" alt="image-20230405170033297" style="zoom:67%;">
+<img src="http://qn.laohuan.xin/image-20230405170033297.png" alt="image-20230405170033297" style="zoom:67%;">
 
 <p>在加密之前密钥明文传送，黑客在中间链路截获，即使你后面的数据使用加密传输，黑客凭借截获的密钥可对数据进行任意解密。</p>
 <p>什么？你说你不在网络上传送密钥就是了，你坐飞机过去，把密钥给他，那完全没问题，你要看看这是在什么场景下，全世界那么多网站你怕是跑不过来。</p>
 </li>
 <li><p>那单独使用非对称加密算法可以吗？也不行</p>
-<img src="https://cdn.laohuan.art/image-20230405203916155.png" alt="image-20230405203916155" style="zoom:67%;">
+<img src="http://qn.laohuan.xin/image-20230405203916155.png" alt="image-20230405203916155" style="zoom:67%;">
 
 </li>
 </ol>
@@ -331,7 +331,7 @@
 <p>由此可见，这种情况下加密是单向安全的，客户端向服务器发送加密数据时，黑客没有私钥，无法解密数据，此时数据是安全的。当服务器使用私钥加密数据向客户端发送数据时，黑客和客户端手里都有公钥，黑客完全可以对数据进行解密，此刻是存在风险的。</p>
 <p>所以非对称加密算法只是为了交换秘钥，当秘钥交换完成后，由对称加密算法来对数据进行加密传输。</p>
 <p>然而，使用这两种加密方式的解决方案是否就无懈可击了吗，聪明的黑客还有办法</p>
-<img src="https://cdn.laohuan.art/image-20230405211227328.png" alt="image-20230405211227328" style="zoom: 80%;">
+<img src="http://qn.laohuan.xin/image-20230405211227328.png" alt="image-20230405211227328" style="zoom: 80%;">
 
 <p>1.服务器向客户端发送公钥，黑客截获公钥，并自己生成一对公钥和私钥，将自己生成的公钥发送给客户端</p>
 <p>2.客户端收到公钥并不能判断这个公钥是不是服务器的，用这个公钥加密后续用来做对称加密算法的随机数，并将其发送给服务器</p>
@@ -389,7 +389,7 @@
 </ol>
 <p>只有在证书通过所有这些验证步骤之后，客户端才会认为证书有效，并与服务器建立安全的HTTPS连接。如果验证失败，客户端会发出警告或拒绝建立连接，这也就是开头浏览器弹出红色告警的原因。</p>
 <h2><span id="总结">总结</span></h2><p>所以整个工作流程为</p>
-<img src="https://cdn.laohuan.art/image-20230405220531942.png" alt="image-20230405220531942" style="zoom:80%;">
+<img src="http://qn.laohuan.xin/image-20230405220531942.png" alt="image-20230405220531942" style="zoom:80%;">
 
 <ol>
 <li>客户端请求服务器</li>
@@ -603,7 +603,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -723,6 +723,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -731,7 +735,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,7 +751,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,7 +763,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,7 +771,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -767,7 +779,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -783,6 +803,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -791,39 +815,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

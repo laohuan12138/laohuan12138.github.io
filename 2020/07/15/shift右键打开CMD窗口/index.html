@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="在windows更新到Win10 1703后，Ctrl+右键变成了“在此处打开 Powershell 窗口”,然而在平时的工作中，并不需要强大的powershell，CMD就能够满足我们的大部分工作且启动速度较快。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-15_22-09-38.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-15_22-15-02.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-15_22-09-38.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-15_22-15-02.png">
 <meta property="article:published_time" content="2020-07-15T13:49:45.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.874Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:36.335Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="渗透测试技巧">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-07-15_22-09-38.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/2020-07-15_22-09-38.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -40,7 +40,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -273,11 +273,11 @@
 <p>1.<kbd>windows</kbd>+<kbd>R</kbd> 输入<strong>regedit</strong>打开注册表编辑器，找到如下键值</p>
 <p><code>计算机\HKEY_CLASSES_ROOT\Directory\Background\shell\cmd</code></p>
 <p>2.将默认项<code>HideBaseOnVelocityId</code>，修改为<code>ShowBaseOnVelocityId</code></p>
-<p><img src="http://cdn.laohuan.art/2020-07-15_22-09-38.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-15_22-09-38.png" alt></p>
 <p>3.若提示’’重命名值时产生错误’’</p>
 <p>选中CMD项，右键 → 选择权限 → 高级 → 更改所有者 → 将所有者修改成你的当前用户</p>
 <p>4.此时Ctrl+右键就可以打开CMD了</p>
-<p><img src="http://cdn.laohuan.art/2020-07-15_22-15-02.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-15_22-15-02.png" alt></p>
 
       
 
@@ -479,7 +479,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -599,6 +599,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -607,7 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,7 +639,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,7 +647,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,6 +679,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -667,39 +691,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

